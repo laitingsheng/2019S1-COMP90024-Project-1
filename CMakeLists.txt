@@ -1,6 +1,16 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.12)
 PROJECT(Project_1)
+FIND_PACKAGE(Boost REQUIRED)
 
 SET(CMAKE_CXX_STANDARD 17)
+IF(APPLE)
+    set(CMAKE_CXX_FLAGS "-O3 -Xpreprocessor -fopenmp -lomp -I'/usr/local/opt/libomp/include' -L'/usr/local/opt/libomp/lib' -Wall -Wextra -Wpedantic")
+ELSEIF(MSVC)
+    set(CMAKE_CXX_FLAGS "-Ox -Wall -EHscr -favor:AMD64 -arch:AVX2 -fp:except -openmp -GL -guard:cf -Qpar -Qvec-report:2 -Qpar-report:2 -MP -sdl -Zc:wchar_t -Zc:auto -Zc:implicitNoexcept")
+    include_directories("C:\\Program Files\ (x86)\\Microsoft SDKs\\MPI\\Include")
+    link_directories("C:\\Program Files\ (x86)\\Microsoft SDKs\\MPI\\Lib\\x64")
+ELSE()
+    set(CMAKE_CXX_FLAGS "-O3 -fopenmp -Wall -Wextra -Wpedantic")
+ENDIF()
 
 ADD_EXECUTABLE(Project_1 main.cpp)
