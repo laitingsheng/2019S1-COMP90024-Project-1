@@ -1,3 +1,6 @@
 cmake-build-*
-.idea
+CMakeFiles
+CMakeCache.txt
 bin
+
+.idea
