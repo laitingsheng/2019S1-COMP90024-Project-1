@@ -17,6 +17,9 @@ ELSE()
     SET(CMAKE_CXX_FLAGS "-O3 -fopenmp -Wall -Wextra -Wpedantic")
 ENDIF()
 
+INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS})
+LINK_DIRECTORIES(${Boost_LIBRARY_DIRS})
+
 ADD_EXECUTABLE(Project_1 main.cpp)
 
 IF(APPLE)
