@@ -2,7 +2,14 @@
 <project version="4">
   <component name="PublishConfigData">
     <serverData>
-      <paths name="WSL (7877797c-6869-4cc3-8bc6-4a8d73dd8ae1)">
+      <paths name="Default (7877797c-6869-4cc3-8bc6-4a8d73dd8ae1)">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="MPI (887e5ea1-b203-42b4-825f-9d71330ba478)">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
