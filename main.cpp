@@ -1,36 +1,28 @@
+/*
+ * Author: Tingsheng (Tinson) Lai 781319
+ */
+
 #include <fstream>
 #include <map>
+#include <set>
 #include <sstream>
 #include <unordered_map>
 #include <unordered_set>
-#include <vector>
 
 #include <omp.h>
 
 #include <boost/algorithm/string.hpp>
 #include <boost/property_tree/json_parser.hpp>
+#include <boost/sort/sort.hpp>
 
-using std::getline;
-using std::ifstream;
-using std::map;
-using std::move;
-using std::numeric_limits;
-using std::pair;
-using std::stod;
-using std::stoul;
-using std::streamsize;
-using std::string;
-using std::stringstream;
-using std::tuple;
-using std::unordered_map;
-using std::unordered_set;
-using std::vector;
+using namespace std;
 
 using boost::algorithm::to_lower;
 using boost::property_tree::ptree;
+using boost::sort::block_indirect_sort;
 using boost::property_tree::json_parser::read_json;
 
-struct info_counter : unordered_map<string, pair<unsigned long, unordered_map<string, unsigned long>>>
+struct info_counter final : unordered_map<string, pair<unsigned long, unordered_map<string, unsigned long>>>
 {
     auto merge(info_counter & source) -> void
     {
@@ -53,6 +45,28 @@ struct info_counter : unordered_map<string, pair<unsigned long, unordered_map<st
                 this->operator[](k) = move(rv);
     }
 };
+
+using hash_tag_pair = pair<string, unsigned long>;
+static constexpr auto htp_less(hash_tag_pair const & l, hash_tag_pair const & r) -> bool
+{
+    auto ls = l.second, rs = r.second;
+    if (ls < rs)
+        return false;
+    if (ls == rs)
+        return l.first < r.first;
+    return true;
+}
+
+using cell_tuple = tuple<string, unsigned long, vector<hash_tag_pair>>;
+static constexpr auto ct_less(cell_tuple const & l, cell_tuple const & r) -> bool
+{
+    auto ls = get<1>(l), rs = get<1>(r);
+    if (ls < rs)
+        return false;
+    if (ls == rs)
+        return get<0>(l) < get<0>(r);
+    return true;
+}
 
 int main(int argc, char * argv[])
 {
@@ -187,16 +201,58 @@ int main(int argc, char * argv[])
             counters[i].merge(counters[i + pc]);
         pc >>= 1;
     }
-
     // final merge
     counters[0].merge(counters[1]);
-    for (auto const & [k, v] : counters[0])
+    auto const & counter = counters[0];
+
+    vector<cell_tuple> output(counter.size());
+    auto cit = counter.begin(), cend = counter.end();
+    auto vit = output.begin();
+    #pragma omp parallel
     {
-        auto const & [c, hc] = v;
-        printf("%s : %lu :", k.c_str(), c);
-        for (auto const & [ik, iv] : hc)
-            printf(" (#%s: %lu)", ik.c_str(), iv);
-        printf("\n");
+        while (true)
+        {
+            auto finished = false;
+            decltype(cit) ccit;
+            decltype(vit) cvit;
+            #pragma omp critical
+            {
+                if (cit == cend)
+                    finished = true;
+                else
+                {
+                    ccit = cit++;
+                    cvit = vit++;
+                }
+            };
+            if (finished)
+                break;
+
+            auto const & [k, v] = *ccit;
+            auto const & [c, hm] = v;
+
+            vector<hash_tag_pair> tmp(hm.begin(), hm.end());
+            sort(tmp.begin(), tmp.end(), htp_less);
+            if (tmp.size() > 5)
+                tmp.erase(tmp.begin() + 5, tmp.end());
+            *cvit = {k, c, move(tmp)};
+        }
+    };
+    block_indirect_sort(output.begin(), output.end(), ct_less);
+
+    for (auto const & [k, c, _] : output)
+        printf("%s: %lu\n", k.c_str(), c);
+    for (auto const & [k, _, htp] : output)
+    {
+        printf("%s: (", k.c_str());
+        auto it = htp.begin();
+        for (; it != htp.end() - 1; ++it)
+        {
+            auto & [t, c] = *it;
+            printf("(#%s, %lu)", t.c_str(), c);
+        }
+        auto & [t, c] = *it;
+        printf("(#%s, %lu))\n", t.c_str(), c);
     }
 
     return 0;
