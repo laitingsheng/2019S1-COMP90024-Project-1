@@ -138,11 +138,13 @@ int main(int argc, char * argv[])
             // get information for the JSON
             // @formatter:off
             auto const & doc = post.get_child("doc"),
-                       & coordinates = doc.get_child("coordinates").get_child("coordinates");
+                       & coordinates = doc.get_child("coordinates");
             // @formatter:on
+            if (coordinates.empty())
+                continue;
 
             // determine the longitude area
-            auto citer = coordinates.begin();
+            auto citer = coordinates.get_child("coordinates").begin();
             ptree const & long_ptree = citer->second;
             char hc;
             auto longitude = stod(long_ptree.data());
