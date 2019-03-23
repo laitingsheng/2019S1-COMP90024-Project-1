@@ -106,8 +106,8 @@ int main(int argc, char * argv[])
         {-37.95, 'D'},
         {-38.1, 'D'}
     };
-    unordered_set<string> const invalid {"A5", "B5", "D1", "D2"};
     // @formatter:on
+    unordered_set<string> const invalid {"A5", "B5", "D1", "D2"};
 
     // ignore the first line of the data file
     ifstream twit_file(argv[1]);
@@ -203,6 +203,14 @@ int main(int argc, char * argv[])
         }
     };
 
+    // @formatter:off
+    printf(
+        "I/O time used: %.3lfs\n",
+        duration_cast<milliseconds>(system_clock::now() - start).count() * 1.0 / 1000
+    );
+    // @formatter:on
+    start = system_clock::now();
+
     // logarithmic merging
     auto pc = omp_get_num_procs() >> 1;
     while (pc > 1)
@@ -253,7 +261,7 @@ int main(int argc, char * argv[])
 
     // @formatter:off
     printf(
-        "time used: %.3lfs\n\n",
+        "processing time used: %.3lfs\n\n",
         duration_cast<milliseconds>(system_clock::now() - start).count() * 1.0 / 1000
     );
     // @formatter:on
