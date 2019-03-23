@@ -2,7 +2,9 @@
  * Author: Tingsheng (Tinson) Lai 781319
  */
 
+#include <chrono>
 #include <fstream>
+#include <iostream>
 #include <map>
 #include <set>
 #include <sstream>
@@ -16,6 +18,7 @@
 #include <boost/sort/sort.hpp>
 
 using namespace std;
+using namespace chrono;
 
 using boost::algorithm::to_lower;
 using boost::property_tree::ptree;
@@ -70,8 +73,16 @@ static constexpr auto ct_less(cell_tuple const & l, cell_tuple const & r) -> boo
 
 int main(int argc, char * argv[])
 {
+    auto start = system_clock::now();
+
     if (argc < 2)
     {
+        // @formatter:off
+        printf(
+            "time used: %.3lfs\n",
+            duration_cast<milliseconds>(system_clock::now() - start).count() * 1.0 / 1000
+        );
+        // @formatter:on
         printf("1 parameter is expected, %d was provided", argc - 1);
         return -1;
     }
@@ -98,13 +109,10 @@ int main(int argc, char * argv[])
     unordered_set<string> const invalid {"A5", "B5", "D1", "D2"};
     // @formatter:on
 
-    // parse the first line of the data file
+    // ignore the first line of the data file
     ifstream twit_file(argv[1]);
     twit_file.ignore(numeric_limits<streamsize>::max(), '\n');
-
-    // @formatter:off
     vector<info_counter> counters(omp_get_num_procs());
-    // @formatter:on
 
     // process the file in parallel
     #pragma omp parallel
@@ -184,10 +192,11 @@ int main(int argc, char * argv[])
             ++count;
 
             // parse hash tags information
-            auto const & hashtags = doc.get_child("entities").get_child("hashtags");
-            for (auto hiter = hashtags.begin(); hiter != hashtags.end(); ++hiter)
+            // @formatter:off
+            for (auto const & [_, tag] : doc.get_child("entities").get_child("hashtags"))
+            // @formatter:on
             {
-                string text = hiter->second.get_child("text").data();
+                string text = tag.get_child("text").data();
                 to_lower(text);
                 ++hashtags_count[move(text)];
             }
@@ -241,6 +250,13 @@ int main(int argc, char * argv[])
         }
     };
     block_indirect_sort(output.begin(), output.end(), ct_less);
+
+    // @formatter:off
+    printf(
+        "time used: %.3lfs\n\n",
+        duration_cast<milliseconds>(system_clock::now() - start).count() * 1.0 / 1000
+    );
+    // @formatter:on
 
     for (auto const & [k, c, _] : output)
         printf("%s: %lu\n", k.c_str(), c);
