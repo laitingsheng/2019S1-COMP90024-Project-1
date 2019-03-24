@@ -19,7 +19,7 @@ ENDIF()
 INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS})
 
 ADD_EXECUTABLE(Project_1 main.cpp)
-TARGET_LINK_LIBRARIES(Project_1 boost_mpi)
+TARGET_LINK_LIBRARIES(Project_1 stdc++fs boost_mpi)
 
 IF(APPLE)
     TARGET_LINK_LIBRARIES(Project_1 omp)
