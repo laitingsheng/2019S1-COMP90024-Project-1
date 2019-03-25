@@ -3,6 +3,11 @@
  */
 
 // @formatter:off
+
+#ifndef READ_GRID
+#define READ_GRID false
+#endif
+
 #include <omp.h>
 #include <mpi.h>
 
