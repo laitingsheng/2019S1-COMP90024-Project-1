@@ -3,7 +3,7 @@
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="Project_1" targetName="Project_1" />
-      <config projectName="Project_1" targetName="Project_Test" />
+      <config projectName="Project_1" targetName="Project_1_Test" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -14,11 +14,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db789271-35c9-4c78-8257-784372f17fc4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/project_test.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/read_grid.hpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/preprocessor.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/preprocess.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/preprocess.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/preprocess.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/project_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/project_test.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/cmake-build-release/" />
@@ -49,19 +50,28 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/preprocess.hpp">
+            <entry file="file://$PROJECT_DIR$/src/read_grid.hpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="385">
-                  <caret line="48" column="13" lean-forward="true" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+                <state relative-caret-position="65">
+                  <caret line="5" column="14" lean-forward="true" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/preprocess.hpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="78">
+                  <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/project_test.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="143">
-                  <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+                <state relative-caret-position="299">
+                  <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
                 </state>
               </provider>
             </entry>
@@ -73,8 +83,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-598">
-                  <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+                <state relative-caret-position="351">
+                  <caret line="54" column="37" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
                 </state>
               </provider>
             </entry>
@@ -105,10 +115,11 @@
         <option value="$PROJECT_DIR$/src/preprocessor.hpp" />
         <option value="$PROJECT_DIR$/src/preprocess_test.cpp" />
         <option value="$PROJECT_DIR$/src/unit_test.cpp" />
-        <option value="$PROJECT_DIR$/src/main.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/src/preprocess.hpp" />
+        <option value="$PROJECT_DIR$/src/main.cpp" />
         <option value="$PROJECT_DIR$/src/project_test.cpp" />
+        <option value="$PROJECT_DIR$/src/read_grid.hpp" />
+        <option value="$PROJECT_DIR$/src/preprocess.hpp" />
       </list>
     </option>
   </component>
@@ -178,14 +189,19 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Boost.Test.Project Test">
-    <configuration name="Project Test" type="CMakeBoostTestRunConfigurationType" factoryName="Boost Test" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project_1" TARGET_NAME="Project_Test" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="Project_1" RUN_TARGET_NAME="Project_Test" TEST_MODE="SUITE_TEST">
+  <component name="RunManager" selected="Boost.Test.Project Unit Test">
+    <configuration name="Project Unit Test" type="CMakeBoostTestRunConfigurationType" factoryName="Boost Test" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project_1" TARGET_NAME="Project_1_Test" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="Project_1" RUN_TARGET_NAME="Project_1_Test" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="Big" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="bigTwitter.json" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project_1" TARGET_NAME="Project_1" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="Project_1" RUN_TARGET_NAME="Project_1">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Project_1_Test" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project_1" TARGET_NAME="Project_1_Test" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="Project_1" RUN_TARGET_NAME="Project_1_Test">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -204,7 +220,8 @@
       <item itemvalue="Application.Tiny" />
       <item itemvalue="Application.Small" />
       <item itemvalue="Application.Big" />
-      <item itemvalue="Boost.Test.Project Test" />
+      <item itemvalue="Application.Project_1_Test" />
+      <item itemvalue="Boost.Test.Project Unit Test" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -233,32 +250,11 @@
       <workItem from="1553382657801" duration="13574000" />
       <workItem from="1553426016659" duration="5818000" />
       <workItem from="1553497682046" duration="8180000" />
-      <workItem from="1553559777432" duration="10859000" />
+      <workItem from="1553559777432" duration="15300000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Project_Test - 2019.03.26 at 14h 19m 43s.xml">
-      <configuration name="Project Test" configurationId="CMakeBoostTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Project_Test - 2019.03.26 at 14h 20m 23s.xml">
-      <configuration name="Project Test" configurationId="CMakeBoostTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Project_Test - 2019.03.26 at 14h 20m 54s.xml">
-      <configuration name="Project Test" configurationId="CMakeBoostTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Project_Test - 2019.03.26 at 14h 21m 56s.xml">
-      <configuration name="Project Test" configurationId="CMakeBoostTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Project_Test - 2019.03.26 at 14h 24m 18s.xml">
-      <configuration name="Project Test" configurationId="CMakeBoostTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Project_Test - 2019.03.26 at 14h 27m 09s.xml">
-      <configuration name="Project Test" configurationId="CMakeBoostTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Project_Test - 2019.03.26 at 14h 29m 19s.xml">
-      <configuration name="Project Test" configurationId="CMakeBoostTestRunConfigurationType" />
-    </history-entry>
     <history-entry file="Project_Test - 2019.03.26 at 14h 30m 22s.xml">
       <configuration name="Project Test" configurationId="CMakeBoostTestRunConfigurationType" />
     </history-entry>
@@ -268,9 +264,30 @@
     <history-entry file="Project_Test - 2019.03.26 at 14h 30m 44s.xml">
       <configuration name="Project Test" configurationId="CMakeBoostTestRunConfigurationType" />
     </history-entry>
+    <history-entry file="Project_Test - 2019.03.26 at 14h 31m 19s.xml">
+      <configuration name="Project Test" configurationId="CMakeBoostTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Project_Test - 2019.03.26 at 15h 00m 46s.xml">
+      <configuration name="Project Test" configurationId="CMakeBoostTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Project_Test - 2019.03.26 at 15h 01m 50s.xml">
+      <configuration name="Project Test" configurationId="CMakeBoostTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Project_Unit_Test - 2019.03.26 at 15h 04m 45s.xml">
+      <configuration name="Project Unit Test" configurationId="CMakeBoostTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Project_Unit_Test - 2019.03.26 at 15h 05m 26s.xml">
+      <configuration name="Project Unit Test" configurationId="CMakeBoostTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Project_Unit_Test - 2019.03.26 at 15h 16m 40s.xml">
+      <configuration name="Project Unit Test" configurationId="CMakeBoostTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Project_Unit_Test - 2019.03.26 at 15h 18m 08s.xml">
+      <configuration name="Project Unit Test" configurationId="CMakeBoostTestRunConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120688000" />
+    <option name="totallyTimeSpent" value="125129000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -359,13 +376,6 @@
     <entry file="file://$PROJECT_DIR$/Makefile">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-598">
-          <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
@@ -373,17 +383,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/preprocess.hpp">
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="48" column="13" lean-forward="true" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+        <state relative-caret-position="351">
+          <caret line="54" column="37" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/project_test.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="299">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/read_grid.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="5" column="14" lean-forward="true" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/preprocess.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>

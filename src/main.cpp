@@ -5,7 +5,7 @@
 // @formatter:off
 
 #ifndef READ_GRID
-#define READ_GRID false
+#define READ_GRID 0
 #endif
 
 #include <omp.h>
@@ -26,7 +26,7 @@
 #include <boost/property_tree/json_parser.hpp>
 #include <boost/sort/sort.hpp>
 
-#include "preprocess.hpp"
+#include "read_grid.hpp"
 
 using namespace std;
 using namespace chrono;
@@ -47,36 +47,15 @@ int main(int argc, char * argv[])
         return -1;
     }
 
-    mpi::environment env(argc, argv);
+    mpi::environment env(argc, argv, mpi::threading::multiple);
     mpi::communicator world;
 
-    path const input_file_path(argv[1]);
-    if (!is_regular_file(input_file_path))
-    {
-        fprintf(stderr, "The given file path %s is not a regular file\n", argv[1]);
-        return -1;
-    }
+    auto const [horizontal, vertical, valid] = read_grid<READ_GRID>(argv[1]);
 
-    // hard-coded grid, to eliminate time for reading the melbGrid.json
-    // @formatter:off
-    map<double, char> const horizontal {
-        {180, 0},
-        {145.45, '5'},
-        {145.3, '5'},
-        {145.15, '4'},
-        {145, '3'},
-        {144.85, '2'},
-        {144.7, '1'}
-    };
-    map<double, char> const vertical {
-        {90, 0},
-        {-37.5, 'A'},
-        {-37.65, 'B'},
-        {-37.8, 'C'},
-        {-37.95, 'D'},
-        {-38.1, 'D'}
-    };
-    unordered_set<string> const invalid {"A5", "B5", "D1", "D2"};
+    path const input_file_path(argv[2]);
+
+    return 0;
+
     regex const coord_rgx(R"("coordinates":\[(-?\d*(?:\.\d*)?),(-?\d*(?:\.\d*)?)\])"),
                 hash_tags_rgx(R"("hashtags":\[(\{(?:"indices":\[\d+,\d+\],)?"text":"\w+"(?:,"indices":\[(?:\d+(?:,\d+)*)?\])?\}(?:,\{(?:"indices":\[\d+,\d+\],)?"text":"\w+"(?:,"indices":\[(?:\d+(?:,\d+)*)?\])?\})*)\])");
     // @formatter:on
