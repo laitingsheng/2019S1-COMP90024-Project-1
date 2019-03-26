@@ -10,7 +10,7 @@
 #include <utility>
 
 static auto const cell_rgx = std::regex {
-    R"cr("id": "(.)(.)", "xmin": (.*), "xmax": (.*), "ymin": (.*), "ymax": (.*), "geometry")cr"
+    R"cr("id": "(.)(.)", "xmin": (.*?), "xmax": (.*?), "ymin": (.*?), "ymax": (.*?),)cr"
 };
 
 template<bool Read>

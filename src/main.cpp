@@ -37,7 +37,6 @@ namespace mpi = boost::mpi;
 using boost::algorithm::to_lower;
 using boost::property_tree::ptree;
 using boost::property_tree::json_parser::read_json;
-// @formatter:off
 
 int main(int argc, char * argv[])
 {
