@@ -26,6 +26,8 @@
 #include <boost/property_tree/json_parser.hpp>
 #include <boost/sort/sort.hpp>
 
+#include "preprocess.hpp"
+
 using namespace std;
 using namespace chrono;
 using namespace filesystem;
@@ -39,9 +41,9 @@ using boost::property_tree::json_parser::read_json;
 
 int main(int argc, char * argv[])
 {
-    if (argc < 2)
+    if (argc < 3)
     {
-        fprintf(stderr, "1 parameter is expected, %d was provided", argc - 1);
+        fprintf(stderr, "2 parameter is expected, %d was provided", argc - 1);
         return -1;
     }
 

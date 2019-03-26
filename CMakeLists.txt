@@ -1,6 +1,6 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.12)
 PROJECT(Project_1)
-FIND_PACKAGE(Boost 1.66.0 REQUIRED COMPONENTS container mpi)
+FIND_PACKAGE(Boost 1.66.0 REQUIRED COMPONENTS container mpi unit_test_framework)
 
 SET(CMAKE_CXX_STANDARD 17)
 
@@ -17,6 +17,8 @@ ELSE()
 ENDIF()
 
 INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS})
+
+ADD_EXECUTABLE(Project_Test src/project_test.cpp)
 
 ADD_EXECUTABLE(Project_1 src/main.cpp)
 TARGET_LINK_LIBRARIES(Project_1 stdc++fs boost_mpi)
