@@ -133,7 +133,7 @@ struct single_thread_processor final : public processor
             std::sort(tmp.begin(), tmp.end(), less_cell_tag_info);
             re.emplace_back(k, ik, std::move(tmp));
         }
-        std::sort(re.begin(), re.end(), less_cell_info());
+        std::sort(re.begin(), re.end(), less_cell_info);
         return re;
     }
 };
@@ -161,6 +161,9 @@ struct multi_thread_processor final : public processor
 
             while (true)
             {
+                std::string buff;
+                auto finished = false;
+                break;
             }
         };
 
