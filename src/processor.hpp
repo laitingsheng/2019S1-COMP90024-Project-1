@@ -3,6 +3,7 @@
 
 #include <sys/stat.h>
 
+#include <algorithm>
 #include <fstream>
 #include <regex>
 #include <unordered_map>
@@ -12,7 +13,9 @@
 
 struct processor
 {
-    using result_type = std::vector<std::pair<std::string, std::vector<std::string>>>;
+    using cell_tag_info = std::pair<std::string, unsigned long>;
+    using cell_info = std::tuple<std::string, unsigned long, std::vector<cell_tag_info>>;
+    using result_type = std::vector<cell_info>;
 
     processor() = delete;
     processor(processor const &) = delete;
@@ -20,7 +23,7 @@ struct processor
     processor & operator=(processor const &) = delete;
     processor & operator=(processor &&) = delete;
 
-    virtual result_type operator()() = 0;
+    virtual result_type operator()() const = 0;
 
     virtual processor & preprocess() = 0;
 protected:
@@ -43,6 +46,22 @@ protected:
     explicit processor(char const * filename, grid const & g) : g(g), filename(filename)
     {
         stat(filename, &st);
+    }
+
+    static bool less_cell_tag_info(cell_tag_info const & l, cell_tag_info const & r)
+    {
+        auto ls = l.second, rs = r.second;
+        if (ls != rs)
+            return ls > rs;
+        return l.first < r.first;
+    }
+
+    static bool less_cell_info(cell_info const & l, cell_info const & r)
+    {
+        auto ls = std::get<1>(l), rs = std::get<1>(r);
+        if (ls != rs)
+            return ls > rs;
+        return std::get<0>(l) < std::get<0>(r);
     }
 private:
     template<typename P>
@@ -98,14 +117,48 @@ struct single_thread_processor final : public processor
 
         return *this;
     }
+
+    result_type operator()() const override
+    {
+        result_type re(record.size());
+        for (auto & [k, v] : record)
+        {
+            auto & [ik, iv] = v;
+            std::vector<cell_tag_info> tmp(iv.size());
+            for (auto & [iik, iiv] : iv)
+                tmp.emplace_back(iik, iiv);
+            std::sort(tmp.begin(), tmp.end(), less_cell_tag_info);
+            re.emplace_back(k, ik, std::move(tmp));
+        }
+        std::sort(re.begin(), re.end(), less_cell_info());
+        return re;
+    }
 };
 
 struct multi_thread_processor final : public processor
 {
+    processor & preprocess() override
+    {
+        return *this;
+    }
+
+    result_type operator()() const override
+    {
+        return {};
+    }
 };
 
 struct multi_node_processor final : public processor
 {
+    processor & preprocess() override
+    {
+        return *this;
+    }
+
+    result_type operator()() const override
+    {
+        return {};
+    }
 };
 
 #endif
