@@ -40,48 +40,9 @@ struct grid_tester final
 private:
     grid const g1, g2 {"melbGrid.json"};
 
-    // @formatter:off
-    std::unordered_map<double, char> const horizontal_test_cases {
-        {-180, 0},
-        {144.6, 0},
-        {144.7, '1'},
-        {144.8, '1'},
-        {144.85, '2'},
-        {144.9, '2'},
-        {145, '3'},
-        {145.1, '3'},
-        {145.15, '4'},
-        {145.2, '4'},
-        {145.3, '5'},
-        {145.4, '5'},
-        {145.45, '5'},
-        {145.5, 0},
-        {180, 0}
-    };
-    std::unordered_map<double, char> const vertical_test_cases {
-        {-90, 0},
-        {-38.2, 0},
-        {-38.1, 'D'},
-        {-38, 'D'},
-        {-37.95, 'D'},
-        {-37.9, 'C'},
-        {-37.8, 'C'},
-        {-37.7, 'B'},
-        {-37.65, 'B'},
-        {-37.6, 'A'},
-        {-37.5, 'A'},
-        {-37.4, 0},
-        {90, 0}
-    };
-    std::vector<std::pair<char, char>> const invalid_test_cases {
-        {'A', '5'},
-        {'B', '5'},
-        {'D', '1'},
-        {'D', '2'},
-        {'A', '0'},
-        {'E', '6'}
-    };
-    // @formatter:on
+    static std::unordered_map<double, char> const horizontal_test_cases;
+    static std::unordered_map<double, char> const vertical_test_cases;
+    static std::vector<std::pair<char, char>> const invalid_test_cases;
 };
 
 BOOST_AUTO_TEST_SUITE(Grid)
@@ -104,3 +65,46 @@ BOOST_AUTO_TEST_CASE(Validator)
 }
 
 BOOST_AUTO_TEST_SUITE_END()
+
+// @formatter:off
+std::unordered_map<double, char> const grid_tester::horizontal_test_cases {
+    {-180, 0},
+    {144.6, 0},
+    {144.7, '1'},
+    {144.8, '1'},
+    {144.85, '2'},
+    {144.9, '2'},
+    {145, '3'},
+    {145.1, '3'},
+    {145.15, '4'},
+    {145.2, '4'},
+    {145.3, '5'},
+    {145.4, '5'},
+    {145.45, '5'},
+    {145.5, 0},
+    {180, 0}
+};
+std::unordered_map<double, char> const grid_tester::vertical_test_cases {
+    {-90, 0},
+    {-38.2, 0},
+    {-38.1, 'D'},
+    {-38, 'D'},
+    {-37.95, 'D'},
+    {-37.9, 'C'},
+    {-37.8, 'C'},
+    {-37.7, 'B'},
+    {-37.65, 'B'},
+    {-37.6, 'A'},
+    {-37.5, 'A'},
+    {-37.4, 0},
+    {90, 0}
+};
+std::vector<std::pair<char, char>> const grid_tester::invalid_test_cases {
+    {'A', '5'},
+    {'B', '5'},
+    {'D', '1'},
+    {'D', '2'},
+    {'A', '0'},
+    {'E', '6'}
+};
+// @formatter:on

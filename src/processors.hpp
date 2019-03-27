@@ -20,7 +20,6 @@ struct processor
     using cell_info = std::tuple<std::string, unsigned long, std::vector<cell_tag_info>>;
     using result_type = std::vector<cell_info>;
 
-    processor() = delete;
     processor(processor const &) = delete;
     processor(processor &&) = delete;
     processor & operator=(processor const &) = delete;
@@ -67,7 +66,7 @@ protected:
         return std::get<0>(l) < std::get<0>(r);
     }
 private:
-    template<typename P>
+    template<typename>
     friend struct processor_tester;
 };
 
@@ -77,6 +76,8 @@ std::regex processor::hash_tag_rgx(R"htr("text":"(.*?)")htr");
 
 struct single_thread_processor final : public processor
 {
+    single_thread_processor(char const * filename, grid const & g) : processor(filename, g) {}
+
     processor & preprocess() override
     {
         std::ifstream twit_file(filename);
@@ -89,12 +90,12 @@ struct single_thread_processor final : public processor
             if (!std::regex_search(buff, coord_search, coord_rgx))
                 continue;
 
-            auto v = g.get_vertical(std::stod(coord_search[1].str()));
-            if (!v)
+            auto h = g.get_horizontal(std::stod(coord_search[1].str()));
+            if (!h)
                 continue;
 
-            auto h = g.get_horizontal(std::stod(coord_search[2].str()));
-            if (!h)
+            auto v = g.get_vertical(std::stod(coord_search[2].str()));
+            if (!v)
                 continue;
 
             if (!g.validate(v, h))
@@ -110,12 +111,12 @@ struct single_thread_processor final : public processor
                 continue;
 
             std::smatch hash_tag_search;
-            std::string hash_tags_str = hash_tag_search[0].str();
+            std::string hash_tags_str = hash_tags_search[0].str();
             if (!std::regex_search(hash_tags_str, hash_tag_search, hash_tag_rgx))
                 continue;
 
-            for (auto & match : hash_tag_search)
-                ++hash_tags_counts[match.str()];
+            for (auto it = hash_tag_search.begin() + 1; it < hash_tag_search.end(); it += 2)
+                ++hash_tags_counts[it->str()];
         }
 
         return *this;
@@ -124,14 +125,21 @@ struct single_thread_processor final : public processor
     result_type operator()() const override
     {
         result_type re(record.size());
+        auto it = re.begin();
         for (auto & [k, v] : record)
         {
             auto & [ik, iv] = v;
             std::vector<cell_tag_info> tmp(iv.size());
+            auto tit = tmp.begin();
             for (auto & [iik, iiv] : iv)
-                tmp.emplace_back(iik, iiv);
+            {
+                *tit = {iik, iiv};
+                ++tit;
+            }
             std::sort(tmp.begin(), tmp.end(), less_cell_tag_info);
-            re.emplace_back(k, ik, std::move(tmp));
+            if (tmp.size() > 5)
+                tmp.erase(tmp.begin() + 5, tmp.end());
+            *it = {k, ik, std::move(tmp)};
         }
         std::sort(re.begin(), re.end(), less_cell_info);
         return re;
