@@ -26,7 +26,7 @@
 #include <boost/property_tree/json_parser.hpp>
 #include <boost/sort/sort.hpp>
 
-#include "read_grid.hpp"
+#include "grid.hpp"
 
 using namespace std;
 using namespace chrono;

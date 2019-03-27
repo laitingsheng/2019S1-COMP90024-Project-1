@@ -14,7 +14,7 @@ ENDIF()
 
 INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS})
 
-ADD_EXECUTABLE(Project_1_Test src/project_test.cpp)
+ADD_EXECUTABLE(grid_test src/grid_test.cpp)
 
 ADD_EXECUTABLE(Project_1 src/main.cpp)
 TARGET_LINK_LIBRARIES(Project_1 boost_mpi)
