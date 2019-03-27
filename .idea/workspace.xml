@@ -16,7 +16,6 @@
   <component name="ChangeListManager">
     <list default="true" id="db789271-35c9-4c78-8257-784372f17fc4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/processor.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/processor.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/processor_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/processor_test.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/cmake-build-release/" />
@@ -67,8 +66,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/processor.hpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="424">
-                  <caret line="133" column="18" selection-start-line="133" selection-start-column="18" selection-end-line="133" selection-end-column="18" />
+                <state relative-caret-position="409">
+                  <caret line="162" column="13" selection-start-line="162" selection-start-column="13" selection-end-line="162" selection-end-column="13" />
                 </state>
               </provider>
             </entry>
@@ -89,8 +88,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1592">
-                  <caret line="162" column="13" lean-forward="true" selection-start-line="162" selection-start-column="13" selection-end-line="162" selection-end-column="13" />
+                <state relative-caret-position="300">
+                  <caret line="80" column="27" lean-forward="true" selection-start-line="76" selection-start-column="8" selection-end-line="80" selection-end-column="27" />
                 </state>
               </provider>
             </entry>
@@ -272,7 +271,7 @@
       <workItem from="1553598952117" duration="8322000" />
       <workItem from="1553637348794" duration="3699000" />
       <workItem from="1553642670381" duration="15662000" />
-      <workItem from="1553663420391" duration="2163000" />
+      <workItem from="1553663420391" duration="2821000" />
     </task>
     <servers />
   </component>
@@ -309,7 +308,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154975000" />
+    <option name="totallyTimeSpent" value="155633000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -400,13 +399,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1592">
-          <caret line="162" column="13" lean-forward="true" selection-start-line="162" selection-start-column="13" selection-end-line="162" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/grid_test.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-565">
@@ -421,10 +413,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="80" column="27" lean-forward="true" selection-start-line="76" selection-start-column="8" selection-end-line="80" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/processor.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="133" column="18" selection-start-line="133" selection-start-column="18" selection-end-line="133" selection-end-column="18" />
+        <state relative-caret-position="409">
+          <caret line="162" column="13" selection-start-line="162" selection-start-column="13" selection-end-line="162" selection-end-column="13" />
         </state>
       </provider>
     </entry>
