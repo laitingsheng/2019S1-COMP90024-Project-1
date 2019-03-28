@@ -26,6 +26,7 @@ struct multi_node_processor final : public processor
 
     processor & preprocess() override
     {
+        auto const num_procs = omp_get_num_procs() * world.size();
         return *this;
     }
 

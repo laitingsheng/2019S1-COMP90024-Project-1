@@ -67,7 +67,6 @@ BOOST_AUTO_TEST_CASE(MULTI_THREAD)
 
 BOOST_FIXTURE_TEST_CASE(MULTI_NODE, MPIFixture)
 {
-    printf("%d\n", world.size());
     multi_node_processor p(env, world, "tinyTwitter.json", g);
     processor_tester tester(p);
 
