@@ -14,7 +14,7 @@ struct multi_node_processor final : public processor
         return *this;
     }
 
-    processor::result_type operator()() const override
+    result_type operator()() const override
     {
         return {};
     }

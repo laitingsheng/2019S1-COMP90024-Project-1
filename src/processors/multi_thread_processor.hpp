@@ -1,3 +1,6 @@
+#ifndef _MULTI_THREAD_PROCESSOR_HPP_
+#define _MULTI_THREAD_PROCESSOR_HPP_
+
 #include <omp.h>
 
 #include <algorithm>
@@ -22,7 +25,7 @@ struct multi_thread_processor final : public processor
             auto const tn = omp_get_thread_num();
 
             std::ifstream fs(filename);
-            auto const read_start = read_block_size * tn;
+            fs.seekg(read_block_size * tn);
             if (tn > 0)
                 // set the offset to the start of next line
                 fs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -33,15 +36,32 @@ struct multi_thread_processor final : public processor
             {
                 std::string buff;
                 auto finished = false;
-                break;
+                if (tn < num_procs - 1)
+                {
+                    if (fs.tellg() == read_starts[tn + 1])
+                        finished = true;
+                    else
+                        getline(fs, buff);
+                }
+                else
+                {
+                    if (fs.eof())
+                        finished = true;
+                    else
+                        getline(fs, buff);
+                };
+                if (finished)
+                    break;
             }
         };
 
         return *this;
     }
 
-    processor::result_type operator()() const override
+    result_type operator()() const override
     {
         return {};
     }
 };
+
+#endif

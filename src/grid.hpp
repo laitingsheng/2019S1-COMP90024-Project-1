@@ -1,5 +1,5 @@
-#ifndef _READ_GRID_HPP_
-#define _READ_GRID_HPP_
+#ifndef _GRID_HPP_
+#define _GRID_HPP_
 
 #include <fstream>
 #include <limits>
