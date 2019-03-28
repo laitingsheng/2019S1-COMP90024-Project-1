@@ -17,7 +17,7 @@ struct multi_thread_processor final : public processor
     {
         auto num_procs = omp_get_num_procs();
         std::vector<std::streamsize> read_starts(num_procs);
-        std::vector<result_type> results(num_procs);
+        std::vector<record_type> records(num_procs);
         auto read_block_size = st.st_size / num_procs;
 
         #pragma omp parallel
@@ -52,8 +52,10 @@ struct multi_thread_processor final : public processor
                 };
                 if (finished)
                     break;
+
+                process_line(buff, records[tn]);
             }
-        };
+        }
 
         return *this;
     }
