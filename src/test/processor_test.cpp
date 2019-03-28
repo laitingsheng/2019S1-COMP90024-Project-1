@@ -4,11 +4,14 @@
 #include <unordered_map>
 #include <vector>
 
-#include <boost/test/included/unit_test.hpp>
+#include "../main/grid.hpp"
+#include "../main/processors/processor.hpp"
+#include "../main/processors/single_thread_processor.hpp"
+#include "../main/processors/multi_thread_processor.hpp"
+#include "../main/processors/multi_node_processor.hpp"
 
-#include "../src/grid.hpp"
-#include "../src/processors/processor.hpp"
-#include "../src/processors/single_thread_processor.hpp"
+#include <boost/mpi.hpp>
+#include <boost/test/included/unit_test.hpp>
 
 struct processor_tester final
 {
@@ -31,22 +34,45 @@ private:
     processor & p;
 };
 
+struct MPIFixture
+{
+    explicit MPIFixture() = default;
+    virtual ~MPIFixture() = default;
+
+    boost::mpi::environment env;
+    boost::mpi::communicator world;
+};
+
 BOOST_AUTO_TEST_SUITE(Processor)
 
 grid g;
-single_thread_processor p1("tinyTwitter.json", g);
-processor_tester tester1(p1);
 
-BOOST_AUTO_TEST_CASE(Preprocess)
+BOOST_AUTO_TEST_CASE(SINGLE_THREAD)
 {
-    tester1.test_preprocess();
-    // tester2.test_preprocess();
+    single_thread_processor p("tinyTwitter.json", g);
+    processor_tester tester(p);
+
+    tester.test_preprocess();
+    tester.test_process();
 }
 
-BOOST_AUTO_TEST_CASE(Process)
+BOOST_AUTO_TEST_CASE(MULTI_THREAD)
 {
-    tester1.test_process();
-    // tester2.test_process();
+    multi_thread_processor p("tinyTwitter.json", g);
+    processor_tester tester(p);
+
+    tester.test_preprocess();
+    tester.test_process();
+}
+
+BOOST_FIXTURE_TEST_CASE(MULTI_NODE, MPIFixture)
+{
+    printf("%d\n", world.size());
+    multi_node_processor p(env, world, "tinyTwitter.json", g);
+    processor_tester tester(p);
+
+    tester.test_preprocess();
+    tester.test_process();
 }
 
 BOOST_AUTO_TEST_SUITE_END()

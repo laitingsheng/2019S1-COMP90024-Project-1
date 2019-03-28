@@ -6,6 +6,9 @@
 #include <algorithm>
 #include <fstream>
 #include <limits>
+#include <thread>
+
+#include <boost/sort/sort.hpp>
 
 #include "processor.hpp"
 
@@ -15,10 +18,10 @@ struct multi_thread_processor final : public processor
 
     processor & preprocess() override
     {
-        auto num_procs = omp_get_num_procs();
+        auto const num_procs = omp_get_num_procs();
         std::vector<std::streamsize> read_starts(num_procs);
         std::vector<record_type> records(num_procs);
-        auto read_block_size = st.st_size / num_procs;
+        auto const read_block_size = st.st_size / num_procs;
 
         #pragma omp parallel
         {
@@ -49,7 +52,7 @@ struct multi_thread_processor final : public processor
                         finished = true;
                     else
                         getline(fs, buff);
-                };
+                }
                 if (finished)
                     break;
 
@@ -57,12 +60,42 @@ struct multi_thread_processor final : public processor
             }
         }
 
+        auto pc = num_procs >> 1;
+        while (pc > 1)
+        {
+            #pragma omp parallel for num_threads(pc)
+            for (int i = 0; i < pc; ++i)
+                merge_records(records[i], std::move(records[i + pc]));
+            pc >>= 1;
+        }
+        merge_records(records[0], std::move(records[1]));
+        record = std::move(records[0]);
+
         return *this;
     }
 
     result_type operator()() const override
     {
-        return {};
+        result_type re(record.size());
+        auto it = re.begin();
+        for (auto & [k, v] : record)
+        {
+            auto & [ik, iv] = v;
+            std::vector<cell_tag_info> tmp(iv.size());
+            auto tit = tmp.begin();
+            for (auto & [iik, iiv] : iv)
+            {
+                *tit = {iik, iiv};
+                ++tit;
+            }
+            boost::sort::block_indirect_sort(tmp.begin(), tmp.end(), less_cell_tag_info);
+            if (tmp.size() > 5)
+                tmp.erase(tmp.begin() + 5, tmp.end());
+            *it = {k, ik, std::move(tmp)};
+            ++it;
+        }
+        boost::sort::block_indirect_sort(re.begin(), re.end(), less_cell_info);
+        return re;
     }
 };
 

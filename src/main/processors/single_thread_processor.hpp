@@ -19,7 +19,6 @@ struct single_thread_processor final : public processor
             std::string buff;
             std::getline(twit_file, buff);
 
-            // @formatter:off
             process_line(buff, record);
         }
 
@@ -30,12 +29,18 @@ struct single_thread_processor final : public processor
     {
         result_type re(record.size());
         auto it = re.begin();
+        // @formatter:off
         for (auto & [k, v] : record)
+        // @formatter:on
         {
+            // @formatter:off
             auto & [ik, iv] = v;
+            // @formatter:on
             std::vector<cell_tag_info> tmp(iv.size());
             auto tit = tmp.begin();
+            // @formatter:off
             for (auto & [iik, iiv] : iv)
+            // @formatter:on
             {
                 *tit = {iik, iiv};
                 ++tit;

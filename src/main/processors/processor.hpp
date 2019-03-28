@@ -40,42 +40,25 @@ protected:
 
     static std::regex coord_rgx, hash_tags_rgx, hash_tag_rgx;
 
-    virtual void process_line(std::string const & line, record_type & record) final
+    static void merge_records(record_type & to, record_type && from)
     {
-        std::smatch coord_search;
-        if (!std::regex_search(line, coord_search, coord_rgx))
-            return;
-
-        auto h = g.get_horizontal(std::stod(coord_search[1].str()));
-        if (!h)
-            return;
-
-        auto v = g.get_vertical(std::stod(coord_search[2].str()));
-        if (!v)
-            return;
-
-        if (!g.validate(v, h))
-            return;
-
-        auto & [count, hash_tags_counts] = record[{v, h}];
+        // @formatter:off
+        for (auto & [k, v] : from)
         // @formatter:on
-        ++count;
-
-        std::smatch hash_tags_search;
-        if (!std::regex_search(line, hash_tags_search, hash_tags_rgx))
-            return;
-
-        std::smatch hash_tag_search;
-        std::string hash_tags_str = hash_tags_search[0].str();
-        if (!std::regex_search(hash_tags_str, hash_tag_search, hash_tag_rgx))
-            return;
-
-        for (auto it = hash_tag_search.begin() + 1; it < hash_tag_search.end(); it += 2)
-        {
-            auto tmp = it->str();
-            boost::algorithm::to_lower(tmp);
-            ++hash_tags_counts[std::move(tmp)];
-        }
+            if (to.count(k))
+            {
+                // @formatter:off
+                auto & [tk, tv] = to[std::move(k)];
+                auto & [ik, iv] = v;
+                // @formatter:on
+                tk += ik;
+                // @formatter:off
+                for (auto & [iik, iiv] : iv)
+                // @formatter:on
+                    tv[std::move(iik)] += iiv;
+            }
+            else
+                to[std::move(k)] = std::move(v);
     }
 
     static bool less_cell_tag_info(cell_tag_info const & l, cell_tag_info const & r)
@@ -102,6 +85,45 @@ protected:
     explicit processor(char const * filename, grid const & g) : g(g), filename(filename)
     {
         stat(filename, &st);
+    }
+
+    virtual void process_line(std::string const & line, record_type & record) final
+    {
+        std::smatch coord_search;
+        if (!std::regex_search(line, coord_search, coord_rgx))
+            return;
+
+        auto h = g.get_horizontal(std::stod(coord_search[1].str()));
+        if (!h)
+            return;
+
+        auto v = g.get_vertical(std::stod(coord_search[2].str()));
+        if (!v)
+            return;
+
+        if (!g.validate(v, h))
+            return;
+
+        // @formatter:off
+        auto & [count, hash_tags_counts] = record[{v, h}];
+        // @formatter:on
+        ++count;
+
+        std::smatch hash_tags_search;
+        if (!std::regex_search(line, hash_tags_search, hash_tags_rgx))
+            return;
+
+        std::smatch hash_tag_search;
+        std::string hash_tags_str = hash_tags_search[0].str();
+        if (!std::regex_search(hash_tags_str, hash_tag_search, hash_tag_rgx))
+            return;
+
+        for (auto it = hash_tag_search.begin() + 1; it < hash_tag_search.end(); it += 2)
+        {
+            auto tmp = it->str();
+            boost::algorithm::to_lower(tmp);
+            ++hash_tags_counts[std::move(tmp)];
+        }
     }
 private:
     friend struct processor_tester;
