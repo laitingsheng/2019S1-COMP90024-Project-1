@@ -5,7 +5,7 @@
 
 #include <boost/test/included/unit_test.hpp>
 
-#include "grid.hpp"
+#include "../src/grid.hpp"
 
 struct grid_tester final
 {
