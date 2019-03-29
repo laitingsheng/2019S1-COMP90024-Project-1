@@ -4,11 +4,11 @@
 #include <unordered_map>
 #include <vector>
 
-#include "../main/grid.hpp"
-#include "../main/processors/processor.hpp"
-#include "../main/processors/single_thread_processor.hpp"
-#include "../main/processors/multi_thread_processor.hpp"
-#include "../main/processors/multi_node_processor.hpp"
+#include "grid.hpp"
+#include "../processors/processor.hpp"
+#include "../processors/single_thread_processor.hpp"
+#include "../processors/multi_thread_processor.hpp"
+#include "../processors/multi_node_processor.hpp"
 
 #include <boost/mpi.hpp>
 #include <boost/test/included/unit_test.hpp>

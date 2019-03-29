@@ -14,11 +14,11 @@ ENDIF()
 
 INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS})
 
-ADD_EXECUTABLE(grid_test src/test/grid_test.cpp)
-ADD_EXECUTABLE(processor_test src/test/processors_test.cpp)
+ADD_EXECUTABLE(grid_test src/grid_test.cpp)
+ADD_EXECUTABLE(processor_test src/processors_test.cpp)
 TARGET_LINK_LIBRARIES(processor_test boost_mpi)
 
-ADD_EXECUTABLE(Project_1 src/main/main.cpp)
+ADD_EXECUTABLE(Project_1 src/main.cpp)
 TARGET_LINK_LIBRARIES(Project_1 boost_mpi)
 
 IF(APPLE)
