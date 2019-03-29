@@ -19,9 +19,9 @@ struct multi_thread_processor final : public processor
     processor & preprocess() override
     {
         auto const num_procs = omp_get_num_procs();
+        auto const read_block_size = st.st_size / num_procs;
         std::vector<std::streamsize> read_starts(num_procs);
         std::vector<record_type> records(num_procs);
-        auto const read_block_size = st.st_size / num_procs;
 
         #pragma omp parallel
         {

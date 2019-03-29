@@ -5,10 +5,10 @@
 #include <vector>
 
 #include "grid.hpp"
-#include "../processors/processor.hpp"
-#include "../processors/single_thread_processor.hpp"
-#include "../processors/multi_thread_processor.hpp"
-#include "../processors/multi_node_processor.hpp"
+#include "processors/processor.hpp"
+#include "processors/single_thread_processor.hpp"
+#include "processors/multi_thread_processor.hpp"
+#include "processors/multi_node_processor.hpp"
 
 #include <boost/mpi.hpp>
 #include <boost/test/included/unit_test.hpp>
