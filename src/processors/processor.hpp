@@ -129,7 +129,7 @@ private:
     friend struct processor_tester;
 };
 
-std::regex processor::coord_rgx(R"cr("coordinates":\[(.+?),(.+?)\])cr");
+std::regex processor::coord_rgx(R"cr("coordinates":\[(-?\d*(?:\.\d*)?),(-?\d*(?:\.\d*)?)\])cr");
 std::regex processor::hash_tags_rgx(R"htr("hashtags":\[(\{.+?\})(,\1)*?\])htr");
 std::regex processor::hash_tag_rgx(R"htr("text":"(.*?)")htr");
 
