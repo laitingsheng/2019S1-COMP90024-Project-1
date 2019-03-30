@@ -20,43 +20,87 @@ struct multi_thread_processor final : public processor
     {
         auto const num_procs = omp_get_num_procs();
         auto const read_block_size = st.st_size / num_procs;
-        std::vector<std::streamsize> read_starts(num_procs);
+        std::vector<std::mutex> locks(num_procs);
+        std::vector<std::ifstream> fss(num_procs);
+        std::vector<std::streamsize> read_ends(num_procs);
+        std::vector<bool> completions(num_procs);
         std::vector<record_type> records(num_procs);
+
+        auto last_proc = num_procs - 1;
+        read_ends[last_proc] = fss[last_proc].seekg(0, std::ios_base::end).tellg();
 
         #pragma omp parallel
         {
             auto const tn = omp_get_thread_num();
 
-            std::ifstream fs(filename);
+            auto & fs = fss[tn];
+            fs.open(filename);
             fs.seekg(read_block_size * tn);
             if (tn > 0)
+            {
                 // set the offset to the start of next line
                 fs.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            read_starts[tn] = fs.tellg();
+                read_ends[tn - 1] = fs.tellg();
+            }
             #pragma omp barrier
 
+            auto & lock = locks[tn];
             while (true)
             {
-                std::string buff;
-                auto finished = false;
-                if (tn < num_procs - 1)
+                lock.lock();
+                auto completion = completions[tn];
+                if (completion)
                 {
-                    if (fs.tellg() == read_starts[tn + 1])
-                        finished = true;
-                    else
-                        getline(fs, buff);
-                }
-                else
-                {
-                    if (fs.eof())
-                        finished = true;
-                    else
-                        getline(fs, buff);
-                }
-                if (finished)
+                    lock.unlock();
                     break;
+                }
+                if (fs.tellg() == read_ends[tn])
+                {
+                    completion = true;
+                    lock.unlock();
+                    break;
+                }
+                std::string buff;
+                getline(fs, buff);
+                lock.unlock();
 
                 process_line(buff, records[tn]);
+            }
+
+            // steal work
+            auto finished = false;
+            while (!finished)
+            {
+                finished = true;
+                for (int i = 0; i < num_procs; ++i)
+                    if (i != tn)
+                    {
+                        auto & lock = locks[i];
+                        auto & fs = fss[i];
+                        if (!lock.try_lock())
+                        {
+                            finished = false;
+                            continue;
+                        }
+                        auto completion = completions[i];
+                        if (completion)
+                        {
+                            lock.unlock();
+                            break;
+                        }
+                        if (fs.tellg() == read_ends[tn])
+                        {
+                            completion = true;
+                            lock.unlock();
+                            break;
+                        }
+                        std::string buff;
+                        getline(fs, buff);
+                        lock.unlock();
+
+                        finished = false;
+                        process_line(buff, records[tn]);
+                    }
             }
         }
 
