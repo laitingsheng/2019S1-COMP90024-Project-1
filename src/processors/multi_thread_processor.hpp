@@ -88,7 +88,7 @@ struct multi_thread_processor final : public processor
                             lock.unlock();
                             break;
                         }
-                        if (fs.tellg() == read_ends[tn])
+                        if (fs.tellg() == read_ends[i])
                         {
                             completion = true;
                             lock.unlock();

@@ -14,10 +14,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db789271-35c9-4c78-8257-784372f17fc4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/processors/multi_thread_processor.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/processors/multi_thread_processor.hpp" afterDir="false" />
-    </list>
+    <list default="true" id="db789271-35c9-4c78-8257-784372f17fc4" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/cmake-build-release/" />
     <ignored path="$PROJECT_DIR$/cmake-build-mpi-release/" />
@@ -70,8 +67,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/processors/multi_thread_processor.hpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="516">
-                  <caret line="97" column="42" lean-forward="true" selection-start-line="97" selection-start-column="42" selection-end-line="97" selection-end-column="42" />
+                <state relative-caret-position="386">
+                  <caret line="90" column="53" selection-start-line="90" selection-start-column="53" selection-end-line="90" selection-end-column="53" />
                 </state>
               </provider>
             </entry>
@@ -267,7 +264,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Boost.Test.Processor Unit Test">
+  <component name="RunManager" selected="CMake Application.Big">
     <configuration name="Grid Unit Test" type="CMakeBoostTestRunConfigurationType" factoryName="Boost Test" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project_1" TARGET_NAME="grid_test" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="Project_1" RUN_TARGET_NAME="grid_test" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -352,14 +349,11 @@
       <workItem from="1553824099856" duration="334000" />
       <workItem from="1553824450200" duration="20981000" />
       <workItem from="1553907068317" duration="8756000" />
-      <workItem from="1553922241161" duration="3882000" />
+      <workItem from="1553922241161" duration="4154000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Processor_Unit_Test - 2019.03.28 at 23h 38m 04s.xml">
-      <configuration name="Processor Unit Test" configurationId="CMakeBoostTestRunConfigurationType" />
-    </history-entry>
     <history-entry file="Processor_Unit_Test - 2019.03.28 at 23h 46m 29s.xml">
       <configuration name="Processor Unit Test" configurationId="CMakeBoostTestRunConfigurationType" />
     </history-entry>
@@ -387,9 +381,12 @@
     <history-entry file="Processor_Unit_Test - 2019.03.30 at 16h 51m 37s.xml">
       <configuration name="Processor Unit Test" configurationId="CMakeBoostTestRunConfigurationType" />
     </history-entry>
+    <history-entry file="Processor_Unit_Test - 2019.03.30 at 17h 12m 59s.xml">
+      <configuration name="Processor Unit Test" configurationId="CMakeBoostTestRunConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="229455000" />
+    <option name="totallyTimeSpent" value="229727000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -533,8 +530,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/processors/multi_thread_processor.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="516">
-          <caret line="97" column="42" lean-forward="true" selection-start-line="97" selection-start-column="42" selection-end-line="97" selection-end-column="42" />
+        <state relative-caret-position="386">
+          <caret line="90" column="53" selection-start-line="90" selection-start-column="53" selection-end-line="90" selection-end-column="53" />
         </state>
       </provider>
     </entry>
