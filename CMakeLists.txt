@@ -1,6 +1,6 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.12)
 PROJECT(Project_1)
-FIND_PACKAGE(Boost 1.66.0 REQUIRED COMPONENTS container mpi unit_test_framework)
+FIND_PACKAGE(Boost 1.66.0 REQUIRED COMPONENTS container iostreams mpi unit_test_framework)
 
 SET(CMAKE_CXX_STANDARD 17)
 
@@ -16,10 +16,10 @@ INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS})
 
 ADD_EXECUTABLE(grid_test src/grid_test.cpp)
 ADD_EXECUTABLE(processor_test src/processors_test.cpp)
-TARGET_LINK_LIBRARIES(processor_test boost_mpi)
+TARGET_LINK_LIBRARIES(processor_test boost_iostreams boost_mpi)
 
 ADD_EXECUTABLE(Project_1 src/main.cpp)
-TARGET_LINK_LIBRARIES(Project_1 boost_mpi)
+TARGET_LINK_LIBRARIES(Project_1 boost_iostreams boost_mpi)
 
 IF(APPLE)
     TARGET_LINK_LIBRARIES(Project_1 omp)

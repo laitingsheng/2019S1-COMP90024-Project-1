@@ -2,9 +2,9 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="Project_1" targetName="processor_test" />
-      <config projectName="Project_1" targetName="grid_test" />
       <config projectName="Project_1" targetName="Project_1" />
+      <config projectName="Project_1" targetName="grid_test" />
+      <config projectName="Project_1" targetName="processor_test" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -16,6 +16,7 @@
   <component name="ChangeListManager">
     <list default="true" id="db789271-35c9-4c78-8257-784372f17fc4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/processors/multi_thread_processor.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/processors/multi_thread_processor.hpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -43,8 +44,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="338">
-                  <caret line="26" selection-start-line="26" selection-end-line="26" />
+                <state relative-caret-position="247">
+                  <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
                 </state>
               </provider>
             </entry>
@@ -52,8 +53,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/grid.hpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="39">
-                  <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+                <state relative-caret-position="507">
+                  <caret line="39" selection-start-line="39" selection-end-line="39" />
                 </state>
               </provider>
             </entry>
@@ -70,8 +71,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/processors/multi_thread_processor.hpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="312">
-                  <caret line="81" column="42" lean-forward="true" selection-start-line="81" selection-start-column="42" selection-end-line="81" selection-end-column="42" />
+                <state relative-caret-position="286">
+                  <caret line="22" column="37" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
                 </state>
               </provider>
             </entry>
@@ -107,16 +108,16 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/processors/processor.hpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1638">
-                  <caret line="126" column="5" selection-start-line="126" selection-start-column="5" selection-end-line="126" selection-end-column="5" />
+                <state relative-caret-position="221">
+                  <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="83" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/processors/single_thread_processor.hpp">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="494">
@@ -169,7 +170,6 @@
         <option value="$PROJECT_DIR$/src/util.hpp" />
         <option value="$PROJECT_DIR$/test/processor_test.cpp" />
         <option value="$PROJECT_DIR$/src/main/processors/processor.hpp" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/test/processor_test.cpp" />
         <option value="$PROJECT_DIR$/src/test/processors_test.cpp" />
         <option value="$PROJECT_DIR$/.clang-format" />
@@ -181,6 +181,7 @@
         <option value="$PROJECT_DIR$/src/main.cpp" />
         <option value="$PROJECT_DIR$/src/timer.hpp" />
         <option value="$PROJECT_DIR$/src/processors/processor.hpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/processors/multi_thread_processor.hpp" />
       </list>
     </option>
@@ -356,7 +357,11 @@
       <workItem from="1553934433050" duration="2511000" />
       <workItem from="1553926795093" duration="326000" />
       <workItem from="1553967233151" duration="599000" />
-      <workItem from="1553995706099" duration="2472000" />
+      <workItem from="1553995706099" duration="2919000" />
+      <workItem from="1554026313905" duration="626000" />
+      <workItem from="1554028631569" duration="990000" />
+      <workItem from="1554031457917" duration="777000" />
+      <workItem from="1554074249576" duration="1291000" />
     </task>
     <servers />
   </component>
@@ -393,7 +398,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="235948000" />
+    <option name="totallyTimeSpent" value="240079000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -408,12 +413,12 @@
     <frame x="1912" y="-8" width="2576" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49839744" visible="true" weight="0.098809525" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49839744" visible="true" weight="0.10079365" />
       <window_info id="Structure" order="1" sideWeight="0.5016026" side_tool="true" weight="0.094444446" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32938644" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2981701" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24757804" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -479,20 +484,6 @@
     <entry file="file://$PROJECT_DIR$/cmake_install.cmake">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/grid.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/processors_test.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
@@ -521,13 +512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/processors/processor.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1638">
-          <caret line="126" column="5" selection-start-line="126" selection-start-column="5" selection-end-line="126" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/processors/single_thread_processor.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
@@ -535,10 +519,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/processors/processor.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/grid.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/processors/multi_thread_processor.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="81" column="42" lean-forward="true" selection-start-line="81" selection-start-column="42" selection-end-line="81" selection-end-column="42" />
+        <state relative-caret-position="286">
+          <caret line="22" column="37" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
         </state>
       </provider>
     </entry>
