@@ -45,15 +45,12 @@ struct multi_thread_processor final : public processor
             #pragma omp barrier
 
             auto & lock = locks[tn];
+            auto completion = completions[tn];
             while (true)
             {
-                lock.lock();
-                auto completion = completions[tn];
                 if (completion)
-                {
-                    lock.unlock();
                     break;
-                }
+                lock.lock();
                 if (fs.tellg() == read_ends[tn])
                 {
                     completion = true;
@@ -77,16 +74,13 @@ struct multi_thread_processor final : public processor
                     {
                         auto & lock = locks[i];
                         auto & fs = fss[i];
+                        auto completion = completions[i];
+                        if (completion)
+                            break;
                         if (!lock.try_lock())
                         {
                             finished = false;
                             continue;
-                        }
-                        auto completion = completions[i];
-                        if (completion)
-                        {
-                            lock.unlock();
-                            break;
                         }
                         if (fs.tellg() == read_ends[i])
                         {
