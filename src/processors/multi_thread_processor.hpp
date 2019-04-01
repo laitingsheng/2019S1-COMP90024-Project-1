@@ -20,7 +20,7 @@ struct multi_thread_processor final : public processor
     processor & preprocess() override
     {
         boost::iostreams::mapped_file_source file(filename);
-        printf("%lu\n", file.size());
+        auto data = file.data();
         return *this;
     }
 
