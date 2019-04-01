@@ -2,8 +2,6 @@
 #define _SINGLE_THREAD_PROCESSOR_HPP_
 
 #include <algorithm>
-#include <fstream>
-#include <limits>
 
 #include "processor.hpp"
 
@@ -13,15 +11,8 @@ struct single_thread_processor final : public processor
 
     processor & preprocess() override
     {
-        std::ifstream twit_file(filename);
-        while (!twit_file.eof())
-        {
-            std::string buff;
-            std::getline(twit_file, buff);
-
-            process_line(buff, record);
-        }
-
+        auto curr = file.data();
+        process_block(curr, curr + file.size(), record);
         return *this;
     }
 

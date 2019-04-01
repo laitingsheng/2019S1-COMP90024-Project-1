@@ -1,14 +1,13 @@
 #ifndef _PROCESSOR_HPP_
 #define _PROCESSOR_HPP_
 
-#include <sys/stat.h>
-
 #include <regex>
 #include <string>
 #include <unordered_map>
 #include <utility>
 #include <vector>
 
+#include <boost/iostreams/device/mapped_file.hpp>
 #include <boost/algorithm/string.hpp>
 
 #include "../grid.hpp"
@@ -48,17 +47,17 @@ protected:
             if (to.count(k))
             {
                 // @formatter:off
-                auto & [tk, tv] = to[std::move(k)];
+                auto & [tk, tv] = to[k];
                 auto & [ik, iv] = v;
                 // @formatter:on
                 tk += ik;
                 // @formatter:off
                 for (auto & [iik, iiv] : iv)
                 // @formatter:on
-                    tv[std::move(iik)] += iiv;
+                    tv[iik] += iiv;
             }
             else
-                to[std::move(k)] = std::move(v);
+                to[k] = std::move(v);
     }
 
     static bool less_cell_tag_info(cell_tag_info const & l, cell_tag_info const & r)
@@ -77,17 +76,13 @@ protected:
         return std::get<0>(l) < std::get<0>(r);
     }
 
-    std::string filename;
-    struct stat st;
     grid const & g;
+    boost::iostreams::mapped_file_source file;
     record_type record;
 
-    explicit processor(char const * filename, grid const & g) : g(g), filename(filename)
-    {
-        stat(filename, &st);
-    }
+    explicit processor(char const * filename, grid const & g) : file(filename), g(g) {}
 
-    virtual void process_line(std::string const & line, record_type & record) final
+    virtual void process_line(std::string const & line, record_type & record) const final
     {
         std::smatch coord_search;
         if (!std::regex_search(line, coord_search, coord_rgx))
@@ -114,7 +109,7 @@ protected:
             return;
 
         std::smatch hash_tag_search;
-        std::string hash_tags_str = hash_tags_search[0].str();
+        auto hash_tags_str = hash_tags_search[0].str();
         if (!std::regex_search(hash_tags_str, hash_tag_search, hash_tag_rgx))
             return;
 
@@ -123,6 +118,18 @@ protected:
             auto tmp = it->str();
             boost::algorithm::to_lower(tmp);
             ++hash_tags_counts[std::move(tmp)];
+        }
+    }
+
+    virtual void process_block(char const * start, char const * end, record_type & record) const final
+    {
+        while (start < end)
+        {
+            auto prev = start;
+            while (*start++ != '\n');
+            auto size = start - prev;
+            std::string line(prev, size);
+            process_line(line, record);
         }
     }
 private:
