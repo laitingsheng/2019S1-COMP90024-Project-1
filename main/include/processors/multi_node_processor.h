@@ -17,7 +17,9 @@ struct multi_node_processor final : public processor
     // @formatter:on
 
     processor & preprocess() override;
+
     result_type operator()() const override;
+
 private:
     boost::mpi::environment const & env;
     boost::mpi::communicator const & world;

@@ -18,13 +18,17 @@ struct processor
     using result_type = std::vector<cell_info>;
 
     processor(processor const &) = delete;
+
     processor(processor &&) = delete;
+
     processor & operator=(processor const &) = delete;
+
     processor & operator=(processor &&) = delete;
 
     virtual result_type operator()() const = 0;
 
     virtual processor & preprocess() = 0;
+
 protected:
     // @formatter:off
     using record_type = std::unordered_map<
@@ -53,6 +57,7 @@ protected:
     virtual void process_line(std::string const & line, record_type & record) const final;
 
     virtual void process_block(char const * start, char const * end, record_type & record) const final;
+
 private:
     friend struct processor_tester;
 };

@@ -31,10 +31,10 @@ ADD_EXECUTABLE(processors_test main/test/processors_test.cpp $<TARGET_OBJECTS:gr
 ADD_LIBRARY(timer OBJECT main/lib/timer.cpp)
 ADD_EXECUTABLE(main main/main.cpp $<TARGET_OBJECTS:timer> $<TARGET_OBJECTS:grid> $<TARGET_OBJECTS:processors>)
 
-IF(APPLE)
+IF (APPLE)
     TARGET_LINK_LIBRARIES(processors_test omp mpi boost_iostreams-mt boost_mpi-mt)
     TARGET_LINK_LIBRARIES(main omp mpi boost_iostreams-mt boost_mpi-mt)
-ELSE()
+ELSE ()
     TARGET_LINK_LIBRARIES(processors_test boost_iostreams boost_mpi)
     TARGET_LINK_LIBRARIES(main boost_iostreams boost_mpi)
-ENDIF()
+ENDIF ()

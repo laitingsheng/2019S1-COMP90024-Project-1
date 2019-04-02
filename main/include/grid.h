@@ -23,9 +23,13 @@ struct grid final
     bool validate(char vertical, char horizontal) const;
 
     grid(grid const &) = delete;
+
     grid(grid &&) = delete;
+
     grid & operator=(grid const &) = delete;
+
     grid & operator=(grid &&) = delete;
+
 private:
     friend struct grid_tester;
 

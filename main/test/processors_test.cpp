@@ -27,6 +27,7 @@ struct processor_tester final
     {
         BOOST_TEST(p() == process_tiny_ans);
     }
+
 private:
     static processor::record_type const preprocess_tiny_ans;
     static processor::result_type const process_tiny_ans;
@@ -42,6 +43,7 @@ struct GridFixture
 struct MPIFixture : GridFixture
 {
     explicit MPIFixture() = default;
+
     virtual ~MPIFixture() = default;
 
     boost::mpi::environment env;

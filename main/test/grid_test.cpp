@@ -37,6 +37,7 @@ struct grid_tester final
         // @formatter:on
             BOOST_REQUIRE(!g1.validate(v, h));
     }
+
 private:
     grid const g1, g2 {"melbGrid.json"};
 
