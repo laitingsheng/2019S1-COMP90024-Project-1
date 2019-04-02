@@ -100,6 +100,7 @@
       <option name="ALIGN_MULTILINE_ASSIGNMENT" value="false" />
       <option name="ALIGN_MULTILINE_TERNARY_OPERATION" value="false" />
       <option name="ALIGN_MULTILINE_ARRAY_INITIALIZER_EXPRESSION" value="false" />
+      <option name="SPACE_WITHIN_BRACES" value="false" />
       <option name="SPACE_AFTER_TYPE_CAST" value="false" />
       <option name="METHOD_CALL_CHAIN_WRAP" value="1" />
       <option name="PARENTHESES_EXPRESSION_LPAREN_WRAP" value="true" />
