@@ -3,7 +3,7 @@
 #include "grid.h"
 
 grid::grid() :
-    // @formatter:off
+// @formatter:off
     _horizontal {
         {180, 0},
         {145.45, '5'},
@@ -22,7 +22,7 @@ grid::grid() :
         {-38.1, 'D'}
     },
     _valid {"A1", "A2", "A3", "A4", "B1", "B2", "B3", "B4", "C1", "C2", "C3", "C4", "C5", "D3", "D4", "D5"}
-    // @formatter:on
+// @formatter:on
 {}
 
 grid::grid(char const * filename) : _horizontal {{180, 0}}, _vertical {{90, 0}}

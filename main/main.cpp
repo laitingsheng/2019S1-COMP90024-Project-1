@@ -6,9 +6,20 @@
 
 #include <cstdio>
 
+#ifdef MULTI_NODE
+#include <boost/mpi.hpp>
+#endif
+
 #include "include/grid.h"
-#include "include/processors/multi_thread_processor.h"
 #include "include/timer.h"
+
+#if defined(SINGLE_THREAD)
+#include "include/processors/single_thread_processor.h"
+#elif defined(MULTI_NODE)
+#include "include/processors/multi_node_processor.h"
+#else
+#include "include/processors/multi_thread_processor.h"
+#endif
 
 int main(int argc, char * argv[])
 {
@@ -18,11 +29,23 @@ int main(int argc, char * argv[])
         return -1;
     }
 
+    #ifdef MULTI_NODE
+    boost::mpi::environment env(argc, argv);
+    boost::mpi::communicator world;
+    #endif
+
+
     timer t;
     auto g = argc == 3 ? grid(argv[2]) : grid();
     t.print_duration("Grid read: ");
 
+    #if defined(SINGLE_THREAD)
+    single_thread_processor p(argv[1], g);
+    #elif defined(MULTI_NODE)
+    multi_node_processor p(env, world, argv[1], g);
+    #else
     multi_thread_processor p(argv[1], g);
+    #endif
     t.restart();
     p.preprocess();
     t.print_duration("Data preprocessed: ");
