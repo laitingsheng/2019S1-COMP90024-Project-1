@@ -1,6 +1,2 @@
 cmake-build-*
-CMakeFiles
-CMakeCache.txt
-bin
-submit
 bigTwitter.json
