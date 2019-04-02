@@ -1,16 +1,9 @@
-#ifndef _MULTI_NODE_PROCESSOR_HPP_
-#define _MULTI_NODE_PROCESSOR_HPP_
-
-#include <mpi.h>
-#include <omp.h>
-
-#include <algorithm>
-#include <fstream>
-#include <limits>
+#ifndef _MULTI_NODE_PROCESSOR_H_
+#define _MULTI_NODE_PROCESSOR_H_
 
 #include <boost/mpi.hpp>
 
-#include "processor.hpp"
+#include "processor.h"
 
 struct multi_node_processor final : public processor
 {
@@ -20,19 +13,11 @@ struct multi_node_processor final : public processor
         boost::mpi::communicator const & world,
         char const * filename,
         grid const & g
-    ) : processor(filename, g), world(world), env(env)
+    );
     // @formatter:on
-    {}
 
-    processor & preprocess() override
-    {
-        return *this;
-    }
-
-    result_type operator()() const override
-    {
-        return {};
-    }
+    processor & preprocess() override;
+    result_type operator()() const override;
 private:
     boost::mpi::environment const & env;
     boost::mpi::communicator const & world;
