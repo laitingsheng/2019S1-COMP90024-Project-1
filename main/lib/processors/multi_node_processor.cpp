@@ -11,6 +11,7 @@ multi_node_processor::multi_node_processor(
 
 processor & multi_node_processor::preprocess()
 {
+    auto curr = file.data();
     return *this;
 }
 
