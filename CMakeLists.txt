@@ -1,26 +1,40 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.12)
 PROJECT(Project_1)
-FIND_PACKAGE(Boost 1.66.0 REQUIRED COMPONENTS container mpi unit_test_framework)
+FIND_PACKAGE(Boost 1.66.0 REQUIRED COMPONENTS container iostreams mpi unit_test_framework)
 
 SET(CMAKE_CXX_STANDARD 17)
 
-IF(APPLE)
+IF (APPLE)
     SET(CMAKE_CXX_FLAGS "-O3 -Xpreprocessor -fopenmp -Wall -Wextra -Wpedantic")
-    INCLUDE_DIRECTORIES("/usr/local/opt/libomp/include")
-    LINK_DIRECTORIES("/usr/local/opt/libomp/lib")
-ELSE()
+    INCLUDE_DIRECTORIES(/usr/local/opt/llvm/include /usr/local/opt/openmpi/include)
+    LINK_DIRECTORIES(/usr/local/opt/llvm/lib /usr/local/opt/libevent/lib /usr/local/opt/openmpi/lib)
+ELSE ()
     SET(CMAKE_CXX_FLAGS "-O3 -fopenmp -Wall -Wextra -Wpedantic")
-ENDIF()
+ENDIF ()
 
-INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS})
+INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS} main/include)
+LINK_DIRECTORIES(${Boost_LIBRARY_DIRS})
 
-ADD_EXECUTABLE(grid_test src/grid_test.cpp)
-ADD_EXECUTABLE(processor_test src/processors_test.cpp)
-TARGET_LINK_LIBRARIES(processor_test boost_mpi)
+ADD_LIBRARY(grid OBJECT main/lib/grid.cpp)
+ADD_EXECUTABLE(grid_test main/test/grid_test.cpp $<TARGET_OBJECTS:grid>)
 
-ADD_EXECUTABLE(Project_1 src/main.cpp)
-TARGET_LINK_LIBRARIES(Project_1 boost_mpi)
+# @formatter:off
+ADD_LIBRARY(processors OBJECT
+        main/lib/processors/processor.cpp
+        main/lib/processors/single_thread_processor.cpp
+        main/lib/processors/multi_thread_processor.cpp
+        main/lib/processors/multi_node_processor.cpp
+)
+# @formatter:on
+ADD_EXECUTABLE(processors_test main/test/processors_test.cpp $<TARGET_OBJECTS:grid> $<TARGET_OBJECTS:processors>)
 
-IF(APPLE)
-    TARGET_LINK_LIBRARIES(Project_1 omp)
-ENDIF()
+ADD_LIBRARY(timer OBJECT main/lib/timer.cpp)
+ADD_EXECUTABLE(main main/main.cpp $<TARGET_OBJECTS:timer> $<TARGET_OBJECTS:grid> $<TARGET_OBJECTS:processors>)
+
+IF (APPLE)
+    TARGET_LINK_LIBRARIES(processors_test omp mpi boost_iostreams-mt boost_mpi-mt)
+    TARGET_LINK_LIBRARIES(main omp mpi boost_iostreams-mt boost_mpi-mt)
+ELSE ()
+    TARGET_LINK_LIBRARIES(processors_test boost_iostreams boost_mpi)
+    TARGET_LINK_LIBRARIES(main boost_iostreams boost_mpi)
+ENDIF ()

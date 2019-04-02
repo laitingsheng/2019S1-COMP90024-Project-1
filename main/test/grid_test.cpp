@@ -5,7 +5,7 @@
 
 #include <boost/test/included/unit_test.hpp>
 
-#include "grid.hpp"
+#include "../include/grid.h"
 
 struct grid_tester final
 {
@@ -37,6 +37,7 @@ struct grid_tester final
         // @formatter:on
             BOOST_REQUIRE(!g1.validate(v, h));
     }
+
 private:
     grid const g1, g2 {"melbGrid.json"};
 
@@ -45,9 +46,12 @@ private:
     static std::vector<std::pair<char, char>> const invalid_test_cases;
 };
 
-BOOST_AUTO_TEST_SUITE(Grid)
+struct GridFixture
+{
+    grid_tester tester;
+};
 
-grid_tester tester;
+BOOST_FIXTURE_TEST_SUITE(Grid, GridFixture)
 
 BOOST_AUTO_TEST_CASE(Eqaulity)
 {

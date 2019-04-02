@@ -6,9 +6,9 @@
 
 #include <cstdio>
 
-#include "grid.hpp"
-#include "processors/multi_thread_processor.hpp"
-#include "timer.hpp"
+#include "include/grid.h"
+#include "include/processors/multi_thread_processor.h"
+#include "include/timer.h"
 
 int main(int argc, char * argv[])
 {

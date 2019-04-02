@@ -4,14 +4,14 @@
 #include <unordered_map>
 #include <vector>
 
-#include "grid.hpp"
-#include "processors/processor.hpp"
-#include "processors/single_thread_processor.hpp"
-#include "processors/multi_thread_processor.hpp"
-#include "processors/multi_node_processor.hpp"
-
 #include <boost/mpi.hpp>
 #include <boost/test/included/unit_test.hpp>
+
+#include "../include/grid.h"
+#include "../include/processors/processor.h"
+#include "../include/processors/single_thread_processor.h"
+#include "../include/processors/multi_thread_processor.h"
+#include "../include/processors/multi_node_processor.h"
 
 struct processor_tester final
 {
@@ -27,6 +27,7 @@ struct processor_tester final
     {
         BOOST_TEST(p() == process_tiny_ans);
     }
+
 private:
     static processor::record_type const preprocess_tiny_ans;
     static processor::result_type const process_tiny_ans;
@@ -34,18 +35,22 @@ private:
     processor & p;
 };
 
-struct MPIFixture
+struct GridFixture
+{
+    grid g;
+};
+
+struct MPIFixture : GridFixture
 {
     explicit MPIFixture() = default;
+
     virtual ~MPIFixture() = default;
 
     boost::mpi::environment env;
     boost::mpi::communicator world;
 };
 
-BOOST_AUTO_TEST_SUITE(Processor)
-
-grid g;
+BOOST_FIXTURE_TEST_SUITE(Processors, GridFixture)
 
 BOOST_AUTO_TEST_CASE(SINGLE_THREAD)
 {
