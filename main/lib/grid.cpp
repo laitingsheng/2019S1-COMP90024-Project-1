@@ -1,6 +1,6 @@
 #include <fstream>
 
-#include "../include/grid.h"
+#include "grid.h"
 
 grid::grid() :
     // @formatter:off

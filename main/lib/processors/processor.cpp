@@ -1,6 +1,6 @@
 #include <boost/algorithm/string.hpp>
 
-#include "../../include/processors/processor.h"
+#include "processors/processor.h"
 
 void processor::merge_records(record_type & to, record_type && from)
 {

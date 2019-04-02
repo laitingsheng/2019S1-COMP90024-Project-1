@@ -1,4 +1,4 @@
-#include "../../include/processors/single_thread_processor.h"
+#include "processors/single_thread_processor.h"
 
 single_thread_processor::single_thread_processor(char const * filename, grid const & g) : processor(filename, g) {}
 

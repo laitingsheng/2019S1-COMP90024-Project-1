@@ -1,6 +1,6 @@
 #include <cstdio>
 
-#include "../include/timer.h"
+#include "timer.h"
 
 void timer::restart()
 {

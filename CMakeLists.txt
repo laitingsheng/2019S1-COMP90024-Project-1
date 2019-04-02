@@ -12,25 +12,29 @@ ELSE ()
     SET(CMAKE_CXX_FLAGS "-O3 -fopenmp -Wall -Wextra -Wpedantic")
 ENDIF ()
 
-INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS})
+INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS} main/include)
 LINK_DIRECTORIES(${Boost_LIBRARY_DIRS})
 
-ADD_LIBRARY(grid OBJECT main/src/grid.cpp)
+ADD_LIBRARY(grid OBJECT main/lib/grid.cpp)
 ADD_EXECUTABLE(grid_test main/test/grid_test.cpp $<TARGET_OBJECTS:grid>)
 
 # @formatter:off
-ADD_LIBRARY(processors OBJECT main/src/processors/processor.cpp
-        main/src/processors/single_thread_processor.cpp
-        main/src/processors/multi_thread_processor.cpp
-        main/src/processors/multi_node_processor.cpp
+ADD_LIBRARY(processors OBJECT
+        main/lib/processors/processor.cpp
+        main/lib/processors/single_thread_processor.cpp
+        main/lib/processors/multi_thread_processor.cpp
+        main/lib/processors/multi_node_processor.cpp
 )
 # @formatter:on
 ADD_EXECUTABLE(processors_test main/test/processors_test.cpp $<TARGET_OBJECTS:grid> $<TARGET_OBJECTS:processors>)
 
+ADD_LIBRARY(timer OBJECT main/lib/timer.cpp)
+ADD_EXECUTABLE(main main/main.cpp $<TARGET_OBJECTS:timer> $<TARGET_OBJECTS:grid> $<TARGET_OBJECTS:processors>)
+
 IF(APPLE)
-#    TARGET_LINK_LIBRARIES(Project_1 omp mpi boost_iostreams-mt boost_mpi-mt)
     TARGET_LINK_LIBRARIES(processors_test omp mpi boost_iostreams-mt boost_mpi-mt)
+    TARGET_LINK_LIBRARIES(main omp mpi boost_iostreams-mt boost_mpi-mt)
 ELSE()
-#    TARGET_LINK_LIBRARIES(Project_1 boost_iostreams boost_mpi)
     TARGET_LINK_LIBRARIES(processors_test boost_iostreams boost_mpi)
+    TARGET_LINK_LIBRARIES(main boost_iostreams boost_mpi)
 ENDIF()

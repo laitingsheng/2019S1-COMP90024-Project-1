@@ -1,4 +1,4 @@
-#include "../../include/processors/multi_node_processor.h"
+#include "processors/multi_node_processor.h"
 
 // @formatter:off
 multi_node_processor::multi_node_processor(

@@ -2,7 +2,7 @@
 
 #include <boost/sort/sort.hpp>
 
-#include "../../include/processors/multi_thread_processor.h"
+#include "processors/multi_thread_processor.h"
 
 multi_thread_processor::multi_thread_processor(char const * filename, grid const & g) : processor(filename, g) {}
 
