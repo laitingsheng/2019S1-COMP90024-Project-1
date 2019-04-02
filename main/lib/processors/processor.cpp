@@ -67,16 +67,15 @@ void processor::process_line(std::string const & line, record_type & record) con
     if (!std::regex_search(line, hash_tags_search, hash_tags_rgx))
         return;
 
-    std::smatch hash_tag_search;
     auto hash_tags_str = hash_tags_search[0].str();
-    if (!std::regex_search(hash_tags_str, hash_tag_search, hash_tag_rgx))
-        return;
-
-    for (auto it = hash_tag_search.begin() + 1; it < hash_tag_search.end(); it += 2)
+    auto start = std::sregex_token_iterator(hash_tags_str.begin(), hash_tags_str.end(), hash_tag_rgx, 1);
+    auto const end = std::sregex_token_iterator();
+    while (start != end)
     {
-        auto tmp = it->str();
+        auto tmp = start->str();
         boost::algorithm::to_lower(tmp);
         ++hash_tags_counts[std::move(tmp)];
+        ++start;
     }
 }
 
