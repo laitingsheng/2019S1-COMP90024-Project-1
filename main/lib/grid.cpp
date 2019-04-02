@@ -3,7 +3,7 @@
 #include "grid.h"
 
 grid::grid() :
-// @formatter:off
+    // @formatter:off
     _horizontal {
         {180, 0},
         {145.45, '5'},
