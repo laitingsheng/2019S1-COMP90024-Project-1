@@ -34,7 +34,6 @@ int main(int argc, char * argv[])
     boost::mpi::communicator world;
     #endif
 
-
     timer t;
     auto g = argc == 3 ? grid(argv[2]) : grid();
     t.print_duration("Grid read: ");

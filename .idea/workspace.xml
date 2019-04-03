@@ -3,8 +3,12 @@
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="Project_1" targetName="timer" />
+      <config projectName="Project_1" targetName="processor-mt" />
+      <config projectName="Project_1" targetName="processor" />
       <config projectName="Project_1" targetName="processors" />
       <config projectName="Project_1" targetName="main" />
+      <config projectName="Project_1" targetName="processor-mn" />
+      <config projectName="Project_1" targetName="processor-st" />
       <config projectName="Project_1" targetName="grid_test" />
       <config projectName="Project_1" targetName="grid" />
       <config projectName="Project_1" targetName="processors_test" />
@@ -21,6 +25,7 @@
     <list default="true" id="db789271-35c9-4c78-8257-784372f17fc4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/cmake-build-release/" />
@@ -50,8 +55,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="468">
-                  <caret line="36" column="6" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
+                <state relative-caret-position="534">
+                  <caret line="87" column="11" selection-start-line="87" selection-start-column="11" selection-end-line="87" selection-end-column="11" />
                 </state>
               </provider>
             </entry>
@@ -77,7 +82,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main/lib/processors/processor.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1066">
+                <state relative-caret-position="455">
                   <caret line="82" column="1" selection-start-line="82" selection-start-column="1" selection-end-line="82" selection-end-column="1" />
                 </state>
               </provider>
@@ -86,8 +91,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main/main.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="325">
-                  <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+                <state relative-caret-position="286">
+                  <caret line="22" selection-start-line="22" selection-end-line="22" />
                 </state>
               </provider>
             </entry>
@@ -232,8 +237,8 @@
         <option value="$PROJECT_DIR$/main/lib/processors/multi_thread_processor.cpp" />
         <option value="$PROJECT_DIR$/main/lib/processors/multi_node_processor.cpp" />
         <option value="$PROJECT_DIR$/main/lib/processors/processor.cpp" />
-        <option value="$PROJECT_DIR$/main/main.cpp" />
         <option value="$PROJECT_DIR$/main/lib/grid.cpp" />
+        <option value="$PROJECT_DIR$/main/main.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
       </list>
     </option>
@@ -323,7 +328,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="CMakeSettings" />
+    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -444,14 +449,11 @@
       <workItem from="1554116997131" duration="13727000" />
       <workItem from="1554194875741" duration="7356000" />
       <workItem from="1554239469453" duration="1715000" />
-      <workItem from="1554254537354" duration="1536000" />
+      <workItem from="1554254537354" duration="3324000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Processor_Unit_Test - 2019.04.02 at 01h 03m 09s.xml">
-      <configuration name="Processor Unit Test" configurationId="CMakeBoostTestRunConfigurationType" />
-    </history-entry>
     <history-entry file="Processor_Unit_Test - 2019.04.02 at 02h 12m 14s.xml">
       <configuration name="Processor Unit Test" configurationId="CMakeBoostTestRunConfigurationType" />
     </history-entry>
@@ -479,9 +481,12 @@
     <history-entry file="Processors_Test - 2019.04.02 at 21h 21m 44s.xml">
       <configuration name="Processors Test" configurationId="CMakeBoostTestRunConfigurationType" />
     </history-entry>
+    <history-entry file="Processors_Test - 2019.04.03 at 13h 12m 04s.xml">
+      <configuration name="Processors Test" configurationId="CMakeBoostTestRunConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="277542000" />
+    <option name="totallyTimeSpent" value="279330000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -496,7 +501,7 @@
     <frame x="1912" y="-8" width="2576" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49839744" visible="true" weight="0.103968255" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49839744" visible="true" weight="0.103968255" />
       <window_info id="Structure" order="1" sideWeight="0.5016026" side_tool="true" weight="0.094444446" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -510,7 +515,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32938644" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5007153" side_tool="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32938644" />
-      <window_info anchor="bottom" id="CMake" order="11" visible="true" weight="0.2863294" />
+      <window_info active="true" anchor="bottom" id="CMake" order="11" visible="true" weight="0.2863294" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49928468" weight="0.32723358" />
       <window_info anchor="bottom" id="Tail" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -592,27 +597,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/test/processors_test.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/lib/processors/multi_thread_processor.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/lib/processors/processor.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1066">
-          <caret line="82" column="1" selection-start-line="82" selection-start-column="1" selection-end-line="82" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/lib/processors/multi_node_processor.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -664,15 +648,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+        <state relative-caret-position="286">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/lib/processors/processor.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="82" column="1" selection-start-line="82" selection-start-column="1" selection-end-line="82" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/lib/processors/multi_thread_processor.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/test/processors_test.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="36" column="6" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
+        <state relative-caret-position="534">
+          <caret line="87" column="11" selection-start-line="87" selection-start-column="11" selection-end-line="87" selection-end-column="11" />
         </state>
       </provider>
     </entry>
