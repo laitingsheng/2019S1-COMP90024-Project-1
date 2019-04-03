@@ -1,6 +1,6 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.12)
 PROJECT(Project_1)
-FIND_PACKAGE(Boost 1.66.0 REQUIRED COMPONENTS container iostreams mpi unit_test_framework)
+FIND_PACKAGE(Boost 1.65.0 REQUIRED COMPONENTS container iostreams mpi timer unit_test_framework)
 
 SET(CMAKE_CXX_STANDARD 17)
 
@@ -36,8 +36,6 @@ ADD_EXECUTABLE(processors_test
 )
 # @formatter:on
 
-ADD_LIBRARY(timer OBJECT main/lib/timer.cpp)
-
 IF (single_thread)
     ADD_COMPILE_DEFINITIONS(SINGLE_THREAD)
 ELSEIF (multi_node)
@@ -53,7 +51,6 @@ ENDIF ()
 IF (single_thread)
     # @formatter:off
     ADD_EXECUTABLE(main main/main.cpp
-        $<TARGET_OBJECTS:timer>
         $<TARGET_OBJECTS:grid>
         $<TARGET_OBJECTS:processor>
         $<TARGET_OBJECTS:processor-st>
@@ -62,7 +59,6 @@ IF (single_thread)
 ELSEIF (multi_node)
     # @formatter:off
     ADD_EXECUTABLE(main main/main.cpp
-        $<TARGET_OBJECTS:timer>
         $<TARGET_OBJECTS:grid>
         $<TARGET_OBJECTS:processor>
         $<TARGET_OBJECTS:processor-mn>
@@ -77,7 +73,6 @@ ELSEIF (multi_node)
 ELSE()
     # @formatter:off
     ADD_EXECUTABLE(main main/main.cpp
-        $<TARGET_OBJECTS:timer>
         $<TARGET_OBJECTS:grid>
         $<TARGET_OBJECTS:processor>
         $<TARGET_OBJECTS:processor-mt>
@@ -91,5 +86,5 @@ ENDIF ()
 IF (APPLE)
     TARGET_LINK_LIBRARIES(main boost_iostreams-mt)
 ELSE ()
-    TARGET_LINK_LIBRARIES(main boost_iostreams)
+    TARGET_LINK_LIBRARIES(main boost_iostreams boost_timer)
 ENDIF ()
