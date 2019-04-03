@@ -29,6 +29,13 @@ ADD_LIBRARY(processors OBJECT
 ADD_EXECUTABLE(processors_test main/test/processors_test.cpp $<TARGET_OBJECTS:grid> $<TARGET_OBJECTS:processors>)
 
 ADD_LIBRARY(timer OBJECT main/lib/timer.cpp)
+
+IF (single_thread)
+    ADD_COMPILE_DEFINITIONS(SINGLE_THREAD)
+ELSEIF(multi_node)
+    ADD_COMPILE_DEFINITIONS(MULTI_NODE)
+ENDIF()
+
 ADD_EXECUTABLE(main main/main.cpp $<TARGET_OBJECTS:timer> $<TARGET_OBJECTS:grid> $<TARGET_OBJECTS:processors>)
 
 IF (APPLE)
