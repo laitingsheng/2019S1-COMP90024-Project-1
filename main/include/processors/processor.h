@@ -25,9 +25,9 @@ struct processor
 
     processor & operator=(processor &&) = delete;
 
-    virtual result_type operator()() const = 0;
-
     virtual processor & preprocess() = 0;
+
+    virtual result_type operator()() const = 0;
 
 protected:
     // @formatter:off

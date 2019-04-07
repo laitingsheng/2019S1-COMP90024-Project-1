@@ -1,6 +1,6 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.12)
 PROJECT(Project_1)
-FIND_PACKAGE(Boost 1.65.0 REQUIRED COMPONENTS container iostreams mpi timer unit_test_framework)
+FIND_PACKAGE(Boost 1.65.0 REQUIRED COMPONENTS container iostreams mpi serialization timer unit_test_framework)
 
 SET(CMAKE_CXX_STANDARD 17)
 
@@ -19,6 +19,9 @@ LINK_DIRECTORIES(${Boost_LIBRARY_DIRS})
 
 ADD_LIBRARY(grid OBJECT main/lib/grid.cpp)
 ADD_EXECUTABLE(grid_test main/test/grid_test.cpp $<TARGET_OBJECTS:grid>)
+
+ADD_LIBRARY(twit OBJECT main/lib/twit.cpp)
+ADD_EXECUTABLE(twit_test main/test/twit_test.cpp)
 
 ADD_LIBRARY(processor OBJECT main/lib/processors/processor.cpp)
 ADD_LIBRARY(processor-st OBJECT main/lib/processors/single_thread_processor.cpp)
