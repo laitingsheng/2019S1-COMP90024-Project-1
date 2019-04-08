@@ -8,6 +8,7 @@ struct processor_mt final : public processor_m
     explicit processor_mt(char const *, grid const &);
 
     void preprocess() override;
+
 private:
     static int const num_proc;
 };

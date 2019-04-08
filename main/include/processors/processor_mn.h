@@ -7,9 +7,7 @@
 
 struct processor_mn final : public processor_m
 {
-    // @formatter:off
     explicit processor_mn(int, char * [], char const *, grid const &);
-    // @formatter:on
 
     void preprocess() override;
 
