@@ -6,8 +6,6 @@
 #include <unordered_set>
 #include <utility>
 
-using twit_info = std::tuple<double, double, std::unordered_set<std::string>>;
-
 class twit_parser final
 {
     static std::regex const line_rgx, hash_tag_rgx;
@@ -28,7 +26,7 @@ public:
 
     twit_parser & operator=(twit_parser &&) = delete;
 
-    twit_info parse(std::string const &);
+    bool parse(std::string const &, double &, double &, std::unordered_set<std::string> &);
 };
 
 #endif
