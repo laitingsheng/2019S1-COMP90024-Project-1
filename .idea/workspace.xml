@@ -2,18 +2,18 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="Project_1" targetName="processor-mt" />
-      <config projectName="Project_1" targetName="twit" />
-      <config projectName="Project_1" targetName="main" />
-      <config projectName="Project_1" targetName="grid_test" />
-      <config projectName="Project_1" targetName="twit_test" />
-      <config projectName="Project_1" targetName="processors" />
-      <config projectName="Project_1" targetName="processor" />
-      <config projectName="Project_1" targetName="processor-st" />
-      <config projectName="Project_1" targetName="grid" />
-      <config projectName="Project_1" targetName="processor-mn" />
       <config projectName="Project_1" targetName="timer" />
+      <config projectName="Project_1" targetName="processor-mt" />
+      <config projectName="Project_1" targetName="processor" />
+      <config projectName="Project_1" targetName="processors" />
+      <config projectName="Project_1" targetName="main" />
+      <config projectName="Project_1" targetName="processor-st" />
+      <config projectName="Project_1" targetName="processor-mn" />
+      <config projectName="Project_1" targetName="grid_test" />
+      <config projectName="Project_1" targetName="grid" />
       <config projectName="Project_1" targetName="processors_test" />
+      <config projectName="Project_1" targetName="twit_test" />
+      <config projectName="Project_1" targetName="twit" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -26,8 +26,13 @@
   <component name="ChangeListManager">
     <list default="true" id="db789271-35c9-4c78-8257-784372f17fc4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/include/twit.h" beforeDir="false" afterPath="$PROJECT_DIR$/main/include/twit.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/lib/twit.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main/lib/twit.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/include/processors/processor.h" beforeDir="false" afterPath="$PROJECT_DIR$/main/include/processors/processor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/include/twit.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/lib/processors/multi_thread_processor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main/lib/processors/multi_thread_processor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/lib/processors/processor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main/lib/processors/processor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/lib/twit.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/test/twit_test.cpp" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/cmake-build-release/" />
@@ -57,26 +62,26 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="299">
-                  <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/main/lib/twit.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="429">
-                  <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+                <state relative-caret-position="416">
+                  <caret line="32" column="34" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/main/test/twit_test.cpp">
+            <entry file="file://$PROJECT_DIR$/main/lib/processors/processor.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="156">
-                  <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+                <state relative-caret-position="454">
+                  <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/main/lib/processors/multi_thread_processor.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="91">
+                  <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
                 </state>
               </provider>
             </entry>
@@ -85,20 +90,20 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/main/include/twit.h">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/main/include/processors/processor.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="416">
-                  <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+                <state relative-caret-position="507">
+                  <caret line="42" column="62" selection-start-line="42" selection-start-column="62" selection-end-line="42" selection-end-column="62" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/main/lib/processors/processor.cpp">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/main/include/processors/multi_thread_processor.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="364">
-                  <caret line="34" column="1" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
+                <state relative-caret-position="91">
+                  <caret line="7" column="75" selection-start-line="7" selection-start-column="75" selection-end-line="7" selection-end-column="75" />
                 </state>
               </provider>
             </entry>
@@ -165,11 +170,8 @@
         <option value="$PROJECT_DIR$/src/grid.cpp" />
         <option value="$PROJECT_DIR$/main/lib/timer.cpp" />
         <option value="$PROJECT_DIR$/main/lib/processors/single_thread_processor.cpp" />
-        <option value="$PROJECT_DIR$/main/lib/processors/multi_thread_processor.cpp" />
         <option value="$PROJECT_DIR$/main/lib/processors/multi_node_processor.cpp" />
-        <option value="$PROJECT_DIR$/main/lib/processors/processor.cpp" />
         <option value="$PROJECT_DIR$/main/lib/grid.cpp" />
-        <option value="$PROJECT_DIR$/main/include/processors/processor.h" />
         <option value="$PROJECT_DIR$/main/include/processors/multi_thread_processor.h" />
         <option value="$PROJECT_DIR$/main/include/processors/single_thread_processor.h" />
         <option value="$PROJECT_DIR$/main/main.cpp" />
@@ -177,9 +179,12 @@
         <option value="$PROJECT_DIR$/main/lib/parser.cpp" />
         <option value="$PROJECT_DIR$/main/test/parser_test.cpp" />
         <option value="$PROJECT_DIR$/main/test/twit_test.cpp" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/main/include/twit.h" />
         <option value="$PROJECT_DIR$/main/lib/twit.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/main/include/processors/processor.h" />
+        <option value="$PROJECT_DIR$/main/lib/processors/processor.cpp" />
+        <option value="$PROJECT_DIR$/main/lib/processors/multi_thread_processor.cpp" />
       </list>
     </option>
   </component>
@@ -205,7 +210,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -254,6 +258,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -291,7 +296,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="CMake Application.Tiny">
+  <component name="RunManager" selected="CMake Application.Big">
     <configuration name="Grid Test" type="CMakeBoostTestRunConfigurationType" factoryName="Boost Test" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project_1" TARGET_NAME="grid_test" CONFIG_NAME="MULTI_THREAD" RUN_TARGET_PROJECT_NAME="Project_1" RUN_TARGET_NAME="grid_test" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -299,12 +304,6 @@
       </method>
     </configuration>
     <configuration name="Processors Test" type="CMakeBoostTestRunConfigurationType" factoryName="Boost Test" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project_1" TARGET_NAME="processors_test" CONFIG_NAME="MULTI_THREAD" RUN_TARGET_PROJECT_NAME="Project_1" RUN_TARGET_NAME="processors_test" TEST_MODE="SUITE_TEST">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-        <option name="BeforeTestRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Twit Test" type="CMakeBoostTestRunConfigurationType" factoryName="Boost Test" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project_1" TARGET_NAME="twit_test" CONFIG_NAME="MULTI_THREAD" RUN_TARGET_PROJECT_NAME="Project_1" RUN_TARGET_NAME="twit_test" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
@@ -326,7 +325,6 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Boost.Test.Twit Test" />
       <item itemvalue="Boost.Test.Grid Test" />
       <item itemvalue="Boost.Test.Processors Test" />
       <item itemvalue="CMake Application.Big" />
@@ -403,6 +401,7 @@
       <workItem from="1554543376872" duration="9742000" />
       <workItem from="1554604577628" duration="34528000" />
       <workItem from="1554683322762" duration="1115000" />
+      <workItem from="1554708366174" duration="14561000" />
     </task>
     <servers />
   </component>
@@ -439,7 +438,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="334199000" />
+    <option name="totallyTimeSpent" value="348760000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -454,12 +453,12 @@
     <frame x="1912" y="-8" width="2576" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49839744" visible="true" weight="0.10873016" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49839744" visible="true" weight="0.10952381" />
       <window_info id="Structure" order="1" sideWeight="0.5016026" side_tool="true" weight="0.094444446" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.22389667" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21097955" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -469,7 +468,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5007153" side_tool="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32938644" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.2863294" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49928468" weight="0.32723358" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49928468" weight="0.9677072" />
       <window_info anchor="bottom" id="Tail" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -552,20 +551,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/lib/processors/multi_thread_processor.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/test/twit_test.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/include/grid.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
@@ -573,24 +558,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/include/processors/processor.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="27" column="41" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/include/processors/single_thread_processor.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/include/processors/multi_thread_processor.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="7" column="75" selection-start-line="7" selection-start-column="75" selection-end-line="7" selection-end-column="75" />
         </state>
       </provider>
     </entry>
@@ -615,31 +586,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main/test/twit_test.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
+        <state relative-caret-position="416">
+          <caret line="32" column="34" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main/include/twit.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/lib/processors/processor.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="34" column="1" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
+        <state relative-caret-position="182">
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main/lib/twit.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+        <state relative-caret-position="455">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/include/processors/multi_thread_processor.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="7" column="75" selection-start-line="7" selection-start-column="75" selection-end-line="7" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/include/processors/processor.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="42" column="62" selection-start-line="42" selection-start-column="62" selection-end-line="42" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/lib/processors/processor.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/lib/processors/multi_thread_processor.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
         </state>
       </provider>
     </entry>

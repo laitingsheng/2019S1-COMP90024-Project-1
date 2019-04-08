@@ -43,17 +43,25 @@ processor::processor(char const * filename, grid const & g) : file(filename), g(
 
 void processor::process_line(std::string const & line, record_type & record) const
 {
-    std::smatch coord_search;
-    if (!std::regex_search(line, coord_search, coord_rgx))
+    std::smatch coord_match;
+    if (!std::regex_search(line, coord_match, coord_rgx))
         return;
 
-    auto h = g.get_horizontal(std::stod(coord_search[1].str()));
-    if (!h)
-        return;
-
-    auto v = g.get_vertical(std::stod(coord_search[2].str()));
-    if (!v)
-        return;
+    char h, v;
+    if (coord_match.str(1) == "geo")
+    {
+        if (!(v = g.get_vertical(std::stod(coord_match.str(2)))))
+            return;
+        if (!(h = g.get_horizontal(std::stod(coord_match.str(3)))))
+            return;
+    }
+    else
+    {
+        if (!(h = g.get_horizontal(std::stod(coord_match.str(2)))))
+            return;
+        if (!(v = g.get_vertical(std::stod(coord_match.str(3)))))
+            return;
+    }
 
     if (!g.validate(v, h))
         return;
@@ -67,8 +75,8 @@ void processor::process_line(std::string const & line, record_type & record) con
     if (!std::regex_search(line, hash_tags_search, hash_tags_rgx))
         return;
 
-    auto hash_tags_str = hash_tags_search[0].str();
-    auto start = std::sregex_token_iterator(hash_tags_str.begin(), hash_tags_str.end(), hash_tag_rgx, 1);
+    auto hts = line.begin() + hash_tags_search.position(), hte = hts + hash_tags_search.length();
+    auto start = std::sregex_token_iterator(hts, hte, hash_tag_rgx, 1);
     auto const end = std::sregex_token_iterator();
     while (start != end)
     {
@@ -91,6 +99,17 @@ void processor::process_block(char const * start, char const * end, record_type 
     }
 }
 
-std::regex processor::coord_rgx(R"cr("coordinates":\[(-?\d*(?:\.\d*)?),(-?\d*(?:\.\d*)?)\])cr");
-std::regex processor::hash_tags_rgx(R"htr("hashtags":\[(\{.+?\})(,\1)*?\])htr");
-std::regex processor::hash_tag_rgx(R"htr("text":"(.*?)")htr");
+// @formatter:off
+std::regex const processor::coord_rgx(
+    R"vcr(\"(geometry|coordinates|geo)\":\{.*?\"coordinates\":\[(.*?),(.*?)\].*?\})vcr",
+    std::regex::ECMAScript | std::regex::optimize | std::regex::collate
+);
+std::regex const processor::hash_tags_rgx(
+    R"htr(\"hashtags\":\[(?:\,?\{.*?\"text\":\".*?\".*?\})+\])htr",
+    std::regex::ECMAScript | std::regex::optimize | std::regex::collate
+);
+std::regex const processor::hash_tag_rgx(
+    R"htr(\"text\":\"(.*?)\")htr",
+    std::regex::ECMAScript | std::regex::optimize | std::regex::collate
+);
+// @formatter:on

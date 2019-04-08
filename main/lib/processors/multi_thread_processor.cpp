@@ -14,12 +14,13 @@ processor & multi_thread_processor::preprocess()
     decltype(curr) starts[num_proc], ends[num_proc];
     starts[0] = curr;
     ends[num_proc - 1] = curr + file.size();
-    #pragma omp parallel for simd num_threads(num_proc - 1)
-    for (decltype(num_proc) i = 1; i < num_proc; ++i)
+    #pragma omp parallel for
+    for (decltype(num_proc) i = 0; i < num_proc; ++i)
     {
         auto & start = starts[i] = curr + i * block_size;
         while (*start++ != '\n');
-        ends[i - 1] = start;
+        if (i > 0)
+            ends[i - 1] = start;
     }
 
     record_type records[num_proc];

@@ -20,9 +20,6 @@ LINK_DIRECTORIES(${Boost_LIBRARY_DIRS})
 ADD_LIBRARY(grid OBJECT main/lib/grid.cpp)
 ADD_EXECUTABLE(grid_test main/test/grid_test.cpp $<TARGET_OBJECTS:grid>)
 
-ADD_LIBRARY(twit OBJECT main/lib/twit.cpp)
-ADD_EXECUTABLE(twit_test main/test/twit_test.cpp)
-
 ADD_LIBRARY(processor OBJECT main/lib/processors/processor.cpp)
 ADD_LIBRARY(processor-st OBJECT main/lib/processors/single_thread_processor.cpp)
 ADD_LIBRARY(processor-mt OBJECT main/lib/processors/multi_thread_processor.cpp)

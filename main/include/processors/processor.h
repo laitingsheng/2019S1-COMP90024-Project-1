@@ -40,7 +40,7 @@ protected:
     >;
     // @formatter:on
 
-    static std::regex coord_rgx, hash_tags_rgx, hash_tag_rgx;
+    static std::regex const coord_rgx, hash_tags_rgx, hash_tag_rgx;
 
     static void merge_records(record_type & to, record_type && from);
 
