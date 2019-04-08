@@ -2,6 +2,7 @@
 #SBATCH -p physical
 #SBATCH -N 1
 #SBATCH -c 1
+#SBATCH -o st-cpp.slurm.out
 
 mkdir -p bin-st &> /dev/null
 
