@@ -21,9 +21,10 @@ ADD_LIBRARY(grid OBJECT main/lib/grid.cpp)
 ADD_EXECUTABLE(grid_test main/test/grid_test.cpp $<TARGET_OBJECTS:grid>)
 
 ADD_LIBRARY(processor OBJECT main/lib/processors/processor.cpp)
-ADD_LIBRARY(processor-st OBJECT main/lib/processors/single_thread_processor.cpp)
-ADD_LIBRARY(processor-mt OBJECT main/lib/processors/multi_thread_processor.cpp)
-ADD_LIBRARY(processor-mn OBJECT main/lib/processors/multi_node_processor.cpp)
+ADD_LIBRARY(processor-st OBJECT main/lib/processors/processor_st.cpp)
+ADD_LIBRARY(processor-m OBJECT main/lib/processors/processor_m.cpp)
+ADD_LIBRARY(processor-mt OBJECT main/lib/processors/processor_mt.cpp)
+ADD_LIBRARY(processor-mn OBJECT main/lib/processors/processor_mn.cpp)
 
 # @formatter:off
 ADD_EXECUTABLE(processors_test
@@ -31,6 +32,7 @@ ADD_EXECUTABLE(processors_test
     $<TARGET_OBJECTS:grid>
     $<TARGET_OBJECTS:processor>
     $<TARGET_OBJECTS:processor-st>
+    $<TARGET_OBJECTS:processor-m>
     $<TARGET_OBJECTS:processor-mt>
     $<TARGET_OBJECTS:processor-mn>
 )
@@ -61,6 +63,7 @@ ELSEIF (multi_node)
     ADD_EXECUTABLE(main main/main.cpp
         $<TARGET_OBJECTS:grid>
         $<TARGET_OBJECTS:processor>
+        $<TARGET_OBJECTS:processor-m>
         $<TARGET_OBJECTS:processor-mn>
     )
     # @formatter:on
@@ -75,6 +78,7 @@ ELSE()
     ADD_EXECUTABLE(main main/main.cpp
         $<TARGET_OBJECTS:grid>
         $<TARGET_OBJECTS:processor>
+        $<TARGET_OBJECTS:processor-m>
         $<TARGET_OBJECTS:processor-mt>
     )
     # @formatter:on

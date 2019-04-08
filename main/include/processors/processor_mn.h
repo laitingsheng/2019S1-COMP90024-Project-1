@@ -3,17 +3,15 @@
 
 #include <boost/mpi.hpp>
 
-#include "processor.h"
+#include "processor_m.h"
 
-struct multi_node_processor final : public processor
+struct processor_mn final : public processor_m
 {
     // @formatter:off
-    explicit multi_node_processor(int, char * [], char const *, grid const &);
+    explicit processor_mn(int, char * [], char const *, grid const &);
     // @formatter:on
 
     void preprocess() override;
-
-    result_type operator()() const override;
 
 private:
     boost::mpi::environment env;

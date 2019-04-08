@@ -13,14 +13,14 @@
 #endif
 #include <boost/timer/timer.hpp>
 
-#include "include/grid.h"
+#include "grid.h"
 
 #if defined(SINGLE_THREAD)
-#include "include/processors/single_thread_processor.h"
+#include "processors/processor_st.h"
 #elif defined(MULTI_NODE)
-#include "include/processors/multi_node_processor.h"
+#include "processors/processor_mn.h"
 #else
-#include "include/processors/multi_thread_processor.h"
+#include "processors/processor_mt.h"
 #endif
 
 int main(int argc, char * argv[])
@@ -39,11 +39,11 @@ int main(int argc, char * argv[])
               << std::endl;
 
     #if defined(SINGLE_THREAD)
-    single_thread_processor p(argv[1], g);
+    processor_st p(argv[1], g);
     #elif defined(MULTI_NODE)
-    multi_node_processor p(argc, argv, argv[1], g);
+    processor_mn p(argc, argv, argv[1], g);
     #else
-    multi_thread_processor p(argv[1], g);
+    processor_mt p(argv[1], g);
     #endif
     timer.start();
     p.preprocess();

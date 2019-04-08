@@ -3,18 +3,18 @@
 #include <boost/serialization/unordered_map.hpp>
 #include <boost/sort/sort.hpp>
 
-#include "processors/multi_node_processor.h"
+#include "processors/processor_mn.h"
 
 // @formatter:off
-multi_node_processor::multi_node_processor(int argc, char * argv[], char const * filename, grid const & g) :
+processor_mn::processor_mn(int argc, char * argv[], char const * filename, grid const & g) :
     num_proc(world.size() * omp_get_num_procs()),
-    processor(filename, g),
+    processor_m(filename, g),
     world(),
     env(argc, argv, boost::mpi::threading::funneled)
 {}
 // @formatter:on
 
-void multi_node_processor::preprocess()
+void processor_mn::preprocess()
 {
     auto curr = file.data();
     auto block_size = file.size() / num_proc;
@@ -60,9 +60,4 @@ void multi_node_processor::preprocess()
         merge_records(records[0], std::move(records[1]));
         record = std::move(records[0]);
     }
-}
-
-processor::result_type multi_node_processor::operator()() const
-{
-    return {};
 }

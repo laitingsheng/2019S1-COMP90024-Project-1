@@ -3,9 +3,9 @@
 
 #include "processor.h"
 
-struct single_thread_processor final : public processor
+struct processor_st final : public processor
 {
-    explicit single_thread_processor(char const *, grid const &);
+    explicit processor_st(char const *, grid const &);
 
     void preprocess() override;
 
