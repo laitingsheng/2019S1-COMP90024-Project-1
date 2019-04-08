@@ -1,6 +1,6 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.12)
 PROJECT(Project_1)
-FIND_PACKAGE(Boost 1.65.0 REQUIRED COMPONENTS container iostreams mpi serialization timer unit_test_framework)
+FIND_PACKAGE(Boost 1.67.0 REQUIRED COMPONENTS iostreams mpi serialization timer unit_test_framework)
 
 SET(CMAKE_CXX_STANDARD 17)
 

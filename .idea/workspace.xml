@@ -2,19 +2,19 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="Project_1" targetName="processor-mt" />
-      <config projectName="Project_1" targetName="grid_test" />
-      <config projectName="Project_1" targetName="main" />
-      <config projectName="Project_1" targetName="grid" />
-      <config projectName="Project_1" targetName="twit" />
-      <config projectName="Project_1" targetName="processors" />
-      <config projectName="Project_1" targetName="processor" />
-      <config projectName="Project_1" targetName="processor-st" />
-      <config projectName="Project_1" targetName="twit_test" />
-      <config projectName="Project_1" targetName="processor-mn" />
-      <config projectName="Project_1" targetName="processor-m" />
       <config projectName="Project_1" targetName="timer" />
+      <config projectName="Project_1" targetName="processor-mt" />
+      <config projectName="Project_1" targetName="processor" />
+      <config projectName="Project_1" targetName="processor-m" />
+      <config projectName="Project_1" targetName="processors" />
+      <config projectName="Project_1" targetName="processor-st" />
+      <config projectName="Project_1" targetName="processor-mn" />
+      <config projectName="Project_1" targetName="grid" />
+      <config projectName="Project_1" targetName="main" />
+      <config projectName="Project_1" targetName="grid_test" />
       <config projectName="Project_1" targetName="processors_test" />
+      <config projectName="Project_1" targetName="twit_test" />
+      <config projectName="Project_1" targetName="twit" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -26,9 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db789271-35c9-4c78-8257-784372f17fc4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/mn.slurm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mt.slurm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/st.slurm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/lib/processors/processor_m.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main/lib/processors/processor_m.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/cmake-build-release/" />
@@ -58,13 +57,13 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1020">
-                  <caret line="86" column="11" lean-forward="true" selection-start-line="86" selection-start-column="11" selection-end-line="86" selection-end-column="11" />
+                <state relative-caret-position="338">
+                  <caret line="59" column="19" lean-forward="true" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main/main.cpp">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="553">
@@ -82,11 +81,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main/lib/processors/processor_m.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="455">
-                  <caret line="35" selection-start-line="35" selection-end-line="35" />
+                <state relative-caret-position="390">
+                  <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
                 </state>
               </provider>
             </entry>
@@ -131,7 +130,7 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main/include/processors/processor.h">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="533">
@@ -149,7 +148,7 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main/include/processors/processor_m.h">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="182">
@@ -247,12 +246,12 @@
         <option value="$PROJECT_DIR$/main/include/processors/processor_st.h" />
         <option value="$PROJECT_DIR$/main/main.cpp" />
         <option value="$PROJECT_DIR$/main/include/processors/processor_m.h" />
-        <option value="$PROJECT_DIR$/main/lib/processors/processor_m.cpp" />
         <option value="$PROJECT_DIR$/main/include/processors/processor_mt.h" />
         <option value="$PROJECT_DIR$/main/lib/processors/processor_mt.cpp" />
         <option value="$PROJECT_DIR$/main/lib/processors/processor_mn.cpp" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/main/include/processors/processor_mn.h" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/main/lib/processors/processor_m.cpp" />
       </list>
     </option>
   </component>
@@ -364,7 +363,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="CMake Application.Tiny">
+  <component name="RunManager" selected="CMake Application.Big">
     <configuration name="Grid Test" type="CMakeBoostTestRunConfigurationType" factoryName="Boost Test" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project_1" TARGET_NAME="grid_test" CONFIG_NAME="MULTI_THREAD" RUN_TARGET_PROJECT_NAME="Project_1" RUN_TARGET_NAME="grid_test" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -392,18 +391,12 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="processor-m" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project_1" TARGET_NAME="processor-m" CONFIG_NAME="MULTI_THREAD">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Boost.Test.Grid Test" />
       <item itemvalue="Boost.Test.Processors Test" />
       <item itemvalue="CMake Application.Big" />
       <item itemvalue="CMake Application.Small" />
       <item itemvalue="CMake Application.Tiny" />
-      <item itemvalue="CMake Application.processor-m" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -512,7 +505,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="358918000" />
+    <option name="totallyTimeSpent" value="360102000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -628,13 +621,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/include/processors/processor_m.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/include/processors/processor_mt.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="78">
@@ -656,20 +642,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/lib/processors/processor.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1131">
-          <caret line="87" column="1" selection-start-line="87" selection-start-column="1" selection-end-line="87" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/lib/processors/processor_m.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/lib/processors/processor_mt.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="520">
@@ -681,13 +653,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
           <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="86" column="11" lean-forward="true" selection-start-line="86" selection-start-column="11" selection-end-line="86" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -705,10 +670,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main/include/processors/processor_m.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/lib/processors/processor.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1131">
+          <caret line="87" column="1" selection-start-line="87" selection-start-column="1" selection-end-line="87" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="553">
           <caret line="46" column="10" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="59" column="19" lean-forward="true" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/lib/processors/processor_m.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
         </state>
       </provider>
     </entry>
