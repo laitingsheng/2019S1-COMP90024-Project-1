@@ -8,12 +8,7 @@
 struct multi_node_processor final : public processor
 {
     // @formatter:off
-    explicit multi_node_processor(
-        boost::mpi::environment const & env,
-        boost::mpi::communicator const & world,
-        char const * filename,
-        grid const & g
-    );
+    explicit multi_node_processor(int, char * [], char const *, grid const &);
     // @formatter:on
 
     void preprocess() override;
@@ -21,8 +16,10 @@ struct multi_node_processor final : public processor
     result_type operator()() const override;
 
 private:
-    boost::mpi::environment const & env;
-    boost::mpi::communicator const & world;
+    boost::mpi::environment env;
+    boost::mpi::communicator world;
+
+    int const num_proc;
 };
 
 #endif

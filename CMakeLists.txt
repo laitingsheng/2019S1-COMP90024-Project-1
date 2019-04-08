@@ -68,7 +68,7 @@ ELSEIF (multi_node)
     if (APPLE)
         TARGET_LINK_LIBRARIES(main boost_mpi-mt)
     ELSE()
-        TARGET_LINK_LIBRARIES(main mpi_cxx boost_mpi)
+        TARGET_LINK_LIBRARIES(main mpi_cxx boost_mpi boost_serialization)
     ENDIF()
 ELSE()
     # @formatter:off

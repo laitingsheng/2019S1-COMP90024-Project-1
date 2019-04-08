@@ -5,7 +5,7 @@
 
 struct single_thread_processor final : public processor
 {
-    explicit single_thread_processor(char const * filename, grid const & g);
+    explicit single_thread_processor(char const *, grid const &);
 
     void preprocess() override;
 

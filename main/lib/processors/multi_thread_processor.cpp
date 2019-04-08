@@ -8,14 +8,13 @@ multi_thread_processor::multi_thread_processor(char const * filename, grid const
 
 void multi_thread_processor::preprocess()
 {
-    auto num_proc = omp_get_num_procs();
     auto curr = file.data();
     auto block_size = file.size() / num_proc;
     decltype(curr) starts[num_proc], ends[num_proc];
     starts[0] = curr;
     ends[num_proc - 1] = curr + file.size();
     #pragma omp parallel for
-    for (decltype(num_proc) i = 0; i < num_proc; ++i)
+    for (int i = 0; i < num_proc; ++i)
     {
         auto & start = starts[i] = curr + i * block_size;
         while (*start++ != '\n');
@@ -25,7 +24,7 @@ void multi_thread_processor::preprocess()
 
     record_type records[num_proc];
     #pragma omp parallel for
-    for (decltype(num_proc) i = 0; i < num_proc; ++i)
+    for (int i = 0; i < num_proc; ++i)
         process_block(starts[i], ends[i], records[i]);
 
     auto pc = num_proc >> 1;
@@ -44,7 +43,9 @@ processor::result_type multi_thread_processor::operator()() const
 {
     result_type re(record.size());
     auto it = re.begin();
-    for (auto &[k, v] : record)
+    // @formatter:off
+    for (auto & [k, v] : record)
+    // @formatter:on
     {
         // @formatter:off
         auto & [ik, iv] = v;
@@ -67,3 +68,5 @@ processor::result_type multi_thread_processor::operator()() const
     boost::sort::block_indirect_sort(re.begin(), re.end(), less_cell_info);
     return re;
 }
+
+int const multi_thread_processor::num_proc = omp_get_num_procs();

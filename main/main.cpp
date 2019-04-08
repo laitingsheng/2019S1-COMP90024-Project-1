@@ -31,11 +31,6 @@ int main(int argc, char * argv[])
         return -1;
     }
 
-    #ifdef MULTI_NODE
-    boost::mpi::environment env(argc, argv);
-    boost::mpi::communicator world;
-    #endif
-
     boost::timer::cpu_timer timer;
     timer.start();
     auto g = argc == 3 ? grid(argv[2]) : grid();
@@ -46,7 +41,7 @@ int main(int argc, char * argv[])
     #if defined(SINGLE_THREAD)
     single_thread_processor p(argv[1], g);
     #elif defined(MULTI_NODE)
-    multi_node_processor p(env, world, argv[1], g);
+    multi_node_processor p(argc, argv, argv[1], g);
     #else
     multi_thread_processor p(argv[1], g);
     #endif

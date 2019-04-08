@@ -5,11 +5,13 @@
 
 struct multi_thread_processor final : public processor
 {
-    explicit multi_thread_processor(char const * filename, grid const & g);
+    explicit multi_thread_processor(char const *, grid const &);
 
     void preprocess() override;
 
     result_type operator()() const override;
+private:
+    static int const num_proc;
 };
 
 #endif
