@@ -1,15 +1,14 @@
-#include "processors/single_thread_processor.h"
+#include "processors/processor_st.h"
 
-single_thread_processor::single_thread_processor(char const * filename, grid const & g) : processor(filename, g) {}
+processor_st::processor_st(char const * filename, grid const & g) : processor(filename, g) {}
 
-processor & single_thread_processor::preprocess()
+void processor_st::preprocess()
 {
     auto curr = file.data();
     process_block(curr, curr + file.size(), record);
-    return *this;
 }
 
-processor::result_type single_thread_processor::operator()() const
+processor::result_type processor_st::operator()() const
 {
     result_type re(record.size());
     auto it = re.begin();

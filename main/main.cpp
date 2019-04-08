@@ -6,9 +6,22 @@
 
 #include <cstdio>
 
-#include "include/grid.h"
-#include "include/processors/multi_thread_processor.h"
-#include "include/timer.h"
+#include <iostream>
+
+#ifdef MULTI_NODE
+#include <boost/mpi.hpp>
+#endif
+#include <boost/timer/timer.hpp>
+
+#include "grid.h"
+
+#if defined(SINGLE_THREAD)
+#include "processors/processor_st.h"
+#elif defined(MULTI_NODE)
+#include "processors/processor_mn.h"
+#else
+#include "processors/processor_mt.h"
+#endif
 
 int main(int argc, char * argv[])
 {
@@ -18,18 +31,31 @@ int main(int argc, char * argv[])
         return -1;
     }
 
-    timer t;
+    boost::timer::cpu_timer timer;
+    timer.start();
     auto g = argc == 3 ? grid(argv[2]) : grid();
-    t.print_duration("Grid read: ");
+    timer.stop();
+    std::cout << timer.format(3, "Grid Reading:\nWall: %w\nUser: %u\nSystem: %s\nTotal: %t\nPercentage: %p%\n\n")
+              << std::endl;
 
-    multi_thread_processor p(argv[1], g);
-    t.restart();
+    #if defined(SINGLE_THREAD)
+    processor_st p(argv[1], g);
+    #elif defined(MULTI_NODE)
+    processor_mn p(argc, argv, argv[1], g);
+    #else
+    processor_mt p(argv[1], g);
+    #endif
+    timer.start();
     p.preprocess();
-    t.print_duration("Data preprocessed: ");
+    timer.stop();
+    std::cout << timer.format(3, "Preprocessing:\nWall: %w\nUser: %u\nSystem: %s\nTotal: %t\nPercentage: %p%\n\n")
+              << std::endl;
 
-    t.restart();
+    timer.start();
     auto output = p();
-    t.print_duration("Data processed: ");
+    timer.stop();
+    std::cout << timer.format(3, "Final Processing:\nWall: %w\nUser: %u\nSystem: %s\nTotal: %t\nPercentage: %p%\n\n")
+              << std::endl;
 
     for (auto const & [k, c, _] : output)
         printf("%s: %lu\n", k.c_str(), c);

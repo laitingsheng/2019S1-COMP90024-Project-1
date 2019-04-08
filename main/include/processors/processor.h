@@ -25,9 +25,9 @@ struct processor
 
     processor & operator=(processor &&) = delete;
 
-    virtual result_type operator()() const = 0;
+    virtual void preprocess() = 0;
 
-    virtual processor & preprocess() = 0;
+    virtual result_type operator()() const = 0;
 
 protected:
     // @formatter:off
@@ -40,23 +40,23 @@ protected:
     >;
     // @formatter:on
 
-    static std::regex coord_rgx, hash_tags_rgx, hash_tag_rgx;
+    static std::regex const coord_rgx, hash_tags_rgx, hash_tag_rgx;
 
-    static void merge_records(record_type & to, record_type && from);
+    static void merge_records(record_type &, record_type &&);
 
-    static bool less_cell_tag_info(cell_tag_info const & l, cell_tag_info const & r);
+    static bool less_cell_tag_info(cell_tag_info const &, cell_tag_info const &);
 
-    static bool less_cell_info(cell_info const & l, cell_info const & r);
+    static bool less_cell_info(cell_info const &, cell_info const &);
 
     grid const & g;
     boost::iostreams::mapped_file_source file;
     record_type record;
 
-    explicit processor(char const * filename, grid const & g);
+    explicit processor(char const *, grid const &);
 
-    virtual void process_line(std::string const & line, record_type & record) const final;
+    virtual void process_line(std::string const &, record_type &) const final;
 
-    virtual void process_block(char const * start, char const * end, record_type & record) const final;
+    virtual void process_block(char const *, char const *, record_type &) const final;
 
 private:
     friend struct processor_tester;
