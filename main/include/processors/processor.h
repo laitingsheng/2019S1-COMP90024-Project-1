@@ -25,7 +25,7 @@ struct processor
 
     processor & operator=(processor &&) = delete;
 
-    virtual processor & preprocess() = 0;
+    virtual void preprocess() = 0;
 
     virtual result_type operator()() const = 0;
 

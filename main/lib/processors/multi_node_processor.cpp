@@ -9,10 +9,9 @@ multi_node_processor::multi_node_processor(
 ) : processor(filename, g), world(world), env(env) {}
 // @formatter:on
 
-processor & multi_node_processor::preprocess()
+void multi_node_processor::preprocess()
 {
     auto curr = file.data();
-    return *this;
 }
 
 processor::result_type multi_node_processor::operator()() const

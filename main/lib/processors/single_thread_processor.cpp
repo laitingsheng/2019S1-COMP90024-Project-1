@@ -2,11 +2,10 @@
 
 single_thread_processor::single_thread_processor(char const * filename, grid const & g) : processor(filename, g) {}
 
-processor & single_thread_processor::preprocess()
+void single_thread_processor::preprocess()
 {
     auto curr = file.data();
     process_block(curr, curr + file.size(), record);
-    return *this;
 }
 
 processor::result_type single_thread_processor::operator()() const

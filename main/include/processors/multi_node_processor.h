@@ -16,7 +16,7 @@ struct multi_node_processor final : public processor
     );
     // @formatter:on
 
-    processor & preprocess() override;
+    void preprocess() override;
 
     result_type operator()() const override;
 

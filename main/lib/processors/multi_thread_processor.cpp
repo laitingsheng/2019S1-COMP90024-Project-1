@@ -6,7 +6,7 @@
 
 multi_thread_processor::multi_thread_processor(char const * filename, grid const & g) : processor(filename, g) {}
 
-processor & multi_thread_processor::preprocess()
+void multi_thread_processor::preprocess()
 {
     auto num_proc = omp_get_num_procs();
     auto curr = file.data();
@@ -38,8 +38,6 @@ processor & multi_thread_processor::preprocess()
     }
     merge_records(records[0], std::move(records[1]));
     record = std::move(records[0]);
-
-    return *this;
 }
 
 processor::result_type multi_thread_processor::operator()() const
