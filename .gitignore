@@ -5,3 +5,4 @@ bin-*
 submit
 bigTwitter.json
 *.out
+*.err
