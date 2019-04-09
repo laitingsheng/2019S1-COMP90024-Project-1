@@ -6,4 +6,4 @@
 
 module load Boost/1.69.0-spartan_gcc-8.1.0
 
-bin-st/main /data/projects/COMP90024/bigTwitter.json /data/projects/COMP90024/melbGrid.json 1> n1c1.out 2> n1c1.err
+bin-mt/main /data/projects/COMP90024/bigTwitter.json /data/projects/COMP90024/melbGrid.json 1> n1c8.out 2> n1c8.err
