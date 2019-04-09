@@ -1,15 +1,8 @@
-#include "processors/single_thread_processor.h"
+#include <parallel/algorithm>
 
-single_thread_processor::single_thread_processor(char const * filename, grid const & g) : processor(filename, g) {}
+#include "processors/processor_m.h"
 
-processor & single_thread_processor::preprocess()
-{
-    auto curr = file.data();
-    process_block(curr, curr + file.size(), record);
-    return *this;
-}
-
-processor::result_type single_thread_processor::operator()() const
+processor::result_type processor_m::operator()() const
 {
     result_type re(record.size());
     auto it = re.begin();
@@ -23,18 +16,20 @@ processor::result_type single_thread_processor::operator()() const
         std::vector<cell_tag_info> tmp(iv.size());
         auto tit = tmp.begin();
         // @formatter:off
-        for (auto & [iik, iiv] : iv)
+        for (auto &[iik, iiv] : iv)
         // @formatter:on
         {
             *tit = {iik, iiv};
             ++tit;
         }
-        std::sort(tmp.begin(), tmp.end(), less_cell_tag_info);
+        __gnu_parallel::sort(tmp.begin(), tmp.end(), less_cell_tag_info);
         if (tmp.size() > 5)
             tmp.erase(tmp.begin() + 5, tmp.end());
         *it = {k, ik, std::move(tmp)};
         ++it;
     }
-    std::sort(re.begin(), re.end(), less_cell_info);
+    __gnu_parallel::sort(re.begin(), re.end(), less_cell_info);
     return re;
 }
+
+processor_m::processor_m(char const * filename, grid const & g) : processor(filename, g) {}
