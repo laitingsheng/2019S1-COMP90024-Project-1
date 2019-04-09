@@ -1,3 +1,5 @@
+#include <omp.h>
+
 #include <boost/sort/sort.hpp>
 
 #include "processors/processor_m.h"
@@ -16,7 +18,7 @@ processor::result_type processor_m::operator()() const
         std::vector<cell_tag_info> tmp(iv.size());
         auto tit = tmp.begin();
         // @formatter:off
-        for (auto &[iik, iiv] : iv)
+        for (auto & [iik, iiv] : iv)
         // @formatter:on
         {
             *tit = {iik, iiv};
@@ -31,5 +33,7 @@ processor::result_type processor_m::operator()() const
     boost::sort::block_indirect_sort(re.begin(), re.end(), less_cell_info);
     return re;
 }
+
+int const processor_m::num_proc = omp_get_num_procs();
 
 processor_m::processor_m(char const * filename, grid const & g) : processor(filename, g) {}

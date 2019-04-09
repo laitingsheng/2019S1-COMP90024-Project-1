@@ -12,10 +12,10 @@ struct processor_mn final : public processor_m
     void preprocess() override;
 
 private:
-    boost::mpi::environment env;
-    boost::mpi::communicator world;
+    boost::mpi::environment const env;
+    boost::mpi::communicator const world;
 
-    int const num_proc;
+    int const num_nodes, rank;
 };
 
 #endif

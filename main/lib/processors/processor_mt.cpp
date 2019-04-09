@@ -1,5 +1,3 @@
-#include <omp.h>
-
 #include "processors/processor_mt.h"
 
 processor_mt::processor_mt(char const * filename, grid const & g) : processor_m(filename, g) {}
@@ -9,8 +7,6 @@ void processor_mt::preprocess()
     auto curr = file.data();
     auto block_size = file.size() / num_proc;
     decltype(curr) starts[num_proc], ends[num_proc];
-    starts[0] = curr;
-    ends[num_proc - 1] = curr + file.size();
     #pragma omp parallel for
     for (int i = 0; i < num_proc; ++i)
     {
@@ -18,6 +14,8 @@ void processor_mt::preprocess()
         while (*start++ != '\n');
         if (i > 0)
             ends[i - 1] = start;
+        else
+            ends[num_proc - 1] = curr + file.size();
     }
 
     record_type records[num_proc];
@@ -36,5 +34,3 @@ void processor_mt::preprocess()
     merge_records(records[0], std::move(records[1]));
     record = std::move(records[0]);
 }
-
-int const processor_mt::num_proc = omp_get_num_procs();
