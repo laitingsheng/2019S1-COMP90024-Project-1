@@ -79,4 +79,9 @@ bool grid::validate(char vertical, char horizontal) const
     return static_cast<bool>(_valid.count({vertical, horizontal}));
 }
 
-std::regex const grid::cell_rgx(R"cr("id": "(.)(.)", "xmin": (.*?), "xmax": (.*?), "ymin": (.*?), "ymax": (.*?),)cr");
+// @formatter:off
+std::regex const grid::cell_rgx(
+    R"cr("id": "(.)(.)", "xmin": (.*?), "xmax": (.*?), "ymin": (.*?), "ymax": (.*?),)cr",
+    std::regex::ECMAScript | std::regex::optimize | std::regex::collate
+);
+// @formatter:on

@@ -4,6 +4,7 @@
   <component name="CidrRootsConfiguration">
     <sourceRoots>
       <file path="$PROJECT_DIR$/main" />
+      <file path="$PROJECT_DIR$/python" />
       <file path="$PROJECT_DIR$/test" />
     </sourceRoots>
   </component>
