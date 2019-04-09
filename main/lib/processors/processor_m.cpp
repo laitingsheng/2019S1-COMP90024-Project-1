@@ -1,4 +1,4 @@
-#include <parallel/algorithm>
+#include <boost/sort/sort.hpp>
 
 #include "processors/processor_m.h"
 
@@ -22,13 +22,13 @@ processor::result_type processor_m::operator()() const
             *tit = {iik, iiv};
             ++tit;
         }
-        __gnu_parallel::sort(tmp.begin(), tmp.end(), less_cell_tag_info);
+        boost::sort::block_indirect_sort(tmp.begin(), tmp.end(), less_cell_tag_info);
         if (tmp.size() > 5)
             tmp.erase(tmp.begin() + 5, tmp.end());
         *it = {k, ik, std::move(tmp)};
         ++it;
     }
-    __gnu_parallel::sort(re.begin(), re.end(), less_cell_info);
+    boost::sort::block_indirect_sort(re.begin(), re.end(), less_cell_info);
     return re;
 }
 
