@@ -1,7 +1,6 @@
-cmake-build-*
-CMakeFiles
-CMakeCache.txt
-bin-*
-submit
+**/cmake-build-*
+**/bin-*
+
+**/SLURM/*
+
 bigTwitter.json
-*.out

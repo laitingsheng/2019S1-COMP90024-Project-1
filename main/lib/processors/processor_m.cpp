@@ -1,4 +1,6 @@
-#include <parallel/algorithm>
+#include <omp.h>
+
+#include <boost/sort/sort.hpp>
 
 #include "processors/processor_m.h"
 
@@ -16,20 +18,22 @@ processor::result_type processor_m::operator()() const
         std::vector<cell_tag_info> tmp(iv.size());
         auto tit = tmp.begin();
         // @formatter:off
-        for (auto &[iik, iiv] : iv)
+        for (auto & [iik, iiv] : iv)
         // @formatter:on
         {
             *tit = {iik, iiv};
             ++tit;
         }
-        __gnu_parallel::sort(tmp.begin(), tmp.end(), less_cell_tag_info);
+        boost::sort::block_indirect_sort(tmp.begin(), tmp.end(), less_cell_tag_info);
         if (tmp.size() > 5)
             tmp.erase(tmp.begin() + 5, tmp.end());
         *it = {k, ik, std::move(tmp)};
         ++it;
     }
-    __gnu_parallel::sort(re.begin(), re.end(), less_cell_info);
+    boost::sort::block_indirect_sort(re.begin(), re.end(), less_cell_info);
     return re;
 }
+
+int const processor_m::num_proc = omp_get_num_procs();
 
 processor_m::processor_m(char const * filename, grid const & g) : processor(filename, g) {}

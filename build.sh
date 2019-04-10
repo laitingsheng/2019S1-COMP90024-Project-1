@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Load Boost 1.66 and OpenMPI 3 with GCC 8.2.0 for full support of C++17
-# module load Boost/1.66.0-GCC-8.2.0 OpenMPI/3.1.0-GCC-8.2.0-cuda9-ucx
+# Load Boost 1.69 with MPI and OpenMPI 3 with GCC 8 for full support of C++17
+module load Boost/1.69.0-spartan_gcc-8.1.0 OpenMPI/3.1.0-GCC-8.2.0-cuda9-ucx
 
 # create directories for the compilation output
 mkdir -p bin-common bin-st bin-mt bin-mn

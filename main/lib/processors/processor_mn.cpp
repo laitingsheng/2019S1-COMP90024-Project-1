@@ -7,27 +7,44 @@
 
 // @formatter:off
 processor_mn::processor_mn(int argc, char * argv[], char const * filename, grid const & g) :
-    num_proc(world.size() * omp_get_num_procs()),
+    rank(world.rank()),
+    num_nodes(world.size()),
     processor_m(filename, g),
     world(),
-    env(argc, argv, boost::mpi::threading::funneled)
+    env(argc, argv, boost::mpi::threading::multiple)
 {}
 // @formatter:on
 
 void processor_mn::preprocess()
 {
     auto curr = file.data();
-    auto block_size = file.size() / num_proc;
+    auto total_proc = num_nodes * num_proc, actual_thread_start = rank * num_proc;
+    auto block_size = file.size() / total_proc;
     decltype(curr) starts[num_proc], ends[num_proc];
-    starts[0] = curr;
-    ends[num_proc - 1] = curr + file.size();
     #pragma omp parallel for
     for (int i = 0; i < num_proc; ++i)
     {
-        auto & start = starts[i] = curr + i * block_size;
+        auto & start = starts[i] = curr + block_size * (actual_thread_start + i);
         while (*start++ != '\n');
         if (i > 0)
+        {
             ends[i - 1] = start;
+            if (i == num_proc - 1)
+                if (rank < num_nodes - 1)
+                {
+                    long dist;
+                    world.recv(rank + 1, 0, dist);
+                    ends[i] = curr + dist;
+                }
+                else
+                    ends[i] = curr + file.size();
+        }
+        else
+            if (rank > 0)
+            {
+                long dist = start - curr;
+                world.send(rank - 1, 0, dist);
+            }
     }
 
     record_type records[num_proc];
@@ -48,16 +65,17 @@ void processor_mn::preprocess()
 
     if (world.size() > 1)
     {
-        boost::mpi::all_gather(world, record, records);
+        record_type tmp[num_nodes];
+        boost::mpi::all_gather(world, record, tmp);
         pc = world.size() >> 1;
         while (pc > 1)
         {
             #pragma omp parallel for num_threads(pc)
             for (int i = 0; i < pc; ++i)
-                merge_records(records[i], std::move(records[i + pc]));
+                merge_records(tmp[i], std::move(tmp[i + pc]));
             pc >>= 1;
         }
-        merge_records(records[0], std::move(records[1]));
-        record = std::move(records[0]);
+        merge_records(tmp[0], std::move(tmp[1]));
+        record = std::move(tmp[0]);
     }
 }
