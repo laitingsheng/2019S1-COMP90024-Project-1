@@ -1,9 +1,21 @@
 #!/bin/bash
-#SBATCH -p physical
-#SBATCH -N 1
 #SBATCH -c 32
-#SBATCH -o /dev/null
+#SBATCH -J COMP90024-st-n1c32
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=tingshengl@student.unimelb.edu.au
+#SBATCH --ntasks-per-core=1
+#SBATCH -N 1
+#SBATCH --open-mode=truncate
+#SBATCH -o SLURM/n1c32.summary
+#SBATCH -p physical
+#SBATCH --profile=all
+#SBATCH -t 60
+
+mkdir SLURM/n1c32
 
 module load Boost/1.69.0-spartan_gcc-8.1.0
 
-bin-mt/main /data/projects/COMP90024/bigTwitter.json /data/projects/COMP90024/melbGrid.json 1> n1c32.out 2> n1c32.err
+for i in {1..10}
+do
+    bin-mt/main /data/projects/COMP90024/bigTwitter.json /data/projects/COMP90024/melbGrid.json 1> SLURM/n1c32/$i.out 2> SLURM/n1c32/$i.err
+done
