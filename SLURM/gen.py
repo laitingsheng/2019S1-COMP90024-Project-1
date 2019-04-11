@@ -2,7 +2,7 @@ from multiprocessing import cpu_count, Pool
 
 TEMPLATE = '''#!/bin/bash
 #SBATCH -c {core}
-#SBATCH -J COMP90024-n1c{core}
+#SBATCH -J COMP90024-n{node}c{core}
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=tingshengl@student.unimelb.edu.au
 #SBATCH --ntasks-per-node=1
@@ -14,7 +14,7 @@ TEMPLATE = '''#!/bin/bash
 
 mkdir -p SLURM/n{node}c{core}
 
-module {modules}
+module load {modules}
 
 for i in {{1..{loop}}}
 do
@@ -32,11 +32,20 @@ CONFIGURES = (
     (8, 1), (8, 2), (8, 4), (8, 8)
 )
 
-def create_file(node, core, execute, time="12:00:00", modules=BOOST_MODULE, loop=10):
+def create_file(node, core, execute, modules, time="240", loop=10):
     with open(f"n{node}c{core}.slurm", "w+t") as f:
         f.write(TEMPLATE.format(node=node, core=core, time=time, modules=modules, loop=loop, execute=execute))
 
-create_file(1, 1, "bin-st/main")
-
 with Pool(cpu_count()) as p:
-    p.starmap(create_file, ((1, core, "bin-mt/main") for core in CORES))
+    p.starmap(
+        create_file,
+        (
+            (
+                node,
+                core,
+                f"{'' if node == 1 else f'mpiexec -np {node} --cpus-per-proc {core} '}bin-{'sn' if node == 1 else 'mn'}-{'st' if core == 1 else 'mt'}/main",
+                BOOST_MODULE if node == 1 else f"{BOOST_MODULE} {MPI_MODULE}"
+            )
+            for node, core in CONFIGURES
+        )
+    )
