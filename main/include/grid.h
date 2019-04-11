@@ -6,21 +6,17 @@
 #include <string>
 #include <unordered_map>
 #include <unordered_set>
+#include <vector>
 
 struct grid final
 {
-    using axis = std::map<double, char>;
-    using valids = std::unordered_set<std::string>;
-
     explicit grid();
 
     explicit grid(char const * filename);
 
-    char get_horizontal(double pos) const;
+    std::string const & decode(unsigned coded_coord) const;
 
-    char get_vertical(double pos) const;
-
-    bool validate(char vertical, char horizontal) const;
+    unsigned int encode(double vertical, double horizontal) const;\
 
     grid(grid const &) = delete;
 
@@ -35,8 +31,9 @@ private:
 
     static std::regex const cell_rgx;
 
-    axis _horizontal, _vertical;
-    valids _valid;
+    std::map<double, char> _horizontal, _vertical;
+    std::unordered_map<std::string, unsigned int> _map;
+    std::vector<std::string> _rev_map;
 };
 
 

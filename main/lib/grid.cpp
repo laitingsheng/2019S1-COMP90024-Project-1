@@ -1,17 +1,29 @@
 #include <fstream>
 
+#include <boost/geometry/index/rtree.hpp>
+
 #include "grid.h"
 
 grid::grid() :
 // @formatter:off
-    _horizontal {
-        {180, 0},
-        {145.45, '5'},
-        {145.3, '5'},
-        {145.15, '4'},
-        {145, '3'},
-        {144.85, '2'},
-        {144.7, '1'}
+    _rev_map {"A1", "A2", "A3", "A4", "B1", "B2", "B3", "B4", "C1", "C2", "C3", "C4", "C5", "D3", "D4", "D5"},
+    _map {
+        {"A1", 0},
+        {"A2", 1},
+        {"A3", 2},
+        {"A4", 3},
+        {"B1", 4},
+        {"B2", 5},
+        {"B3", 6},
+        {"B4", 7},
+        {"C1", 8},
+        {"C2", 9},
+        {"C3", 10},
+        {"C4", 11},
+        {"C5", 12},
+        {"D3", 13},
+        {"D4", 14},
+        {"D5", 15}
     },
     _vertical {
         {90, 0},
@@ -21,7 +33,15 @@ grid::grid() :
         {-37.95, 'D'},
         {-38.1, 'D'}
     },
-    _valid {"A1", "A2", "A3", "A4", "B1", "B2", "B3", "B4", "C1", "C2", "C3", "C4", "C5", "D3", "D4", "D5"}
+    _horizontal {
+        {180, 0},
+        {145.45, '5'},
+        {145.3, '5'},
+        {145.15, '4'},
+        {145, '3'},
+        {144.85, '2'},
+        {144.7, '1'}
+    }
 // @formatter:on
 {}
 
@@ -30,6 +50,7 @@ grid::grid(char const * filename) : _horizontal {{180, 0}}, _vertical {{90, 0}}
     std::ifstream grid_file(filename);
     std::string feature;
     std::smatch feature_matches;
+    unsigned int i = 0;
     while (!grid_file.eof())
     {
         std::getline(grid_file, feature);
@@ -37,7 +58,7 @@ grid::grid(char const * filename) : _horizontal {{180, 0}}, _vertical {{90, 0}}
         {
             char v = feature_matches[1].str()[0];
             char h = feature_matches[2].str()[0];
-            _valid.insert({v, h});
+            _map[{v, h}] = i++;
             // @formatter:off
             auto xmin = std::stod(feature_matches[3].str()),
                  xmax = std::stod(feature_matches[4].str()),
@@ -48,35 +69,41 @@ grid::grid(char const * filename) : _horizontal {{180, 0}}, _vertical {{90, 0}}
             _vertical[ymin] = _vertical[ymax] = v;
         }
     }
+
+    _rev_map.resize(_map.size());
+    // @formatter:off
+    for (auto & [k, v] : _map)
+    // @formatter:on
+        _rev_map[v] = k;
 }
 
-char grid::get_horizontal(double pos) const
+std::string const & grid::decode(unsigned coded_coord) const
 {
-    auto hlbit = _horizontal.lower_bound(pos);
+    return _rev_map.at(coded_coord);
+}
+
+unsigned int grid::encode(double vertical, double horizontal) const
+{
+    auto vlbit = _vertical.lower_bound(vertical);
+    auto vlbv = vlbit->second;
+    if (!vlbv || vertical < vlbit->first && vlbit == _vertical.begin())
+        return -1;
+
+    auto hlbit = _horizontal.lower_bound(horizontal);
     auto hlbv = hlbit->second;
     if (!hlbv)
-        return 0;
-    if (pos < hlbit->first)
+        return -1;
+    if (horizontal < hlbit->first)
     {
         if (hlbit == _horizontal.begin())
-            return 0;
+            return -1;
         hlbv = (--hlbit)->second;
     }
-    return hlbv;
-}
 
-char grid::get_vertical(double pos) const
-{
-    auto vlbit = _vertical.lower_bound(pos);
-    auto vlbv = vlbit->second;
-    if (!vlbv || pos < vlbit->first && vlbit == _vertical.begin())
-        return 0;
-    return vlbv;
-}
-
-bool grid::validate(char vertical, char horizontal) const
-{
-    return static_cast<bool>(_valid.count({vertical, horizontal}));
+    std::string coord_decs {vlbv, hlbv};
+    if (!_map.count(coord_decs))
+        return -1;
+    return _map.at(coord_decs);
 }
 
 // @formatter:off
