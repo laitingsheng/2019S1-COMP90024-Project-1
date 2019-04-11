@@ -2,7 +2,7 @@ import re
 from collections import defaultdict as dd
 from multiprocessing import Pool, cpu_count
 
-TFPATH = "D:/comp90024-project-1/tinyTwitter.json"
+TFPATH = "D:/comp90024-project-1/smallTwitter.json"
 X_MIN = 144.7
 Y_MIN = -37.65
 GRID_WIDTH = 0.15
@@ -21,7 +21,7 @@ def process_line(line):
 
     horizontal_grid = chr(int(ord('1') + (x_coor - X_MIN) // GRID_WIDTH))
     vertical_grid = chr(int(ord('A') + (Y_MIN - y_coor) // GRID_WIDTH))
-    grid_name = vertical_grid + horizontal_grid
+    grid_name = vertical_grid + horizontal_grid #hardcoded grid calculation for better efficiency
 
     hashtag_filter = re.compile(r'"text":"(.*?)"')
     if hashtags_data is not None:
@@ -52,7 +52,7 @@ def processTwitterFile(data):
                 grid_hashtag_count[grid_name][hashtag] += 1
             else:
                 grid_hashtag_count[grid_name][hashtag] = 1
-    return dict(grid_twit_count), dict(grid_hashtag_count)
+    return grid_twit_count, grid_hashtag_count
 
 
 if __name__ == '__main__':
@@ -66,21 +66,17 @@ if __name__ == '__main__':
 
     pool = Pool()
     results = pool.map(processTwitterFile, process_list)
-    gtc_dicts = [re[0] for re in results]
-    ghc_dicts = [re[1] for re in results]
+
     grid_twit_count = dd(int)
-    grid_hashtag_count = dd(dict)
-    for gtc_d in gtc_dicts:
+    grid_hashtag_count = dd(lambda: dd(int))
+
+    for gtc_d, ghc_d in results:
         for grid in gtc_d:
             grid_twit_count[grid] += gtc_d[grid]
 
-    for ghc_d in ghc_dicts:
-        for grid in ghc_d:
-            for hashtag in ghc_d[grid]:
-                if hashtag in grid_hashtag_count[grid]:
+            if grid in ghc_d:
+                for hashtag in ghc_d[grid]:
                     grid_hashtag_count[grid][hashtag] += ghc_d[grid][hashtag]
-                else:
-                    grid_hashtag_count[grid][hashtag] = ghc_d[grid][hashtag]
 
     twitter_count_order = sorted(grid_twit_count.items(), key=lambda x: x[1],
                                  reverse=True)
@@ -89,7 +85,7 @@ if __name__ == '__main__':
     for grid in twitter_count_order:
         print(grid[0] + ": " + str(grid[1]) + " posts, ")
 
-    print("Top 5 hashtags in the area:")
+    print("\nTop 5 hashtags in the area:")
     for grid in grid_hashtag_count:
         top5hashtags = sorted(grid_hashtag_count[grid].items(),
                               key=lambda x: x[1], reverse=True)[:5]
