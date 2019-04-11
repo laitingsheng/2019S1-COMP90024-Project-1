@@ -25,32 +25,31 @@ grid::grid() :
         {"D4", 14},
         {"D5", 15}
     },
-    _vertical {
-        {90, 0},
-        {-37.5, 'A'},
-        {-37.65, 'B'},
-        {-37.8, 'C'},
-        {-37.95, 'D'},
-        {-38.1, 'D'}
-    },
-    _horizontal {
-        {180, 0},
-        {145.45, '5'},
-        {145.3, '5'},
-        {145.15, '4'},
-        {145, '3'},
-        {144.85, '2'},
-        {144.7, '1'}
+    _region {
+        {90, {0, {}}},
+        {-37.5, {'A', {{180, 0}, {145.3, '4'}, {145.15, '4'}, {145, '3'}, {144.85, '2'}, {144.7, '1'}}}},
+        {-37.65, {'B', {{180, 0}, {145.3, '4'}, {145.15, '4'}, {145, '3'}, {144.85, '2'}, {144.7, '1'}}}},
+        {-37.8, {'C', {{180, 0}, {145.45, '5'}, {145.3, '5'}, {145.15, '4'}, {145, '3'}, {144.85, '2'}, {144.7, '1'}}}},
+        {-37.95, {'D', {{180, 0}, {145.45, '5'}, {145.3, '5'}, {145.15, '4'}, {145, '3'}}}},
+        {-38.1, {'D', {{180, 0}, {145.45, '5'}, {145.3, '5'}, {145.15, '4'}, {145, '3'}}}}
     }
 // @formatter:on
 {}
 
-grid::grid(char const * filename) : _horizontal {{180, 0}}, _vertical {{90, 0}}
+unsigned long grid::count() const
+{
+    return _rev_map.size();
+}
+
+grid::grid(char const * filename) : _region {{90, {0, {}}}}
 {
     std::ifstream grid_file(filename);
     std::string feature;
     std::smatch feature_matches;
     unsigned int i = 0;
+    char last_v = 0;
+    double last_ymin, last_ymax;
+    std::map<double, char> last_h;
     while (!grid_file.eof())
     {
         std::getline(grid_file, feature);
@@ -65,10 +64,21 @@ grid::grid(char const * filename) : _horizontal {{180, 0}}, _vertical {{90, 0}}
                  ymin = std::stod(feature_matches[5].str()),
                  ymax = std::stod(feature_matches[6].str());
             // @formatter:on
-            _horizontal[xmin] = _horizontal[xmax] = h;
-            _vertical[ymin] = _vertical[ymax] = v;
+            if (last_v != v)
+            {
+                if (last_v != 0)
+                    _region[last_ymin] = _region[last_ymax] = {last_v, last_h};
+                last_v = v;
+                last_ymin = ymin;
+                last_ymax = ymax;
+                last_h.clear();
+                last_h[180] = 0;
+            }
+            last_h[xmin] = last_h[xmax] = h;
         }
     }
+    _region[last_ymin] = {last_v, last_h};
+    _region[last_ymax] = {last_v, last_h};
 
     _rev_map.resize(_map.size());
     // @formatter:off
@@ -84,9 +94,9 @@ std::string const & grid::decode(unsigned coded_coord) const
 
 unsigned int grid::encode(double vertical, double horizontal) const
 {
-    auto vlbit = _vertical.lower_bound(vertical);
-    auto vlbv = vlbit->second;
-    if (!vlbv || vertical < vlbit->first && vlbit == _vertical.begin())
+    auto vlbit = _region.lower_bound(vertical);
+    auto & [vlbv, _horizontal] = vlbit->second;
+    if (!vlbv || vertical < vlbit->first && vlbit == _region.begin())
         return -1;
 
     auto hlbit = _horizontal.lower_bound(horizontal);

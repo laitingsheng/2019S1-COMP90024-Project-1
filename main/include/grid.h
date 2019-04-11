@@ -14,9 +14,11 @@ struct grid final
 
     explicit grid(char const * filename);
 
+    unsigned long count() const;
+
     std::string const & decode(unsigned coded_coord) const;
 
-    unsigned int encode(double vertical, double horizontal) const;\
+    unsigned int encode(double vertical, double horizontal) const;
 
     grid(grid const &) = delete;
 
@@ -31,7 +33,7 @@ private:
 
     static std::regex const cell_rgx;
 
-    std::map<double, char> _horizontal, _vertical;
+    std::map<double, std::pair<char, std::map<double, char>>> _region;
     std::unordered_map<std::string, unsigned int> _map;
     std::vector<std::string> _rev_map;
 };
