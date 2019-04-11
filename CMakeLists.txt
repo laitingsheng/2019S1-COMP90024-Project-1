@@ -3,3 +3,19 @@ PROJECT(Project_1)
 FIND_PACKAGE(Boost 1.67.0 REQUIRED COMPONENTS iostreams mpi serialization timer unit_test_framework)
 
 SET(CMAKE_CXX_STANDARD 17)
+
+IF (APPLE)
+    SET(CMAKE_CXX_FLAGS "-O3 -Xpreprocessor -fopenmp -Wall -Wextra -Wpedantic")
+    INCLUDE_DIRECTORIES(/usr/local/opt/llvm/include /usr/local/opt/openmpi/include)
+    LINK_DIRECTORIES(/usr/local/opt/llvm/lib /usr/local/opt/libevent/lib /usr/local/opt/openmpi/lib)
+ELSE ()
+    SET(CMAKE_CXX_FLAGS "-O3 -fopenmp -Wall -Wextra -Wpedantic")
+    INCLUDE_DIRECTORIES(/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi /usr/lib/x86_64-linux-gnu/openmpi/include)
+    LINK_DIRECTORIES(/usr/lib/x86_64-linux-gnu/openmpi/lib)
+ENDIF ()
+
+INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS} main/include)
+LINK_DIRECTORIES(${Boost_LIBRARY_DIRS})
+
+ADD_LIBRARY(grid OBJECT main/lib/grid.cpp)
+ADD_EXECUTABLE(grid_test main/test/grid_test.cpp $<TARGET_OBJECTS:grid>)
