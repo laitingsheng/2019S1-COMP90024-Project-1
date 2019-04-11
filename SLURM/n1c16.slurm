@@ -8,13 +8,13 @@
 #SBATCH --open-mode=truncate
 #SBATCH -o SLURM/n1c16.summary
 #SBATCH -p physical
-#SBATCH -t 120
+#SBATCH -t 12:00:00
 
 mkdir -p SLURM/n1c16
 
-module load Boost/1.69.0-spartan_gcc-8.1.0
+module Boost/1.69.0-spartan_gcc-8.1.0
 
-for i in {1..10}
+for i in {1..100}
 do
     bin-mt/main /data/projects/COMP90024/bigTwitter.json /data/projects/COMP90024/melbGrid.json 1> SLURM/n1c16/$i.out 2> SLURM/n1c16/$i.err
 done
