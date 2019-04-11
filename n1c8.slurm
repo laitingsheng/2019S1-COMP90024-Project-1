@@ -10,7 +10,7 @@
 #SBATCH -p physical
 #SBATCH -t 120
 
-mkdir SLURM/n1c8
+mkdir -p SLURM/n1c8
 
 module load Boost/1.69.0-spartan_gcc-8.1.0
 
