@@ -21,20 +21,20 @@ ADD_LIBRARY(grid OBJECT main/lib/grid.cpp)
 ADD_EXECUTABLE(grid_test main/test/grid_test.cpp $<TARGET_OBJECTS:grid>)
 
 ADD_LIBRARY(processor OBJECT main/lib/processors/processor.cpp)
-ADD_LIBRARY(processor-st OBJECT main/lib/processors/processor_st.cpp)
-ADD_LIBRARY(processor-m OBJECT main/lib/processors/processor_m.cpp)
+ADD_LIBRARY(processor-sn-st OBJECT main/lib/processors/processor_sn_st.cpp)
 ADD_LIBRARY(processor-mt OBJECT main/lib/processors/processor_mt.cpp)
-ADD_LIBRARY(processor-mn OBJECT main/lib/processors/processor_mn.cpp)
+ADD_LIBRARY(processor-sn-mt OBJECT main/lib/processors/processor_sn_mt.cpp)
+ADD_LIBRARY(processor-mn-mt OBJECT main/lib/processors/processor_mn_mt.cpp)
 
 # @formatter:off
 ADD_EXECUTABLE(processors_test
     main/test/processors_test.cpp
     $<TARGET_OBJECTS:grid>
     $<TARGET_OBJECTS:processor>
-    $<TARGET_OBJECTS:processor-st>
-    $<TARGET_OBJECTS:processor-m>
+    $<TARGET_OBJECTS:processor-sn-st>
     $<TARGET_OBJECTS:processor-mt>
-    $<TARGET_OBJECTS:processor-mn>
+    $<TARGET_OBJECTS:processor-sn-mt>
+    $<TARGET_OBJECTS:processor-mn-mt>
 )
 # @formatter:on
 
@@ -55,7 +55,7 @@ IF (single_thread)
     ADD_EXECUTABLE(main main/main.cpp
         $<TARGET_OBJECTS:grid>
         $<TARGET_OBJECTS:processor>
-        $<TARGET_OBJECTS:processor-st>
+        $<TARGET_OBJECTS:processor-sn-st>
     )
     # @formatter:on
 ELSEIF (multi_node)
@@ -63,8 +63,8 @@ ELSEIF (multi_node)
     ADD_EXECUTABLE(main main/main.cpp
         $<TARGET_OBJECTS:grid>
         $<TARGET_OBJECTS:processor>
-        $<TARGET_OBJECTS:processor-m>
-        $<TARGET_OBJECTS:processor-mn>
+        $<TARGET_OBJECTS:processor-mt>
+        $<TARGET_OBJECTS:processor-mn-mt>
     )
     # @formatter:on
     TARGET_LINK_LIBRARIES(main mpi)
@@ -78,8 +78,8 @@ ELSE()
     ADD_EXECUTABLE(main main/main.cpp
         $<TARGET_OBJECTS:grid>
         $<TARGET_OBJECTS:processor>
-        $<TARGET_OBJECTS:processor-m>
         $<TARGET_OBJECTS:processor-mt>
+        $<TARGET_OBJECTS:processor-sn-mt>
     )
     # @formatter:on
     if (APPLE)

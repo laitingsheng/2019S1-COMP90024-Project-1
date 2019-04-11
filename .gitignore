@@ -1,6 +1,4 @@
-**/cmake-build-*
-**/bin-*
-
-**/SLURM/*
+cmake-build-*
+bin
 
 bigTwitter.json

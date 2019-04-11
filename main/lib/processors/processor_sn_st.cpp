@@ -1,10 +1,14 @@
-#include <omp.h>
+#include "processors/processor_sn_st.h"
 
-#include <boost/sort/sort.hpp>
+processor_sn_st::processor_sn_st(char const * filename, grid const & g) : processor(filename, g) {}
 
-#include "processors/processor_mt.h"
+void processor_sn_st::preprocess()
+{
+    auto curr = file.data();
+    process_block(curr, curr + file.size(), record);
+}
 
-processor::result_type processor_mt::operator()() const
+processor::result_type processor_sn_st::operator()() const
 {
     result_type re(record.size());
     auto it = re.begin();
@@ -24,16 +28,12 @@ processor::result_type processor_mt::operator()() const
             *tit = {iik, iiv};
             ++tit;
         }
-        boost::sort::block_indirect_sort(tmp.begin(), tmp.end(), less_cell_tag_info);
+        std::sort(tmp.begin(), tmp.end(), less_cell_tag_info);
         if (tmp.size() > 5)
             tmp.erase(tmp.begin() + 5, tmp.end());
         *it = {k, ik, std::move(tmp)};
         ++it;
     }
-    boost::sort::block_indirect_sort(re.begin(), re.end(), less_cell_info);
+    std::sort(re.begin(), re.end(), less_cell_info);
     return re;
 }
-
-int const processor_mt::num_proc = omp_get_num_procs();
-
-processor_mt::processor_mt(char const * filename, grid const & g) : processor(filename, g) {}

@@ -16,9 +16,9 @@
 #include "grid.h"
 
 #if defined(SINGLE_THREAD)
-#include "processors/processor_st.h"
+#include "processors/processor_sn_st.h"
 #elif defined(MULTI_NODE)
-#include "processors/processor_mn.h"
+#include "processors/processor_mn_mt.h"
 #else
 #include "processors/processor_mt.h"
 #endif
@@ -39,9 +39,9 @@ int main(int argc, char * argv[])
               << std::endl;
 
     #if defined(SINGLE_THREAD)
-    processor_st p(argv[1], g);
+    processor_sn_st p(argv[1], g);
     #elif defined(MULTI_NODE)
-    processor_mn p(argc, argv, argv[1], g);
+    processor_mn_mt p(argc, argv, argv[1], g);
     #else
     processor_mt p(argv[1], g);
     #endif
