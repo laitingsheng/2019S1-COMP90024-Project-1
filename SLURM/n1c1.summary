@@ -1,0 +1,3 @@
+mkdir: cannot create directory ‘SLURM/n1c1’: File exists
+slurmstepd: error: *** JOB 8047155 ON spartan-bm001 CANCELLED AT 2019-04-10T10:24:30 ***
+slurmstepd: error: *** JOB 8047156 ON spartan-bm023 CANCELLED AT 2019-04-10T10:24:36 ***
