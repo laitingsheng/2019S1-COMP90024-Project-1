@@ -1,14 +1,14 @@
-#include "processors/processor_st.h"
+#include "processors/processor_sn_st.h"
 
-processor_st::processor_st(char const * filename, grid const & g) : processor(filename, g) {}
+processor_sn_st::processor_sn_st(char const * filename, grid const & g) : processor(filename, g) {}
 
-void processor_st::preprocess()
+void processor_sn_st::preprocess()
 {
     auto curr = file.data();
     process_block(curr, curr + file.size(), record);
 }
 
-processor::result_type processor_st::operator()() const
+processor::result_type processor_sn_st::operator()() const
 {
     result_type re(record.size());
     auto it = re.begin();

@@ -2,19 +2,21 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="Project_1" targetName="grid_test" />
+      <config projectName="Project_1" targetName="timer" />
       <config projectName="Project_1" targetName="processor-mt" />
-      <config projectName="Project_1" targetName="main" />
-      <config projectName="Project_1" targetName="grid" />
-      <config projectName="Project_1" targetName="twit" />
-      <config projectName="Project_1" targetName="processors" />
       <config projectName="Project_1" targetName="processor" />
-      <config projectName="Project_1" targetName="processors_test" />
+      <config projectName="Project_1" targetName="processor-m" />
+      <config projectName="Project_1" targetName="processors" />
       <config projectName="Project_1" targetName="processor-st" />
       <config projectName="Project_1" targetName="processor-mn" />
-      <config projectName="Project_1" targetName="processor-m" />
-      <config projectName="Project_1" targetName="timer" />
+      <config projectName="Project_1" targetName="processor-sn-mt" />
+      <config projectName="Project_1" targetName="processor-mn-mt" />
+      <config projectName="Project_1" targetName="grid" />
+      <config projectName="Project_1" targetName="main" />
+      <config projectName="Project_1" targetName="grid_test" />
+      <config projectName="Project_1" targetName="processors_test" />
       <config projectName="Project_1" targetName="twit_test" />
+      <config projectName="Project_1" targetName="twit" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -27,6 +29,19 @@
   <component name="ChangeListManager">
     <list default="true" id="db789271-35c9-4c78-8257-784372f17fc4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SLURM/gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/SLURM/gen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/include/processors/processor_m.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/include/processors/processor_mn.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/include/processors/processor_mt.h" beforeDir="false" afterPath="$PROJECT_DIR$/main/include/processors/processor_mt.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/include/processors/processor_st.h" beforeDir="false" afterPath="$PROJECT_DIR$/main/include/processors/processor_sn_st.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/lib/processors/processor_m.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/lib/processors/processor_mn.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/lib/processors/processor_mt.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main/lib/processors/processor_mt.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/lib/processors/processor_st.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main/lib/processors/processor_sn_st.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/test/processors_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main/test/processors_test.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/cmake-build-release/" />
@@ -56,8 +71,17 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="507">
-                  <caret line="39" selection-start-line="39" selection-end-line="39" />
+                <state relative-caret-position="533">
+                  <caret line="41" column="42" lean-forward="true" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/main/lib/processors/processor_sn_mt.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="468">
+                  <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
                 </state>
               </provider>
             </entry>
@@ -65,17 +89,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main/lib/processors/processor.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="93">
-                  <caret line="87" column="1" selection-start-line="87" selection-start-column="1" selection-end-line="87" selection-end-column="1" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/main/lib/processors/processor_m.cpp">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="234">
-                  <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+                <state relative-caret-position="1235">
+                  <caret line="101" column="17" lean-forward="true" selection-start-line="101" selection-start-column="17" selection-end-line="101" selection-end-column="17" />
                 </state>
               </provider>
             </entry>
@@ -83,26 +98,17 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main/lib/processors/processor_mt.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="273">
-                  <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+                <state relative-caret-position="39">
+                  <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/main/lib/processors/processor_mn.cpp">
+            <entry file="file://$PROJECT_DIR$/main/lib/processors/processor_mn_mt.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="858">
-                  <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/n2c8.slurm">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="78">
-                  <caret line="6" column="76" lean-forward="true" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="76" />
+                <state relative-caret-position="767">
+                  <caret line="59" column="66" selection-start-line="59" selection-start-column="66" selection-end-line="59" selection-end-column="66" />
                 </state>
               </provider>
             </entry>
@@ -114,17 +120,26 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main/test/grid_test.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="13">
-                  <caret line="51" selection-start-line="51" selection-end-line="51" />
+                <state relative-caret-position="208">
+                  <caret line="66" column="1" lean-forward="true" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/main/include/processors/processor_mn.h">
+            <entry file="file://$PROJECT_DIR$/main/include/processors/processor_sn_mt.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="221">
-                  <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+                <state relative-caret-position="169">
+                  <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/main/include/processors/processor_mn_mt.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="273">
+                  <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
                 </state>
               </provider>
             </entry>
@@ -152,9 +167,13 @@
       <find>processor</find>
       <find>timer</find>
       <find>curr</find>
+      <find>processor-m</find>
+      <find>processor-st</find>
     </findStrings>
     <replaceStrings>
       <replace>post_info</replace>
+      <replace>processor-mt</replace>
+      <replace>processor-sn-st</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -163,10 +182,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/processors/multi_thread_processor.h" />
-        <option value="$PROJECT_DIR$/src/processors/single_thread_processor.h" />
-        <option value="$PROJECT_DIR$/src/processors/multi_thread_processor.cpp" />
-        <option value="$PROJECT_DIR$/src/processors/multi_node_processor.h" />
         <option value="$PROJECT_DIR$/src/processors/multi_node_processor.cpp" />
         <option value="$PROJECT_DIR$/src/timer.h" />
         <option value="$PROJECT_DIR$/src/timer.cpp" />
@@ -195,10 +210,8 @@
         <option value="$PROJECT_DIR$/main/lib/processors/multi_node_processor.cpp" />
         <option value="$PROJECT_DIR$/main/include/processors/processor_st.h" />
         <option value="$PROJECT_DIR$/main/main.cpp" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/n1c1.slurm" />
         <option value="$PROJECT_DIR$/n1c8.slurm" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/main/lib/grid.cpp" />
         <option value="$PROJECT_DIR$/python/processors/processor_mn.py" />
         <option value="$PROJECT_DIR$/python/processors/processor_mt.py" />
@@ -210,10 +223,16 @@
         <option value="$PROJECT_DIR$/main/test/processors_test.cpp" />
         <option value="$PROJECT_DIR$/main/include/processors/processor_mn.h" />
         <option value="$PROJECT_DIR$/main/lib/processors/processor_m.cpp" />
-        <option value="$PROJECT_DIR$/main/lib/processors/processor_mt.cpp" />
         <option value="$PROJECT_DIR$/main/lib/processors/processor_mn.cpp" />
         <option value="$PROJECT_DIR$/n2c8.slurm" />
         <option value="$PROJECT_DIR$/build.sh" />
+        <option value="$PROJECT_DIR$/main/include/processors/processor_mn_mt.h" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/main/lib/processors/processor_mt.cpp" />
+        <option value="$PROJECT_DIR$/main/lib/processors/processor_sn_st.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/main/include/processors/processor_sn_mt.h" />
+        <option value="$PROJECT_DIR$/main/lib/processors/processor_sn_mt.cpp" />
       </list>
     </option>
   </component>
@@ -239,6 +258,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -294,11 +314,15 @@
               <item name="python" type="462c0819:PsiDirectoryNode" />
               <item name="processors" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Project_1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="COMP90024 Project 1" type="462c0819:PsiDirectoryNode" />
+              <item name="SLURM" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -367,12 +391,24 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="processor-mn-mt" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project_1" TARGET_NAME="processor-mn-mt" CONFIG_NAME="MULTI_THREAD">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="processor-sn-mt" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project_1" TARGET_NAME="processor-sn-mt" CONFIG_NAME="MULTI_THREAD">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Boost.Test.Grid Test" />
       <item itemvalue="Boost.Test.Processors Test" />
       <item itemvalue="CMake Application.Big" />
       <item itemvalue="CMake Application.Small" />
       <item itemvalue="CMake Application.Tiny" />
+      <item itemvalue="CMake Application.processor-mn-mt" />
+      <item itemvalue="CMake Application.processor-sn-mt" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -446,6 +482,7 @@
       <workItem from="1554683322762" duration="1115000" />
       <workItem from="1554708366174" duration="23341000" />
       <workItem from="1554786751037" duration="1704000" />
+      <workItem from="1554943250612" duration="1774000" />
     </task>
     <servers />
   </component>
@@ -482,7 +519,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="378763000" />
+    <option name="totallyTimeSpent" value="380537000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -497,7 +534,7 @@
     <frame x="1912" y="-8" width="2576" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49839744" visible="true" weight="0.11269841" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49839744" visible="true" weight="0.113492064" />
       <window_info id="Structure" order="1" sideWeight="0.5016026" side_tool="true" weight="0.094444446" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -564,22 +601,8 @@
     <entry file="file://$PROJECT_DIR$/main/test/twit_test.cpp" />
     <entry file="file://$PROJECT_DIR$/main/include/twit.h" />
     <entry file="file://$PROJECT_DIR$/main/lib/twit.cpp" />
-    <entry file="file://$PROJECT_DIR$/main/lib/processors/processor_st.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="21" column="50" lean-forward="true" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/lib/processors/multi_node_processor.cpp" />
     <entry file="file://$PROJECT_DIR$/main.py" />
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -587,7 +610,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/include/processors/processor_st.h">
+    <entry file="file://$PROJECT_DIR$/main/include/processors/processor_sn_st.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
@@ -650,13 +673,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/include/processors/processor_mt.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/include/processors/processor_m.h">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
           <caret line="12" column="53" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
         </state>
@@ -669,13 +685,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/test/grid_test.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/n1c32.slurm">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="117">
@@ -683,41 +692,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/include/processors/processor_mn.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="17" column="29" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/lib/processors/processor.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="87" column="1" selection-start-line="87" selection-start-column="1" selection-end-line="87" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/lib/processors/processor_mt.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main/lib/processors/processor_mn.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/n2c8.slurm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="6" column="76" lean-forward="true" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/n2c8.slurm" />
     <entry file="file://$PROJECT_DIR$/build.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
@@ -725,10 +700,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/lib/processors/processor_m.cpp">
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+        <state relative-caret-position="533">
+          <caret line="41" column="42" lean-forward="true" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/lib/processors/processor.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1235">
+          <caret line="101" column="17" lean-forward="true" selection-start-line="101" selection-start-column="17" selection-end-line="101" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/include/processors/processor_mn_mt.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/test/grid_test.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="66" column="1" lean-forward="true" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/include/processors/processor_sn_mt.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/lib/processors/processor_mn_mt.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="767">
+          <caret line="59" column="66" selection-start-line="59" selection-start-column="66" selection-end-line="59" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/lib/processors/processor_sn_st.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/lib/processors/processor_mt.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/lib/processors/processor_sn_mt.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
         </state>
       </provider>
     </entry>

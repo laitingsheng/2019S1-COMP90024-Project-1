@@ -1,4 +1,4 @@
-from multiprocessing import Pool
+from multiprocessing import cpu_count, Pool
 
 TEMPLATE = '''#!/bin/bash
 #SBATCH -c {core}
@@ -25,14 +25,18 @@ done
 BOOST_MODULE = "Boost/1.69.0-spartan_gcc-8.1.0"
 MPI_MODULE = "OpenMPI/3.1.0-GCC-8.2.0-cuda9-ucx"
 
-CORES = (2, 4, 8, 16, 32)
-NODES = (2, 4)
+CONFIGURES = (
+    (1, 1), (1, 2), (1, 4), (1, 8), (1, 16), (1, 32), (1, 64),
+    (2, 1), (2, 2), (2, 4), (2, 8), (2, 16), (2, 32),
+    (4, 1), (4, 2), (4, 4), (4, 8), (4, 16),
+    (8, 1), (8, 2), (8, 4), (8, 8)
+)
 
-def create_file(node, core, execute, time="12:00:00", modules=BOOST_MODULE, loop=100):
+def create_file(node, core, execute, time="12:00:00", modules=BOOST_MODULE, loop=10):
     with open(f"n{node}c{core}.slurm", "w+t") as f:
         f.write(TEMPLATE.format(node=node, core=core, time=time, modules=modules, loop=loop, execute=execute))
 
 create_file(1, 1, "bin-st/main")
 
-with Pool(5) as p:
+with Pool(cpu_count()) as p:
     p.starmap(create_file, ((1, core, "bin-mt/main") for core in CORES))

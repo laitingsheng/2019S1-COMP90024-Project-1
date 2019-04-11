@@ -3,19 +3,19 @@
 #include <boost/serialization/unordered_map.hpp>
 #include <boost/sort/sort.hpp>
 
-#include "processors/processor_mn.h"
+#include "processors/processor_mn_mt.h"
 
 // @formatter:off
-processor_mn::processor_mn(int argc, char * argv[], char const * filename, grid const & g) :
+processor_mn_mt::processor_mn_mt(int argc, char * argv[], char const * filename, grid const & g) :
     rank(world.rank()),
     num_nodes(world.size()),
-    processor_m(filename, g),
+    processor_mt(filename, g),
     world(),
     env(argc, argv, boost::mpi::threading::multiple)
 {}
 // @formatter:on
 
-void processor_mn::preprocess()
+void processor_mn_mt::preprocess()
 {
     auto curr = file.data();
     auto total_proc = num_nodes * num_proc, actual_thread_start = rank * num_proc;

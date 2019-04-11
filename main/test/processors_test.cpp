@@ -9,9 +9,9 @@
 
 #include "../include/grid.h"
 #include "../include/processors/processor.h"
-#include "processors/processor_st.h"
-#include "processors/processor_mt.h"
-#include "processors/processor_mn.h"
+#include "processors/processor_sn_st.h"
+#include "processors/processor_sn_mt.h"
+#include "processors/processor_mn_mt.h"
 
 struct processor_tester final
 {
@@ -54,7 +54,7 @@ BOOST_FIXTURE_TEST_SUITE(Processors, GridFixture)
 
 BOOST_AUTO_TEST_CASE(SINGLE_THREAD)
 {
-    processor_st p("tinyTwitter.json", g);
+    processor_sn_st p("tinyTwitter.json", g);
     processor_tester tester(p);
 
     tester.test_preprocess();
@@ -72,7 +72,7 @@ BOOST_AUTO_TEST_CASE(MULTI_THREAD)
 
 BOOST_FIXTURE_TEST_CASE(MULTI_NODE, MPIFixture)
 {
-    processor_mn p(env, world, "tinyTwitter.json", g);
+    processor_mn_mt p(env, world, "tinyTwitter.json", g);
     processor_tester tester(p);
 
     tester.test_preprocess();

@@ -1,13 +1,16 @@
-#ifndef _MULTI_THREAD_PROCESSOR_H_
-#define _MULTI_THREAD_PROCESSOR_H_
+#ifndef _PROCESSOR_M_H_
+#define _PROCESSOR_M_H_
 
-#include "processor_m.h"
+#include "processor.h"
 
-struct processor_mt final : public processor_m
+struct processor_mt : public processor
 {
-    explicit processor_mt(char const *, grid const &);
+    result_type operator()() const override;
 
-    void preprocess() override;
+protected:
+    static int const num_proc;
+
+    explicit processor_mt(char const *, grid const &);
 };
 
 #endif
