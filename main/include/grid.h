@@ -1,0 +1,4 @@
+#ifndef COMP90024_PROJECT_1_GRID_H
+#define COMP90024_PROJECT_1_GRID_H
+
+#endif
