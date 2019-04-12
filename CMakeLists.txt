@@ -19,3 +19,22 @@ LINK_DIRECTORIES(${Boost_LIBRARY_DIRS})
 
 ADD_LIBRARY(grid OBJECT main/lib/grid.cpp)
 ADD_EXECUTABLE(grid_test main/test/grid_test.cpp $<TARGET_OBJECTS:grid>)
+
+ADD_LIBRARY(processor OBJECT main/lib/processors/processor.cpp)
+ADD_LIBRARY(processor-sn-st OBJECT main/lib/processors/processor_sn_st.cpp)
+
+# @formatter:off
+ADD_EXECUTABLE(processors_test
+    main/test/processors_test.cpp
+    $<TARGET_OBJECTS:grid>
+    $<TARGET_OBJECTS:processor>
+    $<TARGET_OBJECTS:processor-sn-st>
+)
+# @formatter:on
+
+IF (APPLE)
+    TARGET_LINK_LIBRARIES(processors_test omp mpi boost_iostreams-mt boost_mpi-mt)
+ELSE ()
+    TARGET_LINK_LIBRARIES(processors_test pthread mpi_cxx mpi boost_iostreams boost_mpi)
+ENDIF ()
+
