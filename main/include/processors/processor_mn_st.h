@@ -24,7 +24,7 @@ private:
     boost::mpi::environment const & env;
     boost::mpi::communicator const & world;
 
-    int const num_nodes, rank;
+    int const _size, _rank;
 };
 
 #endif

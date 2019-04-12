@@ -6,7 +6,7 @@ processor_mn_st::processor_mn_st(
     grid const & g,
     boost::mpi::environment const & env,
     boost::mpi::communicator const & world
-) : world(world), env(env), processor(filename, g) {}
+) : _rank(world.rank()), _size(world.size()), world(world), env(env), processor(filename, g) {}
 // @formatter:on
 
 void processor_mn_st::preprocess()
