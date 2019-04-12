@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include <vector>
 
+// #include <boost/mpi.hpp>
 #include <boost/test/included/unit_test.hpp>
 
 #include "grid.h"
@@ -38,7 +39,7 @@ struct GridFixture
     grid g;
 };
 
-BOOST_FIXTURE_TEST_SUITE(Processors, GridFixture)
+BOOST_FIXTURE_TEST_SUITE(Single_Node_Processors, GridFixture)
 
 BOOST_AUTO_TEST_CASE(SNST)
 {

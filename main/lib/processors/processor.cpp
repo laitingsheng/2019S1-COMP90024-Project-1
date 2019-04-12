@@ -36,6 +36,19 @@ bool processor::less_cell_total_info(cell_total_info const & l, cell_total_info 
 
 processor::processor(char const * filename, grid const & g) : file(filename), g(g) {}
 
+void processor::process_block(char const * start, char const * end, record_type & record) const
+{
+    record.resize(g.count());
+    while (start < end)
+    {
+        auto prev = start;
+        while (*start++ != '\n');
+        auto size = start - prev;
+        std::string line(prev, size);
+        process_line(line, record);
+    }
+}
+
 void processor::process_line(std::string const & line, record_type & record) const
 {
     std::smatch coord_match;
@@ -79,15 +92,46 @@ void processor::process_line(std::string const & line, record_type & record) con
     }
 }
 
-void processor::process_block(char const * start, char const * end, record_type & record) const
+processor::cell_total_info processor::record_to_total_info(unsigned int pos) const
 {
-    record.resize(g.count());
-    while (start < end)
+    cell_total_info re;
+    // @formatter:off
+    auto & [c, m] = record[pos];
+    auto & [rc, rv] = re;
+    // @formatter:on
+    rc = {pos, c};
+    if (c == 0)
+        return re;
+    rv.resize(m.size());
+    auto it = rv.begin();
+    for (auto & p : m)
     {
-        auto prev = start;
-        while (*start++ != '\n');
-        auto size = start - prev;
-        std::string line(prev, size);
-        process_line(line, record);
+        *it = p;
+        ++it;
     }
+    std::sort(rv.begin(), rv.end(), less_tag_info);
+
+    int vc = 0;
+    unsigned long lc = 0;
+    unsigned long j = 0;
+    while (j < rv.size())
+    {
+        auto c = rv[j].second;
+        if (c == 0)
+        {
+            lc = c;
+            break;
+        }
+        if (c != lc)
+        {
+            ++vc;
+            lc = c;
+            if (vc > 5)
+                break;
+        }
+        ++j;
+    }
+    if (lc != 0 && vc > 5)
+        rv.resize(j);
+    return re;
 }

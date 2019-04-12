@@ -33,7 +33,8 @@ struct processor
     virtual result_type operator()() const = 0;
 
 protected:
-    using record_type = std::vector<std::pair<unsigned long, std::unordered_map<std::string, unsigned long>>>;
+    using cell_record = std::pair<unsigned long, std::unordered_map<std::string, unsigned long>>;
+    using record_type = std::vector<cell_record>;
 
     static std::regex const coord_rgx, hash_tags_rgx, hash_tag_rgx;
 
@@ -47,9 +48,11 @@ protected:
 
     explicit processor(char const * filename, grid const & g);
 
+    virtual void process_block(char const * start, char const * end, record_type & record) const final;
+
     virtual void process_line(std::string const & line, record_type & record) const final;
 
-    virtual void process_block(char const * start, char const * end, record_type & record) const final;
+    virtual cell_total_info record_to_total_info(unsigned int pos) const final;
 
 private:
     friend struct processor_tester;
