@@ -33,7 +33,7 @@ struct processor
     virtual result_type operator()() const = 0;
 
 protected:
-    using record_type = std::vector<std::pair<unsigned long,std::unordered_map<std::string, unsigned long>>>;
+    using record_type = std::vector<std::pair<unsigned long, std::unordered_map<std::string, unsigned long>>>;
 
     static std::regex const coord_rgx, hash_tags_rgx, hash_tag_rgx;
 

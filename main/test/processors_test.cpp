@@ -4,12 +4,12 @@
 #include <unordered_map>
 #include <vector>
 
-// #include <boost/mpi.hpp>
 #include <boost/test/included/unit_test.hpp>
 
 #include "grid.h"
 #include "processors/processor.h"
 #include "processors/processor_sn_st.h"
+#include "processors/processor_sn_mt.h"
 
 struct processor_tester final
 {
@@ -43,6 +43,15 @@ BOOST_FIXTURE_TEST_SUITE(Processors, GridFixture)
 BOOST_AUTO_TEST_CASE(SNST)
 {
     processor_sn_st p("tinyTwitter.json", g);
+    processor_tester tester(p);
+
+    tester.test_preprocess();
+    tester.test_process();
+}
+
+BOOST_AUTO_TEST_CASE(SNMT)
+{
+    processor_sn_mt p("tinyTwitter.json", g);
     processor_tester tester(p);
 
     tester.test_preprocess();

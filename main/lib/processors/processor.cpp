@@ -34,7 +34,7 @@ bool processor::less_cell_total_info(cell_total_info const & l, cell_total_info 
     return lf.first < rf.first;
 }
 
-processor::processor(char const * filename, grid const & g) : record(g.count()), file(filename), g(g) {}
+processor::processor(char const * filename, grid const & g) : file(filename), g(g) {}
 
 void processor::process_line(std::string const & line, record_type & record) const
 {
@@ -81,6 +81,7 @@ void processor::process_line(std::string const & line, record_type & record) con
 
 void processor::process_block(char const * start, char const * end, record_type & record) const
 {
+    record.resize(g.count());
     while (start < end)
     {
         auto prev = start;

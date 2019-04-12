@@ -22,6 +22,7 @@ ADD_EXECUTABLE(grid_test main/test/grid_test.cpp $<TARGET_OBJECTS:grid>)
 
 ADD_LIBRARY(processor OBJECT main/lib/processors/processor.cpp)
 ADD_LIBRARY(processor-sn-st OBJECT main/lib/processors/processor_sn_st.cpp)
+ADD_LIBRARY(processor-sn-mt OBJECT main/lib/processors/processor_sn_mt.cpp)
 
 # @formatter:off
 ADD_EXECUTABLE(processors_test
@@ -29,12 +30,13 @@ ADD_EXECUTABLE(processors_test
     $<TARGET_OBJECTS:grid>
     $<TARGET_OBJECTS:processor>
     $<TARGET_OBJECTS:processor-sn-st>
+    $<TARGET_OBJECTS:processor-sn-mt>
 )
 # @formatter:on
 
 IF (APPLE)
-    TARGET_LINK_LIBRARIES(processors_test omp mpi boost_iostreams-mt boost_mpi-mt)
+    TARGET_LINK_LIBRARIES(processors_test omp boost_iostreams-mt)
 ELSE ()
-    TARGET_LINK_LIBRARIES(processors_test pthread mpi_cxx mpi boost_iostreams boost_mpi)
+    TARGET_LINK_LIBRARIES(processors_test boost_iostreams)
 ENDIF ()
 
