@@ -1,14 +1,15 @@
 import re
 from collections import defaultdict as dd
 from mpi4py import MPI
+import io
 
-TFPATH = "D:/comp90024-project-1/tinyTwitter.json"
+TFPATH = "/mnt/d/comp90024-project-1/tinyTwitter.json"
 X_MIN = 144.7
 Y_MIN = -37.65
 GRID_WIDTH = 0.15
 TWITTER_TEMPLATE = '''^{"id":".*,"value":{.*"geometry":{".*"coordinates":\[(.*),(.*)]}.*"doc":{.*"entities":{.*"hashtags":\[(\{.*?\})?]'''
 comm = MPI.COMM_WORLD
-rank = comm.rank
+rank = comm.Get_rank
 
 def process_line(line):
     data_filter = re.compile(TWITTER_TEMPLATE)
@@ -33,7 +34,7 @@ def process_line(line):
 
 
 def processTwitterFile(start_point, end_point):
-    file = open(TFPATH, "r", encoding='UTF-8')
+    file = io.open(TFPATH, "r", encoding='UTF-8')
 
     grid_twit_count = dd(int)
     grid_hashtag_count = dd(dict)
@@ -58,7 +59,8 @@ def processTwitterFile(start_point, end_point):
 if __name__ == '__main__':
     rank = comm.Get_rank()
     core_num = comm.Get_size()
-    file = open(TFPATH, "r", encoding='UTF-8')
+    file = io.open(TFPATH, "r", encoding='UTF-8')
+    
     file_size = file.seek(0, 2)
     file_length_per_core = file_size // core_num
 
@@ -70,11 +72,14 @@ if __name__ == '__main__':
     if rank != 0:
         prev_grid_twit_count, prev_grid_hashtag_count = comm.recv(source=rank-1)
 
-    for grid in prev_grid_twit_count:
-        grid_twit_count[grid] += prev_grid_twit_count[grid]
-        if grid in prev_grid_hashtag_count:
-            for hashtag in prev_grid_hashtag_count[grid]:
-                grid_hashtag_count[grid][hashtag] += prev_grid_hashtag_count[grid][hashtag]
+        for grid in prev_grid_twit_count:
+            grid_twit_count[grid] += prev_grid_twit_count[grid]
+            if grid in prev_grid_hashtag_count:
+                for hashtag in prev_grid_hashtag_count[grid]:
+                    if hashtag in grid_hashtag_count[grid]:
+                        grid_hashtag_count[grid][hashtag] += prev_grid_hashtag_count[grid][hashtag]
+                    else:
+                        grid_hashtag_count[grid][hashtag] = prev_grid_hashtag_count[grid][hashtag]
 
 
     if rank != (core_num - 1):

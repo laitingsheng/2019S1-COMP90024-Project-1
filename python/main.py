@@ -1,8 +1,9 @@
 import re
 from collections import defaultdict as dd
 from multiprocessing import Pool, cpu_count
+import io
 
-TFPATH = "D:/comp90024-project-1/tinyTwitter.json"
+TFPATH = "/mnt/d/comp90024-project-1/tinyTwitter.json"
 X_MIN = 144.7
 Y_MIN = -37.65
 GRID_WIDTH = 0.15
@@ -32,7 +33,7 @@ def process_line(line):
 
 
 def processTwitterFile(data):
-    file, start_point, end_point = open(TFPATH, "r", encoding='UTF-8'), \
+    file, start_point, end_point = io.open(TFPATH, "r", encoding='UTF-8'), \
                                    data[0], \
                                    data[1]
     grid_twit_count = dd(int)
@@ -56,7 +57,7 @@ def processTwitterFile(data):
 
 
 if __name__ == '__main__':
-    file = open(TFPATH, "r", encoding='UTF-8')
+    file = io.open(TFPATH, "r", encoding='UTF-8')
     file_size = file.seek(0, 2)
     core_num = cpu_count()
     file_length_per_core = file_size // core_num
