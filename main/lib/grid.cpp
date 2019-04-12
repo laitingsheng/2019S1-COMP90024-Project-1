@@ -95,7 +95,9 @@ std::string const & grid::decode(unsigned coded_coord) const
 unsigned int grid::encode(double vertical, double horizontal) const
 {
     auto vlbit = _region.lower_bound(vertical);
+    // @formatter:off
     auto & [vlbv, _horizontal] = vlbit->second;
+    // @formatter:on
     if (!vlbv || vertical < vlbit->first && vlbit == _region.begin())
         return -1;
 

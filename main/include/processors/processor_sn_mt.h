@@ -10,6 +10,7 @@ struct processor_sn_mt final : public processor
     void preprocess() override;
 
     result_type operator()() const override;
+
 private:
     static int const num_proc;
 };

@@ -38,5 +38,4 @@ private:
     std::vector<std::string> _rev_map;
 };
 
-
 #endif

@@ -12,5 +12,4 @@ struct processor_sn_st final : public processor
     result_type operator()() const override;
 };
 
-
 #endif

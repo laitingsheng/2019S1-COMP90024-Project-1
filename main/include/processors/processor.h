@@ -58,5 +58,4 @@ private:
     friend struct processor_tester;
 };
 
-
 #endif
