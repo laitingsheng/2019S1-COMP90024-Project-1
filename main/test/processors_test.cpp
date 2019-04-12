@@ -23,17 +23,7 @@ struct processor_tester final
 
     void test_process()
     {
-        printf("{\n");
-        for (auto & [cp, v] : p())
-        {
-            auto & [i, c] = cp;
-            printf("    {\n        {%u, %lu},\n        {\n", i, c);
-            for (auto & [ht, hc] : v)
-                printf("            {\"%s\", %lu},\n", ht.c_str(), hc);
-            printf("        }\n    },\n");
-        }
-        printf("};\n");
-        // BOOST_TEST(p() == process_tiny_ans);
+        BOOST_TEST(p() == process_tiny_ans);
     }
 
 private:
@@ -50,7 +40,7 @@ struct GridFixture
 
 BOOST_FIXTURE_TEST_SUITE(Processors, GridFixture)
 
-BOOST_AUTO_TEST_CASE(SINGLE_THREAD)
+BOOST_AUTO_TEST_CASE(SNST)
 {
     processor_sn_st p("tinyTwitter.json", g);
     processor_tester tester(p);
@@ -61,6 +51,7 @@ BOOST_AUTO_TEST_CASE(SINGLE_THREAD)
 
 BOOST_AUTO_TEST_SUITE_END()
 
+// @formatter:off
 processor::record_type const processor_tester::preprocess_tiny_ans {
     {0, {}},
     {0, {}},
@@ -891,3 +882,141 @@ processor::record_type const processor_tester::preprocess_tiny_ans {
     {0, {}},
     {0, {}}
 };
+
+processor::result_type const processor_tester::process_tiny_ans {
+    {
+        {9, 472},
+        {
+            {"melbourne", 54},
+            {"beach", 22},
+            {"australia", 15},
+            {"sunset", 15},
+            {"brighton", 12},
+            {"brightonbeach", 10},
+            {"summer", 10}
+        }
+    },
+    {
+        {13, 378},
+        {
+            {"melbourne", 24},
+            {"beach", 19},
+            {"sandringham", 13},
+            {"summer", 12},
+            {"australia", 9}
+        }
+    },
+    {
+        {10, 145},
+        {
+            {"melbourne", 4},
+            {"avfc", 3},
+            {"firealarm", 3},
+            {"famlife14", 2},
+            {"incident", 2},
+            {"lovegoodcoffee", 2},
+            {"repost", 2},
+            {"sandringham", 2},
+            {"tvd", 2},
+            {"victraffic", 2},
+            {"40s", 1},
+            {"aflswansbombers", 1},
+            {"amoshair", 1},
+            {"arias", 1},
+            {"bernieshithebeach", 1},
+            {"berries", 1},
+            {"bigdata", 1},
+            {"blackrock", 1},
+            {"brotherneil", 1},
+            {"bts15", 1},
+            {"bully", 1},
+            {"changemakers", 1},
+            {"chiropractic", 1},
+            {"daylightsavings", 1},
+            {"diversity", 1},
+            {"empowering", 1},
+            {"endomondo", 1},
+            {"endorphins", 1},
+            {"entertainment", 1},
+            {"evaluation", 1},
+            {"febfast", 1},
+            {"firstedition", 1},
+            {"foodcoma", 1},
+            {"footscraybulldogs", 1},
+            {"footy", 1},
+            {"friday", 1},
+            {"grandfinal", 1},
+            {"granola", 1},
+            {"hampton", 1},
+            {"happyfamily", 1},
+            {"hazmat", 1},
+            {"health", 1},
+            {"healthy", 1},
+            {"hellenicrepublic", 1},
+            {"herewego", 1},
+            {"howsayingno", 1},
+            {"isitart", 1},
+            {"jazz", 1},
+            {"latergram", 1},
+            {"linacreroad", 1},
+            {"livethedream", 1},
+            {"longlost", 1},
+            {"lunch", 1},
+            {"mantra", 1},
+            {"marketing", 1},
+            {"melbweather", 1},
+            {"merrychristmas", 1},
+            {"mufc", 1},
+            {"music", 1},
+            {"osca", 1},
+            {"party", 1},
+            {"privatebeach", 1},
+            {"qanda", 1},
+            {"realstrength", 1},
+            {"research", 1},
+            {"retro", 1},
+            {"saganaki", 1},
+            {"sandyzebras", 1},
+            {"singingtrio", 1},
+            {"sissummer100", 1},
+            {"sme", 1},
+            {"smoothies", 1},
+            {"socent", 1},
+            {"socialmedia", 1},
+            {"strava", 1},
+            {"structurefire", 1},
+            {"sundaysesh", 1},
+            {"sunset", 1},
+            {"superfoods", 1},
+            {"superstar", 1},
+            {"swimwithsharks", 1},
+            {"teamireland", 1},
+            {"thankstony", 1},
+            {"thatrainkissthough", 1},
+            {"tuesday", 1},
+            {"unitethebeetsons", 1},
+            {"vafa", 1},
+            {"vb", 1},
+            {"vidalifestyle", 1},
+            {"vintage", 1},
+            {"warner", 1},
+            {"whenwillitend", 1},
+            {"wishiwasakidagain", 1},
+            {"yogurt", 1}
+        }
+    },
+    {{0, 0}, {}},
+    {{1, 0}, {}},
+    {{2, 0}, {}},
+    {{3, 0}, {}},
+    {{4, 0}, {}},
+    {{5, 0}, {}},
+    {{6, 0}, {}},
+    {{7, 0}, {}},
+    {{8, 0}, {}},
+    {{11, 0}, {}},
+    {{12, 0}, {}},
+    {{14, 0}, {}},
+    {{15, 0}, {}}
+};
+//@formatter:off

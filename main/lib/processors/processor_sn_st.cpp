@@ -15,14 +15,14 @@ processor::result_type processor_sn_st::operator()() const
     {
         // @formatter:off
         auto & [c, m] = record[i];
-        // @formatter:on
         auto & [rc, rv] = re[i];
+        // @formatter:on
         rc = {i, c};
+        if (c == 0)
+            continue;
         rv.resize(m.size());
         auto it = rv.begin();
-        // @formatter:off
         for (auto & p : m)
-        // @formatter:on
         {
             *it = p;
             ++it;
@@ -34,9 +34,12 @@ processor::result_type processor_sn_st::operator()() const
         unsigned long j = 0;
         while (j < rv.size())
         {
-            auto c = rv[i].second;
+            auto c = rv[j].second;
             if (c == 0)
+            {
+                lc = c;
                 break;
+            }
             if (c != lc)
             {
                 ++vc;
@@ -46,6 +49,8 @@ processor::result_type processor_sn_st::operator()() const
             }
             ++j;
         }
+        if (lc != 0 && vc > 5)
+            rv.resize(j);
     }
     std::sort(re.begin(), re.end(), less_cell_total_info);
     return re;
