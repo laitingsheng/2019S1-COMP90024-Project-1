@@ -2,7 +2,7 @@ import re
 from collections import defaultdict as dd
 from multiprocessing import Pool, cpu_count
 
-TFPATH = "D:/comp90024-project-1/smallTwitter.json"
+TFPATH = "D:/comp90024-project-1/tinyTwitter.json"
 X_MIN = 144.7
 Y_MIN = -37.65
 GRID_WIDTH = 0.15
