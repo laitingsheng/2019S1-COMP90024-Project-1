@@ -50,5 +50,5 @@ for node, core in CONFIGURES:
         BOOST_MODULE if node == 1 else f"{BOOST_MODULE} {MPI_MODULE}",
         dependency=f"--dependency=after:{prev}"
     )
-    r = subprocess.run(["sbatch", f"SLURM/n{node}c{core}.slurm"], capture_output=True)
+    r = subprocess.run(["sbatch", f"SLURM/n{node}c{core}.slurm"], capture_output=True, encoding="utf-8")
     prev = JOB_ID_RGX.match(r.stdout).group(0)
