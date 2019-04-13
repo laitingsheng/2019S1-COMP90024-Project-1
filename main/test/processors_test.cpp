@@ -82,13 +82,11 @@ BOOST_AUTO_TEST_SUITE(Multi_Node_Processors)
 
 BOOST_FIXTURE_TEST_CASE(MNST_test, MPIFixture)
 {
-    // printf("MNST test\n");
-    //
-    // processor_mn_st p("tinyTwitter.json", g, env, world);
-    // processor_tester tester(p);
+    processor_mn_st p("tinyTwitter.json", g, env, world);
+    processor_tester tester(p);
 
-    // tester.test_preprocess();
-    // tester.test_process();
+    tester.test_preprocess();
+    tester.test_process();
 }
 
 BOOST_FIXTURE_TEST_CASE(MNMT_test, MPIFixture)

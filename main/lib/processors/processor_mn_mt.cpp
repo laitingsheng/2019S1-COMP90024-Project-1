@@ -39,8 +39,7 @@ void processor_mn_mt::preprocess()
                 else
                     ends[i] = curr + file.size();
         }
-        else
-        if (_rank > 0)
+        else if (_rank > 0)
         {
             long dist = start - curr;
             world.send(_rank - 1, 0, dist);
@@ -104,63 +103,60 @@ void processor_mn_mt::preprocess()
     }
     record = std::move(dest);
 
-    if (world.size() > 1)
-    {
-        record_type tmp[_size];
-        boost::mpi::all_gather(world, record, tmp);
+    record_type tmp[_size];
+    boost::mpi::all_gather(world, record, tmp);
 
-        auto pc = _size >> 1;
-        while (pc > 1)
-        {
-            #pragma omp parallel for collapse(2) schedule(dynamic)
-            for (int dest = 0; dest < pc; ++dest)
-                for (unsigned int pos = 0; pos < g.count(); ++pos)
+    pc = _size >> 1;
+    while (pc > 1)
+    {
+        #pragma omp parallel for collapse(2) schedule(dynamic)
+        for (int dest = 0; dest < pc; ++dest)
+            for (unsigned int pos = 0; pos < g.count(); ++pos)
+            {
+                int src = dest + pc;
+                // @formatter:off
+                auto & [sc, sm] = tmp[src][pos];
+                // @formatter:on
+                if (sc != 0)
                 {
-                    int src = dest + pc;
                     // @formatter:off
-                    auto & [sc, sm] = tmp[src][pos];
+                    auto & [dc, dm] = tmp[dest][pos];
                     // @formatter:on
-                    if (sc != 0)
-                    {
+                    if (dm.empty())
+                        dm = std::move(sm);
+                    else
                         // @formatter:off
-                        auto & [dc, dm] = tmp[dest][pos];
-                        // @formatter:on
-                        if (dm.empty())
-                            dm = std::move(sm);
-                        else
-                            // @formatter:off
-                            for (auto & [k, v] : sm)
-                            // @formatter::on
-                                dm[k] += v;
-                        dc += sc;
-                    }
+                        for (auto & [k, v] : sm)
+                        // @formatter::on
+                            dm[k] += v;
+                    dc += sc;
                 }
-            pc >>= 1;
-        }
-        auto & dest = tmp[0], src = tmp[1];
-        #pragma omp parallel for schedule(dynamic)
-        for (unsigned int pos = 0; pos < g.count(); ++pos)
+            }
+        pc >>= 1;
+    }
+    auto & ndest = tmp[0], nsrc = tmp[1];
+    #pragma omp parallel for schedule(dynamic)
+    for (unsigned int pos = 0; pos < g.count(); ++pos)
+    {
+        // @formatter:off
+        auto & [sc, sm] = nsrc[pos];
+        // @formatter:on
+        if (sc != 0)
         {
             // @formatter:off
-            auto & [sc, sm] = src[pos];
-            // @formatter:on
-            if (sc != 0)
-            {
+            auto & [dc, dm] = ndest[pos];
+            // @formatter::on
+            if (dm.empty())
+                dm = std::move(sm);
+            else
                 // @formatter:off
-                auto & [dc, dm] = dest[pos];
+                for (auto & [k, v] : sm)
                 // @formatter::on
-                if (dm.empty())
-                    dm = std::move(sm);
-                else
-                    // @formatter:off
-                    for (auto & [k, v] : sm)
-                    // @formatter::on
-                        dm[k] += v;
-                dc += sc;
-            }
+                    dm[k] += v;
+            dc += sc;
         }
-        record = std::move(dest);
     }
+    record = std::move(ndest);
 }
 
 processor::result_type processor_mn_mt::operator()() const
@@ -211,7 +207,7 @@ processor::result_type processor_mn_mt::operator()() const
             rv.resize(j);
     }
 
-    std::vector<result_type> tmps(_size);
+    std::vector<result_type> tmps;
     boost::mpi::gather(world, tmp, tmps, 0);
 
     if (_rank == 0)

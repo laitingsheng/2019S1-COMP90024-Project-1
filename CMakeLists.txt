@@ -72,10 +72,32 @@ ELSEIF (SNMT)
     ENDIF()
 ELSEIF(MNST)
     ADD_COMPILE_DEFINITIONS(MNST)
-    ADD_EXECUTABLE(main main/main.cpp)
+    # @formatter:off
+    ADD_EXECUTABLE(main main/main.cpp
+        $<TARGET_OBJECTS:grid>
+        $<TARGET_OBJECTS:processor>
+        $<TARGET_OBJECTS:processor-mn-st>
+    )
+    # @formatter:on
+    IF (APPLE)
+        TARGET_LINK_LIBRARIES(main omp mpi boost_iostreams-mt boost_mpi-mt)
+    ELSE ()
+        TARGET_LINK_LIBRARIES(main pthread mpi_cxx mpi boost_iostreams boost_mpi boost_serialization)
+    ENDIF ()
 ELSEIF(MNMT)
     ADD_COMPILE_DEFINITIONS(MNMT)
-    ADD_EXECUTABLE(main main/main.cpp)
+    # @formatter:off
+    ADD_EXECUTABLE(main main/main.cpp
+        $<TARGET_OBJECTS:grid>
+        $<TARGET_OBJECTS:processor>
+        $<TARGET_OBJECTS:processor-mn-mt>
+    )
+    # @formatter:on
+    IF (APPLE)
+        TARGET_LINK_LIBRARIES(main omp mpi boost_iostreams-mt boost_mpi-mt)
+    ELSE ()
+        TARGET_LINK_LIBRARIES(main pthread mpi_cxx mpi boost_iostreams boost_mpi boost_serialization)
+    ENDIF ()
 ELSE()
     MESSAGE(FATAL_ERROR "Mode not supported")
 ENDIF()

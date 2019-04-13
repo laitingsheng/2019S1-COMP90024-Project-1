@@ -21,6 +21,15 @@
 
 int main(int argc, char * argv[])
 {
+    #if defined(MNST) || defined(MNMT)
+    #ifdef MNST
+    boost::mpi::environment env(argc, argv, boost::mpi::threading::single);
+    #else
+    boost::mpi::environment env(argc, argv, boost::mpi::threading::multiple);
+    #endif
+    boost::mpi::communicator world;
+    #endif
+
     if (argc < 2)
     {
         fprintf(stderr, "Minimum of 1 parameter is expected, %d was provided", argc - 1);
@@ -41,9 +50,9 @@ int main(int argc, char * argv[])
     #elif defined(SNMT)
     processor_sn_mt p(argv[1], g);
     #elif defined(MNST)
-    processor_mn_st p(argv[1], g);
+    processor_mn_st p(argv[1], g, env, world);
     #elif defined(MNMT)
-    processor_mn_mt p(argv[1], g);
+    processor_mn_mt p(argv[1], g, env, world);
     #else
     #error Invalid Configuration
     #endif
@@ -62,6 +71,11 @@ int main(int argc, char * argv[])
     std::cout << timer.format(3, "Final Processing:\nWall: %w\nUser: %u\nSystem: %s\nTotal: %t\nPercentage: %p%\n\n")
               << std::endl;
     // @formatter:on
+
+    #if defined(MNST) || defined(MNMT)
+    if (world.rank() > 0)
+        return 0;
+    #endif
 
     processor::print_result(g, output);
 
