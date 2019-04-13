@@ -41,7 +41,7 @@ with Pool(cpu_count()) as p:
             (
                 node,
                 core,
-                f"{'' if node == 1 else f'mpiexec -np {node} --cpus-per-proc {core} '}bin/main_{'sn' if node == 1 else 'mn'}_{'st' if core == 1 else 'mt'}",
+                f"{'' if node == 1 else f'mpiexec -np {node} --map-by node:pe={core} '}bin/main_{'sn' if node == 1 else 'mn'}_{'st' if core == 1 else 'mt'}",
                 BOOST_MODULE if node == 1 else f"{BOOST_MODULE} {MPI_MODULE}"
             )
             for node, core in CONFIGURES
