@@ -40,3 +40,44 @@ ELSE ()
     TARGET_LINK_LIBRARIES(processors_test boost_iostreams)
 ENDIF ()
 
+OPTION(SNST "Single Node Single Thread" OFF)
+OPTION(SNMT "Single Node Multi Thread" OFF)
+OPTION(MNST "Multi Node Single Thread" OFF)
+OPTION(MNMT "Multi Node Multi Thread" OFF)
+
+IF (SNST)
+    ADD_COMPILE_DEFINITIONS(SNST)
+    # @formatter:off
+    ADD_EXECUTABLE(main main/main.cpp
+        $<TARGET_OBJECTS:grid>
+        $<TARGET_OBJECTS:processor>
+        $<TARGET_OBJECTS:processor-sn-st>
+    )
+    # @formatter:on
+ELSEIF (SNMT)
+    ADD_COMPILE_DEFINITIONS(SNMT)
+    # @formatter:off
+    ADD_EXECUTABLE(main main/main.cpp
+        $<TARGET_OBJECTS:grid>
+        $<TARGET_OBJECTS:processor>
+        $<TARGET_OBJECTS:processor-sn-mt>
+    )
+    # @formatter:on
+    if (APPLE)
+        TARGET_LINK_LIBRARIES(main omp)
+    ENDIF()
+ELSEIF(MNST)
+    ADD_COMPILE_DEFINITIONS(MNST)
+    ADD_EXECUTABLE(main main/main.cpp)
+ELSEIF(MNMT)
+    ADD_COMPILE_DEFINITIONS(MNMT)
+    ADD_EXECUTABLE(main main/main.cpp)
+ELSE()
+    MESSAGE(FATAL_ERROR "Mode not supported")
+ENDIF()
+
+IF (APPLE)
+    TARGET_LINK_LIBRARIES(main boost_iostreams-mt)
+ELSE ()
+    TARGET_LINK_LIBRARIES(main boost_iostreams boost_timer)
+ENDIF ()

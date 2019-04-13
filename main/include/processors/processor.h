@@ -18,6 +18,8 @@ struct processor
     using cell_total_info = std::pair<cell_info, std::vector<tag_info>>;
     using result_type = std::vector<cell_total_info>;
 
+    static void print_result(grid const & g, result_type const & re);
+
     virtual ~processor() = default;
 
     processor(processor const &) = delete;

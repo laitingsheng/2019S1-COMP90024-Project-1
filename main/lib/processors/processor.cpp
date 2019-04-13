@@ -2,6 +2,20 @@
 
 #include "processors/processor.h"
 
+void processor::print_result(grid const & g, result_type const & re)
+{
+    // @formatter:off
+    for (auto & [l, r] : re)
+    // @formatter:on
+    {
+        auto & [ll, lr] = l;
+        printf("%s: %lu | (", g.decode(ll).c_str(), lr);
+        for (auto & [rl, rr] : r)
+            printf("(%s, %lu)", rl.c_str(), rr);
+        printf(")\n");
+    }
+}
+
 // @formatter:off
 std::regex const processor::coord_rgx(
     R"vcr(\"(geometry|coordinates|geo)\":\{.*?\"coordinates\":\[(.*?),(.*?)\].*?\})vcr",
