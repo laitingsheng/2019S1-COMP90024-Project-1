@@ -51,4 +51,4 @@ for node, core in CONFIGURES:
         dependency=f"#SBATCH --dependency=after:{prev}" if prev else ""
     )
     r = subprocess.run(["sbatch", f"SLURM/n{node}c{core}.slurm"], capture_output=True, encoding="utf-8")
-    prev = JOB_ID_RGX.match(r.stdout).group(0)
+    prev = JOB_ID_RGX.match(r.stdout).group(1)
