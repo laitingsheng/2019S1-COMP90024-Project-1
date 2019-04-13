@@ -1,5 +1,5 @@
 from os import system
-from sys import argv, platform, stderr
+from sys import platform, stderr
 
 if platform.startswith("linux"):
     CXX = "g++"
@@ -7,11 +7,6 @@ if platform.startswith("linux"):
 else:
     print("platform not supported", file=stderr)
     exit(-1)
-
-if len(argv) > 1 and bool(argv[1]):
-    COMMAND = "module load Boost/1.69.0-spartan_gcc-8.1.0 OpenMPI/3.1.0-GCC-8.2.0-cuda9-ucx"
-    print(COMMAND)
-    system(COMMAND)
 
 SRC = "main"
 CXXFLAG = f"-std=c++17 -I./{SRC}/include -O3"
