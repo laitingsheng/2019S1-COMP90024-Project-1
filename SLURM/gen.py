@@ -30,7 +30,7 @@ CONFIGURES = (
     (8, 1), (8, 2), (8, 4), (8, 8),
 )
 
-def create_file(node, core, execute, modules, time="240", loop=10):
+def create_file(node, core, execute, modules, time="5", loop=50):
     with open(f"n{node}c{core}.slurm", "w+t") as f:
         f.write(TEMPLATE.format(node=node, core=core, time=time, modules=modules, loop=loop, execute=execute))
 
