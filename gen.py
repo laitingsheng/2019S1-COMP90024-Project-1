@@ -39,7 +39,7 @@ def create_file(node, core, execute, modules, time="240", loop=20, dependency=""
     with open(f"SLURM/n{node}c{core}.slurm", "w+t") as f:
         f.write(TEMPLATE.format(node=node, core=core, time=time, modules=modules, loop=loop, execute=execute, dependency=dependency))
 
-JOB_ID_RGX = re.compile(R"Submitted batch job (\d+)")
+JOB_ID_RGX = re.compile("Submitted batch job (\\d+)\n")
 
 prev = ""
 for node, core in CONFIGURES:
