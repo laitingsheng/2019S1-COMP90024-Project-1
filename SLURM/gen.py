@@ -11,13 +11,15 @@ TEMPLATE = '''#!/bin/bash
 #SBATCH -o SLURM/n{node}c{core}.summary
 #SBATCH -p physical
 #SBATCH -t {time}
-#SBATCH --array=1-{loop}
 
 mkdir -p SLURM/n{node}c{core}
 
 module load {modules}
 
-{execute} /data/projects/COMP90024/bigTwitter.json /data/projects/COMP90024/melbGrid.json 1> SLURM/n{node}c{core}/${{SLURM_ARRAY_TASK_ID}}.out 2> SLURM/n{node}c{core}/${{SLURM_ARRAY_TASK_ID}}.err
+for i in {{1..{loop}}}
+do
+    {execute} /data/projects/COMP90024/bigTwitter.json /data/projects/COMP90024/melbGrid.json 1> SLURM/n{node}c{core}/$i.out 2> SLURM/n{node}c{core}/$i.err
+done
 '''
 
 BOOST_MODULE = "Boost/1.69.0-spartan_gcc-8.1.0"
@@ -30,7 +32,7 @@ CONFIGURES = (
     (8, 1), (8, 2), (8, 4), (8, 8),
 )
 
-def create_file(node, core, execute, modules, time="10", loop=5):
+def create_file(node, core, execute, modules, time="240", loop=20):
     with open(f"n{node}c{core}.slurm", "w+t") as f:
         f.write(TEMPLATE.format(node=node, core=core, time=time, modules=modules, loop=loop, execute=execute))
 
