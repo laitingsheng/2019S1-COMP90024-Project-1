@@ -48,7 +48,7 @@ for node, core in CONFIGURES:
         core,
         f"{'' if node == 1 else f'mpiexec -np {node} --map-by node:pe={core} '}bin/main_{'sn' if node == 1 else 'mn'}_{'st' if core == 1 else 'mt'}",
         BOOST_MODULE if node == 1 else f"{BOOST_MODULE} {MPI_MODULE}",
-        dependency=f"#SBATCH --dependency=after:{prev}" if prev else ""
+        dependency=f"#SBATCH --dependency=afterany:{prev}" if prev else ""
     )
     r = subprocess.run(["sbatch", f"SLURM/n{node}c{core}.slurm"], capture_output=True, encoding="utf-8")
     prev = JOB_ID_RGX.match(r.stdout).group(1)
