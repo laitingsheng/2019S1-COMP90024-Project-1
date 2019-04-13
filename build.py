@@ -1,5 +1,5 @@
 from os import system
-from sys import argv, platform, stdout, stderr
+from sys import argv, platform, stderr
 
 if platform.startswith("linux"):
     CXX = "g++"

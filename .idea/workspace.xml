@@ -31,12 +31,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db789271-35c9-4c78-8257-784372f17fc4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/lib/processors/processor_mn_mt.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main/lib/processors/processor_mn_mt.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/lib/processors/processor_mn_st.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main/lib/processors/processor_mn_st.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/test/processors_test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main/test/processors_test.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.py" beforeDir="false" afterPath="$PROJECT_DIR$/build.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/lib/processors/processor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main/lib/processors/processor.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/cmake-build-release/" />
@@ -82,17 +78,26 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main/main.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-78">
+                <state relative-caret-position="273">
                   <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main/lib/processors/processor.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="353">
-                  <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+                <state relative-caret-position="221">
+                  <caret line="32" selection-start-line="32" selection-end-line="32" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/build.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-325">
+                  <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
                 </state>
               </provider>
             </entry>
@@ -204,7 +209,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/main/lib/parser.cpp" />
         <option value="$PROJECT_DIR$/main/test/parser_test.cpp" />
         <option value="$PROJECT_DIR$/main/test/twit_test.cpp" />
         <option value="$PROJECT_DIR$/main/include/twit.h" />
@@ -247,7 +251,6 @@
         <option value="$PROJECT_DIR$/main/include/processors/processor.h" />
         <option value="$PROJECT_DIR$/main/lib/processors/processor_sn_mt.cpp" />
         <option value="$PROJECT_DIR$/main/lib/processors/processor_sn_st.cpp" />
-        <option value="$PROJECT_DIR$/main/lib/processors/processor.cpp" />
         <option value="$PROJECT_DIR$/main/include/processors/processor_mn_st.h" />
         <option value="$PROJECT_DIR$/main/test/processors_test.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
@@ -255,6 +258,8 @@
         <option value="$PROJECT_DIR$/main/main.cpp" />
         <option value="$PROJECT_DIR$/main/lib/processors/processor_mn_mt.cpp" />
         <option value="$PROJECT_DIR$/main/lib/processors/processor_mn_st.cpp" />
+        <option value="$PROJECT_DIR$/main/lib/processors/processor.cpp" />
+        <option value="$PROJECT_DIR$/build.py" />
       </list>
     </option>
   </component>
@@ -492,17 +497,11 @@
       <workItem from="1555065473030" duration="622000" />
       <workItem from="1555066143250" duration="15735000" />
       <workItem from="1555112283589" duration="1025000" />
-      <workItem from="1555130219778" duration="30644000" />
+      <workItem from="1555130219778" duration="33005000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Single_Node_Processors_Test - 2019.04.13 at 01h 47m 35s.xml">
-      <configuration name="Single Node Processors Test" configurationId="CMakeBoostTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Single_Node_Processors_Test - 2019.04.13 at 01h 49m 10s.xml">
-      <configuration name="Single Node Processors Test" configurationId="CMakeBoostTestRunConfigurationType" />
-    </history-entry>
     <history-entry file="Single_Node_Processors_Test - 2019.04.13 at 01h 49m 34s.xml">
       <configuration name="Single Node Processors Test" configurationId="CMakeBoostTestRunConfigurationType" />
     </history-entry>
@@ -527,9 +526,15 @@
     <history-entry file="Single_Node_Processors_Test - 2019.04.13 at 20h 24m 35s.xml">
       <configuration name="Single Node Processors Test" configurationId="CMakeBoostTestRunConfigurationType" />
     </history-entry>
+    <history-entry file="Single_Node_Processors_Test - 2019.04.13 at 23h 38m 18s.xml">
+      <configuration name="Single Node Processors Test" configurationId="CMakeBoostTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Single_Node_Processors_Test - 2019.04.13 at 23h 43m 27s.xml">
+      <configuration name="Single Node Processors Test" configurationId="CMakeBoostTestRunConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="462214000" />
+    <option name="totallyTimeSpent" value="464575000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -544,12 +549,12 @@
     <frame x="1912" y="-8" width="2576" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49839744" visible="true" weight="0.12222222" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49839744" visible="true" weight="0.12222222" />
       <window_info id="Structure" order="1" sideWeight="0.5016026" side_tool="true" weight="0.094444446" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32831" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.39612487" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.39612487" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -559,7 +564,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5007153" side_tool="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32938644" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.2863294" />
-      <window_info active="true" anchor="bottom" id="Messages" order="12" sideWeight="0.49928468" visible="true" weight="0.2917115" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49928468" weight="0.2917115" />
       <window_info anchor="bottom" id="Tail" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -572,7 +577,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/processors/processor.hpp" />
     <entry file="file://$PROJECT_DIR$/src/processors/single_thread_processor.hpp" />
     <entry file="file://$PROJECT_DIR$/src/processors/multi_thread_processor.hpp" />
     <entry file="file://$PROJECT_DIR$/src/processors/multi_node_processor.hpp" />
@@ -690,13 +694,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1209">
-          <caret line="93" column="5" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/lib/processors/processor_sn_st.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="715">
@@ -725,13 +722,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-78">
-          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main/lib/processors/processor_mn_mt.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="481">
@@ -746,10 +736,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1209">
+          <caret line="93" column="5" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main/lib/processors/processor.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+        <state relative-caret-position="221">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-325">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>

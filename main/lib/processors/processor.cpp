@@ -18,7 +18,7 @@ void processor::print_result(grid const & g, result_type const & re)
 
 // @formatter:off
 std::regex const processor::coord_rgx(
-    R"vcr(\"(geometry|coordinates|geo)\":\{.*?\"coordinates\":\[(.*?),(.*?)\].*?\})vcr",
+    R"cr(\"(geometry|coordinates|geo)\":\{.*?\"coordinates\":\[(.*?),(.*?)\].*?\})cr",
     std::regex::ECMAScript | std::regex::optimize
 );
 std::regex const processor::hash_tags_rgx(
