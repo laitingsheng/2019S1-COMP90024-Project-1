@@ -23,7 +23,7 @@ struct grid_tester final
         for (auto & [k, v] : encode_test_cases)
             for (auto & [cv, ch] : v)
         // @formatter:on
-                BOOST_REQUIRE(g1.encode(cv, ch) == k);
+                BOOST_TEST(g1.encode(cv, ch) == k);
     }
 
 private:

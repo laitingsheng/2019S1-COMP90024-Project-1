@@ -4,13 +4,15 @@
 #include <unordered_map>
 #include <vector>
 
-// #include <boost/mpi.hpp>
+#include <boost/mpi.hpp>
 #include <boost/test/included/unit_test.hpp>
 
 #include "grid.h"
 #include "processors/processor.h"
 #include "processors/processor_sn_st.h"
 #include "processors/processor_sn_mt.h"
+#include "processors/processor_mn_st.h"
+#include "processors/processor_mn_mt.h"
 
 struct processor_tester final
 {
@@ -19,11 +21,12 @@ struct processor_tester final
     void test_preprocess()
     {
         p.preprocess();
-        BOOST_REQUIRE(p.record == preprocess_tiny_ans);
+        BOOST_TEST(p.record == preprocess_tiny_ans);
     }
 
     void test_process()
     {
+        auto re = p();
         BOOST_TEST(p() == process_tiny_ans);
     }
 
@@ -36,12 +39,16 @@ private:
 
 struct GridFixture
 {
+    explicit GridFixture() = default;
+
+    virtual ~GridFixture() = default;
+
     grid g;
 };
 
 BOOST_FIXTURE_TEST_SUITE(Single_Node_Processors, GridFixture)
 
-BOOST_AUTO_TEST_CASE(SNST)
+BOOST_AUTO_TEST_CASE(SNST_test)
 {
     processor_sn_st p("tinyTwitter.json", g);
     processor_tester tester(p);
@@ -50,9 +57,43 @@ BOOST_AUTO_TEST_CASE(SNST)
     tester.test_process();
 }
 
-BOOST_AUTO_TEST_CASE(SNMT)
+BOOST_AUTO_TEST_CASE(SNMT_test)
 {
     processor_sn_mt p("tinyTwitter.json", g);
+    processor_tester tester(p);
+
+    tester.test_preprocess();
+    tester.test_process();
+}
+
+BOOST_AUTO_TEST_SUITE_END()
+
+struct MPIFixture : GridFixture
+{
+    explicit MPIFixture() : env(boost::mpi::threading::multiple), GridFixture() {};
+
+    virtual ~MPIFixture() = default;
+
+    boost::mpi::environment env;
+    boost::mpi::communicator world;
+};
+
+BOOST_AUTO_TEST_SUITE(Multi_Node_Processors)
+
+BOOST_FIXTURE_TEST_CASE(MNST_test, MPIFixture)
+{
+    // printf("MNST test\n");
+    //
+    // processor_mn_st p("tinyTwitter.json", g, env, world);
+    // processor_tester tester(p);
+
+    // tester.test_preprocess();
+    // tester.test_process();
+}
+
+BOOST_FIXTURE_TEST_CASE(MNMT_test, MPIFixture)
+{
+    processor_mn_mt p("tinyTwitter.json", g, env, world);
     processor_tester tester(p);
 
     tester.test_preprocess();

@@ -19,15 +19,15 @@ void processor::print_result(grid const & g, result_type const & re)
 // @formatter:off
 std::regex const processor::coord_rgx(
     R"vcr(\"(geometry|coordinates|geo)\":\{.*?\"coordinates\":\[(.*?),(.*?)\].*?\})vcr",
-    std::regex::ECMAScript | std::regex::optimize | std::regex::collate
+    std::regex::ECMAScript | std::regex::optimize
 );
 std::regex const processor::hash_tags_rgx(
     R"htr(\"hashtags\":\[(?:\,?\{.*?\"text\":\".*?\".*?\})+\])htr",
-    std::regex::ECMAScript | std::regex::optimize | std::regex::collate
+    std::regex::ECMAScript | std::regex::optimize
 );
 std::regex const processor::hash_tag_rgx(
     R"htr(\"text\":\"(.*?)\")htr",
-    std::regex::ECMAScript | std::regex::optimize | std::regex::collate
+    std::regex::ECMAScript | std::regex::optimize
 );
 // @formatter:on
 

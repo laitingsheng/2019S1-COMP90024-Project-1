@@ -21,6 +21,8 @@ struct processor_mn_mt final : public processor
     result_type operator()() const override;
 
 private:
+    static int const num_proc;
+
     boost::mpi::environment const & env;
     boost::mpi::communicator const & world;
 
