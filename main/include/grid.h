@@ -1,26 +1,24 @@
-#ifndef _GRID_H_
-#define _GRID_H_
+#ifndef COMP90024_PROJECT_1_GRID_H
+#define COMP90024_PROJECT_1_GRID_H
 
 #include <map>
 #include <regex>
 #include <string>
 #include <unordered_map>
 #include <unordered_set>
+#include <vector>
 
 struct grid final
 {
-    using axis = std::map<double, char>;
-    using valids = std::unordered_set<std::string>;
-
     explicit grid();
 
     explicit grid(char const * filename);
 
-    char get_horizontal(double pos) const;
+    unsigned long count() const;
 
-    char get_vertical(double pos) const;
+    std::string const & decode(unsigned coded_coord) const;
 
-    bool validate(char vertical, char horizontal) const;
+    unsigned int encode(double vertical, double horizontal) const;
 
     grid(grid const &) = delete;
 
@@ -35,8 +33,9 @@ private:
 
     static std::regex const cell_rgx;
 
-    axis _horizontal, _vertical;
-    valids _valid;
+    std::map<double, std::pair<char, std::map<double, char>>> _region;
+    std::unordered_map<std::string, unsigned int> _map;
+    std::vector<std::string> _rev_map;
 };
 
 #endif

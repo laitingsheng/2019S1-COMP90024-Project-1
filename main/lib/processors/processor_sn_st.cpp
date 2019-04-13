@@ -10,30 +10,48 @@ void processor_sn_st::preprocess()
 
 processor::result_type processor_sn_st::operator()() const
 {
-    result_type re(record.size());
-    auto it = re.begin();
-    // @formatter:off
-    for (auto & [k, v] : record)
-    // @formatter:on
+    result_type re(g.count());
+    for (unsigned int i = 0; i < g.count(); ++i)
     {
         // @formatter:off
-        auto & [ik, iv] = v;
+        auto & [c, m] = record[i];
+        auto & [rc, rv] = re[i];
         // @formatter:on
-        std::vector<cell_tag_info> tmp(iv.size());
-        auto tit = tmp.begin();
-        // @formatter:off
-        for (auto & [iik, iiv] : iv)
-        // @formatter:on
+        rc = {i, c};
+        if (c == 0)
+            continue;
+        rv.resize(m.size());
+        auto it = rv.begin();
+        for (auto & p : m)
         {
-            *tit = {iik, iiv};
-            ++tit;
+            *it = p;
+            ++it;
         }
-        std::sort(tmp.begin(), tmp.end(), less_cell_tag_info);
-        if (tmp.size() > 5)
-            tmp.erase(tmp.begin() + 5, tmp.end());
-        *it = {k, ik, std::move(tmp)};
-        ++it;
+        std::sort(rv.begin(), rv.end(), less_tag_info);
+
+        int vc = 0;
+        unsigned long lc = 0;
+        unsigned long j = 0;
+        while (j < rv.size())
+        {
+            auto c = rv[j].second;
+            if (c == 0)
+            {
+                lc = c;
+                break;
+            }
+            if (c != lc)
+            {
+                ++vc;
+                lc = c;
+                if (vc > 5)
+                    break;
+            }
+            ++j;
+        }
+        if (lc != 0 && vc > 5)
+            rv.resize(j);
     }
-    std::sort(re.begin(), re.end(), less_cell_info);
+    std::sort(re.begin(), re.end(), less_cell_total_info);
     return re;
 }

@@ -1,5 +1,5 @@
-#ifndef _PROCESSOR_H_
-#define _PROCESSOR_H_
+#ifndef COMP90024_PROJECT_1_PROCESSOR_H
+#define COMP90024_PROJECT_1_PROCESSOR_H
 
 #include <regex>
 #include <string>
@@ -13,9 +13,14 @@
 
 struct processor
 {
-    using cell_tag_info = std::pair<std::string, unsigned long>;
-    using cell_info = std::tuple<std::string, unsigned long, std::vector<cell_tag_info>>;
-    using result_type = std::vector<cell_info>;
+    using cell_info = std::pair<unsigned int, unsigned long>;
+    using tag_info = std::pair<std::string, unsigned long>;
+    using cell_total_info = std::pair<cell_info, std::vector<tag_info>>;
+    using result_type = std::vector<cell_total_info>;
+
+    static void print_result(grid const & g, result_type const & re);
+
+    virtual ~processor() = default;
 
     processor(processor const &) = delete;
 
@@ -30,33 +35,26 @@ struct processor
     virtual result_type operator()() const = 0;
 
 protected:
-    // @formatter:off
-    using record_type = std::unordered_map<
-        std::string,
-        std::pair<
-            unsigned long,
-            std::unordered_map<std::string, unsigned long>
-        >
-    >;
-    // @formatter:on
+    using cell_record = std::pair<unsigned long, std::unordered_map<std::string, unsigned long>>;
+    using record_type = std::vector<cell_record>;
 
     static std::regex const coord_rgx, hash_tags_rgx, hash_tag_rgx;
 
-    static void merge_records(record_type &, record_type &&);
+    static bool less_tag_info(tag_info const & l, tag_info const & r);
 
-    static bool less_cell_tag_info(cell_tag_info const &, cell_tag_info const &);
-
-    static bool less_cell_info(cell_info const &, cell_info const &);
+    static bool less_cell_total_info(cell_total_info const & l, cell_total_info const & r);
 
     grid const & g;
     boost::iostreams::mapped_file_source file;
     record_type record;
 
-    explicit processor(char const *, grid const &);
+    explicit processor(char const * filename, grid const & g);
 
-    virtual void process_line(std::string const &, record_type &) const final;
+    virtual void process_block(char const * start, char const * end, record_type & record) const final;
 
-    virtual void process_block(char const *, char const *, record_type &) const final;
+    virtual void process_line(std::string const & line, record_type & record) const final;
+
+    virtual cell_total_info record_to_total_info(unsigned int pos) const final;
 
 private:
     friend struct processor_tester;

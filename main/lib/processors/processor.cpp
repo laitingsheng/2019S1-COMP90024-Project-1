@@ -2,28 +2,36 @@
 
 #include "processors/processor.h"
 
-void processor::merge_records(record_type & to, record_type && from)
+void processor::print_result(grid const & g, result_type const & re)
 {
     // @formatter:off
-    for (auto & [k, v] : from)
+    for (auto & [l, r] : re)
     // @formatter:on
-        if (to.count(k))
-        {
-            // @formatter:off
-            auto & [tk, tv] = to[k];
-            auto & [ik, iv] = v;
-            // @formatter:on
-            tk += ik;
-            // @formatter:off
-            for (auto & [iik, iiv] : iv)
-            // @formatter:on
-                tv[iik] += iiv;
-        }
-        else
-            to[k] = std::move(v);
+    {
+        auto & [ll, lr] = l;
+        printf("%s: %lu | (", g.decode(ll).c_str(), lr);
+        for (auto & [rl, rr] : r)
+            printf("(%s, %lu)", rl.c_str(), rr);
+        printf(")\n");
+    }
 }
 
-bool processor::less_cell_tag_info(cell_tag_info const & l, cell_tag_info const & r)
+// @formatter:off
+std::regex const processor::coord_rgx(
+    R"vcr(\"(geometry|coordinates|geo)\":\{.*?\"coordinates\":\[(.*?),(.*?)\].*?\})vcr",
+    std::regex::ECMAScript | std::regex::optimize
+);
+std::regex const processor::hash_tags_rgx(
+    R"htr(\"hashtags\":\[(?:\,?\{.*?\"text\":\".*?\".*?\})+\])htr",
+    std::regex::ECMAScript | std::regex::optimize
+);
+std::regex const processor::hash_tag_rgx(
+    R"htr(\"text\":\"(.*?)\")htr",
+    std::regex::ECMAScript | std::regex::optimize
+);
+// @formatter:on
+
+bool processor::less_tag_info(tag_info const & l, tag_info const & r)
 {
     auto ls = l.second, rs = r.second;
     if (ls != rs)
@@ -31,15 +39,29 @@ bool processor::less_cell_tag_info(cell_tag_info const & l, cell_tag_info const 
     return l.first < r.first;
 }
 
-bool processor::less_cell_info(cell_info const & l, cell_info const & r)
+bool processor::less_cell_total_info(cell_total_info const & l, cell_total_info const & r)
 {
-    auto ls = std::get<1>(l), rs = std::get<1>(r);
-    if (ls != rs)
-        return ls > rs;
-    return std::get<0>(l) < std::get<0>(r);
+    auto lf = l.first, rf = r.first;
+    auto lfs = lf.second, rfs = rf.second;
+    if (lfs != rfs)
+        return lfs > rfs;
+    return lf.first < rf.first;
 }
 
 processor::processor(char const * filename, grid const & g) : file(filename), g(g) {}
+
+void processor::process_block(char const * start, char const * end, record_type & record) const
+{
+    record.resize(g.count());
+    while (start < end)
+    {
+        auto prev = start;
+        while (*start++ != '\n');
+        auto size = start - prev;
+        std::string line(prev, size);
+        process_line(line, record);
+    }
+}
 
 void processor::process_line(std::string const & line, record_type & record) const
 {
@@ -47,27 +69,24 @@ void processor::process_line(std::string const & line, record_type & record) con
     if (!std::regex_search(line, coord_match, coord_rgx))
         return;
 
-    char h, v;
+    double h, v;
     if (coord_match.str(1) == "geo")
     {
-        if (!(v = g.get_vertical(std::stod(coord_match.str(2)))))
-            return;
-        if (!(h = g.get_horizontal(std::stod(coord_match.str(3)))))
-            return;
+        v = std::stod(coord_match.str(2));
+        h = std::stod(coord_match.str(3));
     }
     else
     {
-        if (!(h = g.get_horizontal(std::stod(coord_match.str(2)))))
-            return;
-        if (!(v = g.get_vertical(std::stod(coord_match.str(3)))))
-            return;
+        h = std::stod(coord_match.str(2));
+        v = std::stod(coord_match.str(3));
     }
 
-    if (!g.validate(v, h))
+    auto pos = g.encode(v, h);
+    if (pos == -1)
         return;
 
     // @formatter:off
-    auto & [count, hash_tags_counts] = record[{v, h}];
+    auto & [count, hash_tags_counts] = record[pos];
     // @formatter:on
     ++count;
 
@@ -87,29 +106,46 @@ void processor::process_line(std::string const & line, record_type & record) con
     }
 }
 
-void processor::process_block(char const * start, char const * end, record_type & record) const
+processor::cell_total_info processor::record_to_total_info(unsigned int pos) const
 {
-    while (start < end)
+    cell_total_info re;
+    // @formatter:off
+    auto & [c, m] = record[pos];
+    auto & [rc, rv] = re;
+    // @formatter:on
+    rc = {pos, c};
+    if (c == 0)
+        return re;
+    rv.resize(m.size());
+    auto it = rv.begin();
+    for (auto & p : m)
     {
-        auto prev = start;
-        while (*start++ != '\n');
-        auto size = start - prev;
-        std::string line(prev, size);
-        process_line(line, record);
+        *it = p;
+        ++it;
     }
-}
+    std::sort(rv.begin(), rv.end(), less_tag_info);
 
-// @formatter:off
-std::regex const processor::coord_rgx(
-    R"vcr(\"(geometry|coordinates|geo)\":\{.*?\"coordinates\":\[(.*?),(.*?)\].*?\})vcr",
-    std::regex::ECMAScript | std::regex::optimize | std::regex::collate
-);
-std::regex const processor::hash_tags_rgx(
-    R"htr(\"hashtags\":\[(?:\,?\{.*?\"text\":\".*?\".*?\})+\])htr",
-    std::regex::ECMAScript | std::regex::optimize | std::regex::collate
-);
-std::regex const processor::hash_tag_rgx(
-    R"htr(\"text\":\"(.*?)\")htr",
-    std::regex::ECMAScript | std::regex::optimize | std::regex::collate
-);
-// @formatter:on
+    int vc = 0;
+    unsigned long lc = 0;
+    unsigned long j = 0;
+    while (j < rv.size())
+    {
+        auto c = rv[j].second;
+        if (c == 0)
+        {
+            lc = c;
+            break;
+        }
+        if (c != lc)
+        {
+            ++vc;
+            lc = c;
+            if (vc > 5)
+                break;
+        }
+        ++j;
+    }
+    if (lc != 0 && vc > 5)
+        rv.resize(j);
+    return re;
+}

@@ -1,30 +1,35 @@
-/*
- * Author: Tingsheng (Tinson) Lai 781319
- */
-
-// @formatter:off
-
-#include <cstdio>
-
 #include <iostream>
 
-#ifdef MULTI_NODE
+#if defined(MNST) || defined(MNMT)
 #include <boost/mpi.hpp>
 #endif
 #include <boost/timer/timer.hpp>
 
 #include "grid.h"
 
-#if defined(SINGLE_THREAD)
+#if defined(SNST)
 #include "processors/processor_sn_st.h"
-#elif defined(MULTI_NODE)
+#elif defined(SNMT)
+#include "processors/processor_sn_mt.h"
+#elif defined(MNST)
+#include "processors/processor_mn_st.h"
+#elif defined(MNMT)
 #include "processors/processor_mn_mt.h"
 #else
-#include "processors/processor_mt.h"
+#error Invalid Configuration
 #endif
 
 int main(int argc, char * argv[])
 {
+    #if defined(MNST) || defined(MNMT)
+    #ifdef MNST
+    boost::mpi::environment env(argc, argv, boost::mpi::threading::single);
+    #else
+    boost::mpi::environment env(argc, argv, boost::mpi::threading::multiple);
+    #endif
+    boost::mpi::communicator world;
+    #endif
+
     if (argc < 2)
     {
         fprintf(stderr, "Minimum of 1 parameter is expected, %d was provided", argc - 1);
@@ -35,42 +40,44 @@ int main(int argc, char * argv[])
     timer.start();
     auto g = argc == 3 ? grid(argv[2]) : grid();
     timer.stop();
+    // @formatter:off
     std::cout << timer.format(3, "Grid Reading:\nWall: %w\nUser: %u\nSystem: %s\nTotal: %t\nPercentage: %p%\n\n")
               << std::endl;
+    // @formatter:on
 
-    #if defined(SINGLE_THREAD)
+    #if defined(SNST)
     processor_sn_st p(argv[1], g);
-    #elif defined(MULTI_NODE)
-    processor_mn_mt p(argc, argv, argv[1], g);
+    #elif defined(SNMT)
+    processor_sn_mt p(argv[1], g);
+    #elif defined(MNST)
+    processor_mn_st p(argv[1], g, env, world);
+    #elif defined(MNMT)
+    processor_mn_mt p(argv[1], g, env, world);
     #else
-    processor_mt p(argv[1], g);
+    #error Invalid Configuration
     #endif
     timer.start();
     p.preprocess();
     timer.stop();
+    // @formatter:off
     std::cout << timer.format(3, "Preprocessing:\nWall: %w\nUser: %u\nSystem: %s\nTotal: %t\nPercentage: %p%\n\n")
               << std::endl;
+    // @formatter:on
 
     timer.start();
     auto output = p();
     timer.stop();
+    // @formatter:off
     std::cout << timer.format(3, "Final Processing:\nWall: %w\nUser: %u\nSystem: %s\nTotal: %t\nPercentage: %p%\n\n")
               << std::endl;
+    // @formatter:on
 
-    for (auto const & [k, c, _] : output)
-        printf("%s: %lu\n", k.c_str(), c);
-    for (auto const & [k, _, htp] : output)
-    {
-        printf("%s: (", k.c_str());
-        auto it = htp.begin();
-        for (; it != htp.end() - 1; ++it)
-        {
-            auto & [t, c] = *it;
-            printf("(#%s, %lu)", t.c_str(), c);
-        }
-        auto & [t, c] = *it;
-        printf("(#%s, %lu))\n", t.c_str(), c);
-    }
+    #if defined(MNST) || defined(MNMT)
+    if (world.rank() > 0)
+        return 0;
+    #endif
+
+    processor::print_result(g, output);
 
     return 0;
 }
