@@ -1,9 +1,10 @@
 import re
 from collections import defaultdict as dd
+from multiprocessing import Pool, cpu_count
 from mpi4py import MPI
 import io
 
-TFPATH = "/mnt/d/comp90024-project-1/tinyTwitter.json"
+TFPATH = "/mnt/d/comp90024-project-1/smallTwitter.json"
 X_MIN = 144.7
 Y_MIN = -37.65
 GRID_WIDTH = 0.15
@@ -33,8 +34,9 @@ def process_line(line):
     return grid_name, hashtags
 
 
-def processTwitterFile(start_point, end_point):
+def processTwitterFile(file_pointers):
     file = io.open(TFPATH, "r", encoding='UTF-8')
+    start_point, end_point = file_pointers
 
     grid_twit_count = dd(int)
     grid_hashtag_count = dd(dict)
@@ -58,16 +60,34 @@ def processTwitterFile(start_point, end_point):
 
 if __name__ == '__main__':
     rank = comm.Get_rank()
-    core_num = comm.Get_size()
+    node_num = comm.Get_size()
     file = io.open(TFPATH, "r", encoding='UTF-8')
     
     file_size = file.seek(0, 2)
-    file_length_per_core = file_size // core_num
+    core_num = cpu_count()
+    file_length_per_node = file_size // node_num
+    file_length_per_core = file_length_per_node // core_num
 
-    start_point = file_length_per_core * rank
-    end_point = file_length_per_core * (rank + 1)
+    start_point = file_length_per_node * rank
+    process_list = [(file_length_per_core * i + start_point, file_length_per_core * (i + 1) + start_point)
+                    for i in range(core_num)]
 
-    grid_twit_count, grid_hashtag_count = processTwitterFile(start_point, end_point)
+    pool = Pool()
+    results = pool.map(processTwitterFile, process_list)
+
+    grid_twit_count = dd(int)
+    grid_hashtag_count = dd(dict)
+
+    for gtc_d, ghc_d in results:
+        for grid in gtc_d:
+            grid_twit_count[grid] += gtc_d[grid]
+
+            if grid in ghc_d:
+                for hashtag in ghc_d[grid]:
+                    if hashtag in grid_hashtag_count[grid]:
+                        grid_hashtag_count[grid][hashtag] += ghc_d[grid][hashtag]
+                    else:
+                        grid_hashtag_count[grid][hashtag] = ghc_d[grid][hashtag]
 
     if rank != 0:
         prev_grid_twit_count, prev_grid_hashtag_count = comm.recv(source=rank-1)
@@ -82,11 +102,11 @@ if __name__ == '__main__':
                         grid_hashtag_count[grid][hashtag] = prev_grid_hashtag_count[grid][hashtag]
 
 
-    if rank != (core_num - 1):
+    if rank != (node_num - 1):
         comm.send((grid_twit_count, grid_hashtag_count), dest=rank+1)
 
 
-    if rank == core_num - 1:      
+    if rank == node_num - 1:      
 
         twitter_count_order = sorted(grid_twit_count.items(), key=lambda x: x[1],
                                      reverse=True)
