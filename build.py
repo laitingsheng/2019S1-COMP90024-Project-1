@@ -34,7 +34,7 @@ SUFFIX = "sn_st"
 COMMAND = f"{CXX} {CXXFLAG} -c -o bin/processor_{SUFFIX}.o {SRC}/lib/processors/processor_{SUFFIX}.cpp"
 print(COMMAND)
 system(COMMAND)
-COMMAND = f"{CXX} {CXXFLAG} {BOOST} {MACRO} -o bin/main_{SUFFIX}.o {SRC}/main.cpp {COMMON_OBJ} bin/processor_{SUFFIX}.o"
+COMMAND = f"{CXX} {CXXFLAG} {BOOST} {MACRO} -o bin/main_{SUFFIX} {SRC}/main.cpp {COMMON_OBJ} bin/processor_{SUFFIX}.o"
 print(COMMAND)
 system(COMMAND)
 
@@ -44,7 +44,7 @@ SUFFIX = "sn_mt"
 COMMAND = f"{CXX} {CXXFLAG} -c -fopenmp -o bin/processor_{SUFFIX}.o {SRC}/lib/processors/processor_{SUFFIX}.cpp"
 print(COMMAND)
 system(COMMAND)
-COMMAND = f"{CXX} {CXXFLAG} -fopenmp {BOOST} {MACRO} -o bin/main_{SUFFIX}.o {SRC}/main.cpp {COMMON_OBJ} bin/processor_{SUFFIX}.o"
+COMMAND = f"{CXX} {CXXFLAG} -fopenmp {BOOST} {MACRO} -o bin/main_{SUFFIX} {SRC}/main.cpp {COMMON_OBJ} bin/processor_{SUFFIX}.o"
 print(COMMAND)
 system(COMMAND)
 
@@ -54,7 +54,7 @@ SUFFIX = "mn_st"
 COMMAND = f"{MPICXX} {CXXFLAG} -c -o bin/processor_{SUFFIX}.o {SRC}/lib/processors/processor_{SUFFIX}.cpp"
 print(COMMAND)
 system(COMMAND)
-COMMAND = f"{MPICXX} {CXXFLAG} {BOOST} {BOOST_MPI} {MACRO} -o bin/main_{SUFFIX}.o {SRC}/main.cpp {COMMON_OBJ} bin/processor_{SUFFIX}.o"
+COMMAND = f"{MPICXX} {CXXFLAG} {BOOST} {BOOST_MPI} {MACRO} -o bin/main_{SUFFIX} {SRC}/main.cpp {COMMON_OBJ} bin/processor_{SUFFIX}.o"
 print(COMMAND)
 system(COMMAND)
 
@@ -64,6 +64,6 @@ SUFFIX = "mn_mt"
 COMMAND = f"{MPICXX} {CXXFLAG} -c -fopenmp -o bin/processor_{SUFFIX}.o {SRC}/lib/processors/processor_{SUFFIX}.cpp"
 print(COMMAND)
 system(COMMAND)
-COMMAND = f"{MPICXX} {CXXFLAG} -fopenmp {BOOST} {BOOST_MPI} {MACRO} -o bin/main_{SUFFIX}.o {SRC}/main.cpp {COMMON_OBJ} bin/processor_{SUFFIX}.o"
+COMMAND = f"{MPICXX} {CXXFLAG} -fopenmp {BOOST} {BOOST_MPI} {MACRO} -o bin/main_{SUFFIX} {SRC}/main.cpp {COMMON_OBJ} bin/processor_{SUFFIX}.o"
 print(COMMAND)
 system(COMMAND)
