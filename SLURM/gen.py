@@ -11,15 +11,13 @@ TEMPLATE = '''#!/bin/bash
 #SBATCH -o SLURM/n{node}c{core}.summary
 #SBATCH -p physical
 #SBATCH -t {time}
+#SBATCH --array=1-{loop}
 
 mkdir -p SLURM/n{node}c{core}
 
 module load {modules}
 
-for i in {{1..{loop}}}
-do
-    {execute} /data/projects/COMP90024/bigTwitter.json /data/projects/COMP90024/melbGrid.json 1> SLURM/n{node}c{core}/$i.out 2> SLURM/n{node}c{core}/$i.err
-done
+{execute} /data/projects/COMP90024/bigTwitter.json /data/projects/COMP90024/melbGrid.json 1> SLURM/n{node}c{core}/${{SLURM_ARRAY_TASK_ID}}.out 2> SLURM/n{node}c{core}/${{SLURM_ARRAY_TASK_ID}}.err
 '''
 
 BOOST_MODULE = "Boost/1.69.0-spartan_gcc-8.1.0"
@@ -27,9 +25,9 @@ MPI_MODULE = "OpenMPI/3.1.0-GCC-8.2.0-cuda9-ucx"
 
 CONFIGURES = (
     (1, 1), (1, 2), (1, 4), (1, 8), (1, 16), (1, 32), (1, 64),
-    (2, 1), (2, 2), (2, 4), (2, 8), (2, 16), (2, 32),
-    (4, 1), (4, 2), (4, 4), (4, 8), (4, 16),
-    (8, 1), (8, 2), (8, 4), (8, 8)
+    (2, 1), (2, 2), (2, 4), (2, 8), (2, 16), (2, 32), (2, 64),
+    (4, 1), (4, 2), (4, 4), (4, 8), (4, 16), (4, 32), (4, 64),
+    (8, 1), (8, 2), (8, 4), (8, 8), (8, 16), (8, 32), (8, 64)
 )
 
 def create_file(node, core, execute, modules, time="240", loop=10):
@@ -43,7 +41,7 @@ with Pool(cpu_count()) as p:
             (
                 node,
                 core,
-                f"{'' if node == 1 else f'mpiexec -np {node} --cpus-per-proc {core} '}bin-{'sn' if node == 1 else 'mn'}-{'st' if core == 1 else 'mt'}/main",
+                f"{'' if node == 1 else f'mpiexec -np {node} --cpus-per-proc {core} '}bin/main_{'sn' if node == 1 else 'mn'}_{'st' if core == 1 else 'mt'}",
                 BOOST_MODULE if node == 1 else f"{BOOST_MODULE} {MPI_MODULE}"
             )
             for node, core in CONFIGURES
