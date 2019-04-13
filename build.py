@@ -26,7 +26,7 @@ system(COMMAND)
 COMMON_OBJ = "bin/grid.o bin/processor.o"
 
 BOOST = "-lboost_iostreams -lboost_timer"
-BOOST_MPI = "-lboost_iostreams -lboost_mpi"
+BOOST_MPI = "-lboost_mpi -lboost_serialization"
 
 # Single Node Single Thread
 MACRO = "-DSNST"
