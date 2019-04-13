@@ -7,5 +7,5 @@ CONFIGURES = (
     (8, 1), (8, 2), (8, 4), (8, 8),
 )
 
-for node, core in CONFIGURES:
+for node, core in CONFIGURES[::-1]:
     system(f"sbatch SLURM/n{node}c{core}.slurm")
