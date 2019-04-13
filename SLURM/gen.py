@@ -1,3 +1,5 @@
+import re
+import subprocess
 from multiprocessing import cpu_count, Pool
 
 TEMPLATE = '''#!/bin/bash
@@ -11,6 +13,7 @@ TEMPLATE = '''#!/bin/bash
 #SBATCH -o SLURM/n{node}c{core}.summary
 #SBATCH -p physical
 #SBATCH -t {time}
+{dependency}
 
 mkdir -p SLURM/n{node}c{core}
 
@@ -32,20 +35,20 @@ CONFIGURES = (
     (8, 1), (8, 2), (8, 4), (8, 8),
 )
 
-def create_file(node, core, execute, modules, time="240", loop=20):
+def create_file(node, core, execute, modules, time="240", loop=20, dependency=""):
     with open(f"n{node}c{core}.slurm", "w+t") as f:
-        f.write(TEMPLATE.format(node=node, core=core, time=time, modules=modules, loop=loop, execute=execute))
+        f.write(TEMPLATE.format(node=node, core=core, time=time, modules=modules, loop=loop, execute=execute, dependency=dependency))
 
-with Pool(cpu_count()) as p:
-    p.starmap(
-        create_file,
-        (
-            (
-                node,
-                core,
-                f"{'' if node == 1 else f'mpiexec -np {node} --map-by node:pe={core} '}bin/main_{'sn' if node == 1 else 'mn'}_{'st' if core == 1 else 'mt'}",
-                BOOST_MODULE if node == 1 else f"{BOOST_MODULE} {MPI_MODULE}"
-            )
-            for node, core in CONFIGURES
-        )
+JOB_ID_RGX = re.compile(R"Submitted batch job (\d+)")
+
+prev = ""
+for node, core in CONFIGURES:
+    create_file(
+        node,
+        core,
+        f"{'' if node == 1 else f'mpiexec -np {node} --map-by node:pe={core} '}bin/main_{'sn' if node == 1 else 'mn'}_{'st' if core == 1 else 'mt'}",
+        BOOST_MODULE if node == 1 else f"{BOOST_MODULE} {MPI_MODULE}",
+        dependency=prev
     )
+    r = subprocess.run(["sbatch", f"SLURM/n{node}c{core}.slurm"], capture_output=True)
+    prev = JOB_ID_RGX.match(r.stdout).group(0)
