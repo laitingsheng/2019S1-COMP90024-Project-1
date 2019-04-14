@@ -30,10 +30,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db789271-35c9-4c78-8257-784372f17fc4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/lib/processors/processor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main/lib/processors/processor.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="db789271-35c9-4c78-8257-784372f17fc4" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <ignored path="$PROJECT_DIR$/cmake-build-release/" />
     <ignored path="$PROJECT_DIR$/cmake-build-mpi-release/" />
@@ -61,7 +58,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:SNMT" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:SNST" />
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
@@ -87,17 +84,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main/lib/processors/processor.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="442">
-                  <caret line="109" column="1" lean-forward="true" selection-start-line="109" selection-start-column="1" selection-end-line="109" selection-end-column="1" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/python/main.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="39">
-                  <caret line="3" selection-start-line="3" selection-end-line="3" />
+                <state relative-caret-position="637">
+                  <caret line="109" column="1" selection-start-line="109" selection-start-column="1" selection-end-line="109" selection-end-column="1" />
                 </state>
               </provider>
             </entry>
@@ -498,7 +486,7 @@
       <workItem from="1555066143250" duration="15735000" />
       <workItem from="1555112283589" duration="1025000" />
       <workItem from="1555130219778" duration="36055000" />
-      <workItem from="1555204932470" duration="1039000" />
+      <workItem from="1555204932470" duration="1665000" />
     </task>
     <servers />
   </component>
@@ -535,7 +523,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="468664000" />
+    <option name="totallyTimeSpent" value="469290000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -762,8 +750,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main/lib/processors/processor.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="109" column="1" lean-forward="true" selection-start-line="109" selection-start-column="1" selection-end-line="109" selection-end-column="1" />
+        <state relative-caret-position="637">
+          <caret line="109" column="1" selection-start-line="109" selection-start-column="1" selection-end-line="109" selection-end-column="1" />
         </state>
       </provider>
     </entry>
