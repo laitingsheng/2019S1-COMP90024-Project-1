@@ -1,15 +1,12 @@
 #!/bin/bash
 #SBATCH -c 4
 #SBATCH -J COMP90024-n2c4
-#SBATCH --mail-type=ALL
-#SBATCH --mail-user=tingshengl@student.unimelb.edu.au
 #SBATCH --ntasks-per-node=1
 #SBATCH -N 2
 #SBATCH --open-mode=truncate
 #SBATCH -o SLURM/n2c4.summary
 #SBATCH -p physical
 #SBATCH -t 24:00:00
-#SBATCH --dependency=afterany:8134396
 
 mkdir -p SLURM/n2c4
 
