@@ -31,72 +31,72 @@ Percentage: n/a%
 
 
 Preprocessing:
-Wall: 4.187
-User: 25.280
-System: 0.660
-Total: 25.940
-Percentage: 619.5%
-
-
-Final Processing:
-Wall: 0.002
-User: 0.020
-System: 0.000
-Total: 0.020
-Percentage: 830.9%
+Wall: 7.358
+User: 29.150
+System: 1.250
+Total: 30.400
+Percentage: 413.1%
 
 
 Preprocessing:
-Wall: 4.187
-User: 23.770
-System: 0.730
-Total: 24.500
-Percentage: 585.1%
-
-
-Final Processing:
-Wall: 0.008
-User: 0.060
-System: 0.010
-Total: 0.070
-Percentage: 898.7%
+Wall: 7.375
+User: 30.840
+System: 0.890
+Total: 31.730
+Percentage: 430.2%
 
 
 Preprocessing:
-Wall: 4.191
-User: 24.060
-System: 1.580
-Total: 25.640
-Percentage: 611.7%
-
-
-Final Processing:
-Wall: 0.023
-User: 0.100
-System: 0.000
-Total: 0.100
-Percentage: 428.2%
+Wall: 7.376
+User: 37.290
+System: 1.130
+Total: 38.420
+Percentage: 520.9%
 
 
 Preprocessing:
-Wall: 4.249
-User: 27.140
-System: 1.810
-Total: 28.950
-Percentage: 681.3%
+Wall: 7.376
+User: 36.520
+System: 1.200
+Total: 37.720
+Percentage: 511.4%
 
 
 Final Processing:
 Wall: 0.003
-User: 0.010
+User: 0.000
 System: 0.000
-Total: 0.010
-Percentage: 383.1%
+Total: 0.000
+Percentage: n/a%
+
+
+Final Processing:
+Wall: 0.022
+User: 0.030
+System: 0.000
+Total: 0.030
+Percentage: 136.8%
+
+
+Final Processing:
+Wall: 0.012
+User: 0.020
+System: 0.000
+Total: 0.020
+Percentage: 163.5%
 
 
 C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))
 B2: 79500 | ((melbourne, 1013)(auspol, 356)(incident, 314)(victraffic, 239)(firealarm, 237))
 C3: 53374 | ((melbourne, 625)(incident, 317)(victraffic, 297)(firealarm, 232)(structurefire, 219))
+Final Processing:
+Wall: 0.011
+User: 0.010
+System: 0.000
+Total: 0.010
+Percentage: 91.7%
+
+
 B3: 26620 | ((incident, 222)(melbourne, 218)(structurefire, 177)(nonstructurefire, 159)(firealarm, 158))
 C4: 19707 | ((auspol, 281)(incident, 195)(structurefire, 179)(savedallas, 177)(victraffic, 144))
 B1: 16503 | ((melbourne, 226)(structurefire, 134)(vote5sos, 130)(nonstructurefire, 128)(incident, 111))

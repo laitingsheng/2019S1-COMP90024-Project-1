@@ -10,6 +10,9 @@ Grid Reading:
 Wall: 0.000
 User: 0.000
 System: 0.000
+Total: 0.000
+Percentage: n/a%
+
 Grid Reading:
 Wall: 0.000
 User: 0.000
@@ -17,7 +20,6 @@ System: 0.000
 Total: 0.000
 Percentage: n/a%
 
-
 Grid Reading:
 Wall: 0.000
 User: 0.000
@@ -25,78 +27,76 @@ System: 0.000
 Total: 0.000
 Percentage: n/a%
 
-Total: 0.000
-Percentage: n/a%
 
 
 
 Preprocessing:
-Wall: 13.823
-User: 25.030
-System: 0.580
-Total: 25.610
-Percentage: 185.3%
+Wall: 15.882
+User: 27.010
+System: 0.940
+Total: 27.950
+Percentage: 176.0%
+
+
+Preprocessing:
+Wall: 15.883
+User: 28.050
+System: 0.970
+Total: 29.020
+Percentage: 182.7%
+
+
+Preprocessing:
+Wall: 15.889
+User: 27.850
+System: 1.110
+Total: 28.960
+Percentage: 182.3%
 
 
 Final Processing:
-Wall: 0.002
+Wall: 0.007
 User: 0.010
 System: 0.000
 Total: 0.010
-Percentage: 414.4%
+Percentage: 134.0%
 
 
 Preprocessing:
-Wall: 13.824
-User: 24.490
-System: 0.930
-Total: 25.420
-Percentage: 183.9%
+Wall: 15.900
+User: 28.480
+System: 1.030
+Total: 29.510
+Percentage: 185.6%
 
 
 Final Processing:
-Wall: 0.008
+Wall: 0.003
+User: 0.000
+System: 0.000
+Total: 0.000
+Percentage: n/a%
+
+
+Final Processing:
+Wall: 0.021
 User: 0.020
 System: 0.000
 Total: 0.020
-Percentage: 259.7%
-
-
-Preprocessing:
-Wall: 13.824
-User: 25.060
-System: 1.290
-Total: 26.350
-Percentage: 190.6%
-
-
-Preprocessing:
-Wall: 13.839
-User: 25.000
-System: 0.950
-Total: 25.950
-Percentage: 187.5%
+Percentage: 94.4%
 
 
 Final Processing:
-Wall: 0.008
+Wall: 0.015
 User: 0.010
 System: 0.000
 Total: 0.010
-Percentage: 124.2%
+Percentage: 67.5%
 
 
 C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))
 B2: 79500 | ((melbourne, 1013)(auspol, 356)(incident, 314)(victraffic, 239)(firealarm, 237))
 C3: 53374 | ((melbourne, 625)(incident, 317)(victraffic, 297)(firealarm, 232)(structurefire, 219))
-Final Processing:
-Wall: 0.023
-User: 0.040
-System: 0.000
-Total: 0.040
-Percentage: 176.2%
-
-
 B3: 26620 | ((incident, 222)(melbourne, 218)(structurefire, 177)(nonstructurefire, 159)(firealarm, 158))
 C4: 19707 | ((auspol, 281)(incident, 195)(structurefire, 179)(savedallas, 177)(victraffic, 144))
 B1: 16503 | ((melbourne, 226)(structurefire, 134)(vote5sos, 130)(nonstructurefire, 128)(incident, 111))

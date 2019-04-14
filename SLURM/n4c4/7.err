@@ -11,19 +11,19 @@ in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
 of libcuda.so.1 to get passed this issue.
 --------------------------------------------------------------------------
 ibv_exp_query_device: invalid comp_mask !!! (comp_mask = 0x40 valid_mask = 0x3)
-[spartan-bm058][[14995,1],2][btl_openib_component.c:1670:init_one_device] error obtaining device attributes for mlx5_bond_0 errno says Invalid argument
+[spartan-bm006][[1437,1],3][btl_openib_component.c:1670:init_one_device] error obtaining device attributes for mlx5_bond_0 errno says Invalid argument
 --------------------------------------------------------------------------
 WARNING: There was an error initializing an OpenFabrics device.
 
-  Local host:   spartan-bm058
+  Local host:   spartan-bm006
   Local device: mlx5_bond_0
 --------------------------------------------------------------------------
-ibv_exp_query_device: invalid comp_mask !!! (comp_mask = 0xd27be0 valid_mask = 0x3)
-[spartan-bm056][[14995,1],0][btl_openib_component.c:1670:init_one_device] error obtaining device attributes for mlx5_bond_0 errno says Invalid argument
-ibv_exp_query_device: invalid comp_mask !!! (comp_mask = 0x114c520 valid_mask = 0x3)
-[spartan-bm059][[14995,1],3][btl_openib_component.c:1670:init_one_device] error obtaining device attributes for mlx5_bond_0 errno says Invalid argument
 ibv_exp_query_device: invalid comp_mask !!! (comp_mask = 0x40 valid_mask = 0x3)
-[spartan-bm057][[14995,1],1][btl_openib_component.c:1670:init_one_device] error obtaining device attributes for mlx5_bond_0 errno says Invalid argument
-[spartan-bm056.hpc.unimelb.edu.au:42934] 3 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
-[spartan-bm056.hpc.unimelb.edu.au:42934] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
-[spartan-bm056.hpc.unimelb.edu.au:42934] 3 more processes have sent help message help-mpi-btl-openib.txt / error in device init
+[spartan-bm004][[1437,1],1][btl_openib_component.c:1670:init_one_device] error obtaining device attributes for mlx5_bond_0 errno says Invalid argument
+ibv_exp_query_device: invalid comp_mask !!! (comp_mask = 0x40 valid_mask = 0x3)
+[spartan-bm003][[1437,1],0][btl_openib_component.c:1670:init_one_device] error obtaining device attributes for mlx5_bond_0 errno says Invalid argument
+ibv_exp_query_device: invalid comp_mask !!! (comp_mask = 0x40 valid_mask = 0x3)
+[spartan-bm005][[1437,1],2][btl_openib_component.c:1670:init_one_device] error obtaining device attributes for mlx5_bond_0 errno says Invalid argument
+[spartan-bm003.hpc.unimelb.edu.au:02319] 3 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[spartan-bm003.hpc.unimelb.edu.au:02319] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+[spartan-bm003.hpc.unimelb.edu.au:02319] 3 more processes have sent help message help-mpi-btl-openib.txt / error in device init

@@ -5,13 +5,13 @@ System: 0.000
 Total: 0.000
 Percentage: n/a%
 
-
 Grid Reading:
 Wall: 0.000
 User: 0.000
 System: 0.000
 Total: 0.000
 Percentage: n/a%
+
 
 
 Grid Reading:
@@ -31,27 +31,19 @@ Percentage: n/a%
 
 
 Preprocessing:
-Wall: 13.820
-User: 24.940
-System: 0.580
-Total: 25.520
-Percentage: 184.7%
-
-
-Final Processing:
-Wall: 0.002
-User: 0.010
-System: 0.000
-Total: 0.010
-Percentage: 412.1%
+Wall: 15.889
+User: 27.090
+System: 0.900
+Total: 27.990
+Percentage: 176.2%
 
 
 Preprocessing:
-Wall: 13.821
-User: 24.450
-System: 0.920
-Total: 25.370
-Percentage: 183.6%
+Wall: 15.889
+User: 27.980
+System: 0.900
+Total: 28.880
+Percentage: 181.8%
 
 
 Final Processing:
@@ -59,44 +51,52 @@ Wall: 0.008
 User: 0.010
 System: 0.000
 Total: 0.010
-Percentage: 127.5%
+Percentage: 133.0%
 
 
 Preprocessing:
-Wall: 13.826
-User: 25.120
-System: 1.470
-Total: 26.590
-Percentage: 192.3%
+Wall: 15.895
+User: 28.010
+System: 0.970
+Total: 28.980
+Percentage: 182.3%
 
 
 Preprocessing:
-Wall: 13.839
-User: 24.950
-System: 1.020
-Total: 25.970
-Percentage: 187.7%
+Wall: 15.907
+User: 28.470
+System: 0.970
+Total: 29.440
+Percentage: 185.1%
 
 
 Final Processing:
-Wall: 0.011
+Wall: 0.003
 User: 0.010
 System: 0.000
 Total: 0.010
-Percentage: 93.1%
+Percentage: 348.5%
+
+
+Final Processing:
+Wall: 0.021
+User: 0.030
+System: 0.000
+Total: 0.030
+Percentage: 140.2%
+
+
+Final Processing:
+Wall: 0.015
+User: 0.010
+System: 0.000
+Total: 0.010
+Percentage: 66.0%
 
 
 C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))
 B2: 79500 | ((melbourne, 1013)(auspol, 356)(incident, 314)(victraffic, 239)(firealarm, 237))
 C3: 53374 | ((melbourne, 625)(incident, 317)(victraffic, 297)(firealarm, 232)(structurefire, 219))
-Final Processing:
-Wall: 0.023
-User: 0.040
-System: 0.000
-Total: 0.040
-Percentage: 176.0%
-
-
 B3: 26620 | ((incident, 222)(melbourne, 218)(structurefire, 177)(nonstructurefire, 159)(firealarm, 158))
 C4: 19707 | ((auspol, 281)(incident, 195)(structurefire, 179)(savedallas, 177)(victraffic, 144))
 B1: 16503 | ((melbourne, 226)(structurefire, 134)(vote5sos, 130)(nonstructurefire, 128)(incident, 111))

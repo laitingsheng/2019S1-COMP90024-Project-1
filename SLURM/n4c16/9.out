@@ -3,6 +3,8 @@ Wall: 0.000
 User: 0.000
 System: 0.000
 Total: 0.000
+Percentage: n/a%
+
 Grid Reading:
 Wall: 0.000
 User: 0.000
@@ -26,32 +28,54 @@ System: 0.000
 Total: 0.000
 Percentage: n/a%
 
-
-Percentage: n/a%
 
 
 Preprocessing:
-Wall: 2.303
-User: 25.550
-System: 2.270
-Total: 27.820
-Percentage: 1208.1%
+Wall: 3.091
+User: 37.690
+System: 1.450
+Total: 39.140
+Percentage: 1266.1%
+
+
+Preprocessing:
+Wall: 3.098
+User: 26.840
+System: 3.150
+Total: 29.990
+Percentage: 967.9%
 
 
 Final Processing:
-Wall: 0.002
+Wall: 0.003
 User: 0.030
 System: 0.000
 Total: 0.030
-Percentage: 1234.8%
+Percentage: 1161.3%
 
 
 Preprocessing:
-Wall: 2.303
-User: 24.400
-System: 0.860
-Total: 25.260
-Percentage: 1096.9%
+Wall: 3.102
+User: 25.700
+System: 3.720
+Total: 29.420
+Percentage: 948.5%
+
+
+Preprocessing:
+Wall: 3.102
+User: 26.390
+System: 2.220
+Total: 28.610
+Percentage: 922.3%
+
+
+Final Processing:
+Wall: 0.008
+User: 0.110
+System: 0.000
+Total: 0.110
+Percentage: 1418.7%
 
 
 Final Processing:
@@ -59,23 +83,15 @@ Wall: 0.022
 User: 0.190
 System: 0.000
 Total: 0.190
-Percentage: 867.6%
-
-
-Preprocessing:
-Wall: 2.338
-User: 27.680
-System: 3.550
-Total: 31.230
-Percentage: 1335.7%
+Percentage: 880.6%
 
 
 Final Processing:
-Wall: 0.012
-User: 0.010
+Wall: 0.032
+User: 0.040
 System: 0.000
-Total: 0.010
-Percentage: 80.5%
+Total: 0.040
+Percentage: 124.1%
 
 
 C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))
@@ -94,19 +110,3 @@ C5: 4109 | ((melbourne, 60)(victraffic, 31)(photo, 20)(1000steps, 18)(australia,
 D5: 3263 | ((lost, 30)(cat, 28)(somebodytocon, 27)(melbourne, 25)(findjasper, 23))
 A1: 2533 | ((bbau, 15)(melbourne, 15)(tattoo, 14)(vobis, 11)(worldjudo2014, 11)(judo, 10)(my, 9)(tattooist, 9))
 A4: 308 | ((auspol, 7)(lnp, 6)(qldvotes, 6)(libspill, 5)(birthday, 3)(grassfire, 3)(happiness, 3)(incident, 3)(photo, 3)(vicfires, 3)(always, 2)(celebmerv, 2)(community, 2)(countdown, 2)(cycling, 2)(goingdownswinging, 2)(inclusion, 2)(joy, 2)(laughterclass, 2)(market, 2)(mytribe, 2)(victraffic, 2)(win, 2))
-Preprocessing:
-Wall: 2.342
-User: 25.190
-System: 2.090
-Total: 27.280
-Percentage: 1164.7%
-
-
-Final Processing:
-Wall: 0.008
-User: 0.120
-System: 0.000
-Total: 0.120
-Percentage: 1488.4%
-
-

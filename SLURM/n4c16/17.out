@@ -2,6 +2,21 @@ Grid Reading:
 Wall: 0.000
 User: 0.000
 System: 0.000
+Grid Reading:
+Wall: 0.000
+User: 0.000
+System: 0.000
+Total: 0.000
+Percentage: n/a%
+
+Grid Reading:
+Wall: 0.000
+User: 0.010
+System: 0.000
+Total: 0.010
+Percentage: n/a%
+
+
 Total: 0.000
 Percentage: n/a%
 
@@ -14,84 +29,69 @@ Total: 0.000
 Percentage: n/a%
 
 
-Grid Reading:
-Wall: 0.000
-User: 0.000
-System: 0.000
-Total: 0.000
-Percentage: n/a%
 
-Grid Reading:
-Wall: 0.000
-User: 0.000
-System: 0.000
-Total: 0.000
-Percentage: n/a%
-
+Preprocessing:
+Wall: 3.541
+User: 38.240
+System: 1.500
+Total: 39.740
+Percentage: 1122.3%
 
 
 Preprocessing:
-Wall: 2.545
-User: 23.550
-System: 2.940
-Total: 26.490
-Percentage: 1041.0%
-
-
-Final Processing:
-Wall: 0.008
-User: 0.130
-System: 0.000
-Total: 0.130
-Percentage: 1700.6%
+Wall: 3.551
+User: 27.370
+System: 3.120
+Total: 30.490
+Percentage: 858.7%
 
 
 Preprocessing:
-Wall: 2.545
-User: 24.590
-System: 0.910
-Total: 25.500
-Percentage: 1001.8%
-
-
-Preprocessing:
-Wall: 2.546
-User: 25.850
-System: 2.360
-Total: 28.210
-Percentage: 1108.0%
-
-
-Final Processing:
-Wall: 0.002
-User: 0.040
-System: 0.000
-Total: 0.040
-Percentage: 1658.3%
-
-
-Final Processing:
-Wall: 0.022
-User: 0.200
-System: 0.000
-Total: 0.200
-Percentage: 910.2%
-
-
-Preprocessing:
-Wall: 2.577
-User: 27.480
-System: 3.490
-Total: 30.970
-Percentage: 1201.6%
+Wall: 3.550
+User: 26.850
+System: 2.120
+Total: 28.970
+Percentage: 816.1%
 
 
 Final Processing:
 Wall: 0.003
-User: 0.000
+User: 0.030
 System: 0.000
-Total: 0.000
-Percentage: n/a%
+Total: 0.030
+Percentage: 1145.4%
+
+
+Final Processing:
+Wall: 0.023
+User: 0.200
+System: 0.000
+Total: 0.200
+Percentage: 886.8%
+
+
+Preprocessing:
+Wall: 3.574
+User: 25.470
+System: 1.310
+Total: 26.780
+Percentage: 749.3%
+
+
+Final Processing:
+Wall: 0.008
+User: 0.040
+System: 0.000
+Total: 0.040
+Percentage: 517.9%
+
+
+Final Processing:
+Wall: 0.041
+User: 0.040
+System: 0.000
+Total: 0.040
+Percentage: 98.2%
 
 
 C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))

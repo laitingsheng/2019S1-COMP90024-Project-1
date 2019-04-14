@@ -5,12 +5,12 @@ System: 0.000
 Total: 0.000
 Percentage: n/a%
 
+
 Grid Reading:
 Wall: 0.000
 User: 0.000
 System: 0.000
 Total: 0.000
-
 Percentage: n/a%
 
 
@@ -31,77 +31,77 @@ Percentage: n/a%
 
 
 Preprocessing:
-Wall: 4.005
-User: 23.610
-System: 0.730
-Total: 24.340
-Percentage: 607.7%
-
-
-Final Processing:
-Wall: 0.008
-User: 0.060
-System: 0.000
-Total: 0.060
-Percentage: 771.2%
+Wall: 6.432
+User: 28.150
+System: 0.810
+Total: 28.960
+Percentage: 450.3%
 
 
 Preprocessing:
-Wall: 4.006
-User: 25.070
-System: 0.680
-Total: 25.750
-Percentage: 642.8%
+Wall: 6.445
+User: 29.740
+System: 1.440
+Total: 31.180
+Percentage: 483.8%
+
+
+Preprocessing:
+Wall: 6.446
+User: 35.480
+System: 1.630
+Total: 37.110
+Percentage: 575.7%
+
+
+Preprocessing:
+Wall: 6.450
+User: 37.440
+System: 1.250
+Total: 38.690
+Percentage: 599.8%
 
 
 Final Processing:
-Wall: 0.002
+Wall: 0.022
+User: 0.030
+System: 0.000
+Total: 0.030
+Percentage: 139.3%
+
+
+Final Processing:
+Wall: 0.004
 User: 0.010
 System: 0.000
 Total: 0.010
-Percentage: 418.4%
-
-
-Preprocessing:
-Wall: 4.029
-User: 26.590
-System: 1.600
-Total: 28.190
-Percentage: 699.7%
-
-
-Preprocessing:
-Wall: 4.043
-User: 24.570
-System: 1.660
-Total: 26.230
-Percentage: 648.7%
+Percentage: 277.5%
 
 
 Final Processing:
-Wall: 0.038
-User: 0.040
+Wall: 0.012
+User: 0.010
 System: 0.000
-Total: 0.040
-Percentage: 105.9%
+Total: 0.010
+Percentage: 82.0%
 
 
 C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))
 B2: 79500 | ((melbourne, 1013)(auspol, 356)(incident, 314)(victraffic, 239)(firealarm, 237))
-Final Processing:
-Wall: 0.023
-User: 0.100
-System: 0.000
-Total: 0.100
-Percentage: 430.5%
-
-
 C3: 53374 | ((melbourne, 625)(incident, 317)(victraffic, 297)(firealarm, 232)(structurefire, 219))
 B3: 26620 | ((incident, 222)(melbourne, 218)(structurefire, 177)(nonstructurefire, 159)(firealarm, 158))
 C4: 19707 | ((auspol, 281)(incident, 195)(structurefire, 179)(savedallas, 177)(victraffic, 144))
 B1: 16503 | ((melbourne, 226)(structurefire, 134)(vote5sos, 130)(nonstructurefire, 128)(incident, 111))
 D4: 14483 | ((nowplaying, 1730)(karishmatannacraze, 83)(victraffic, 79)(structurefire, 70)(noblepark, 69))
 D3: 13395 | ((melbourne, 99)(beach, 67)(incident, 67)(structurefire, 63)(victraffic, 63)(nonstructurefire, 46)(vote5sos, 36))
+Final Processing:
+Wall: 0.011
+User: 0.020
+System: 0.000
+Total: 0.020
+Percentage: 181.3%
+
+
 C1: 8427 | ((jackfollowme, 148)(incident, 112)(jackdm, 111)(structurefire, 98)(camto4mill, 73))
 B4: 5463 | ((melbourne, 61)(nonstructurefire, 55)(incident, 49)(structurefire, 49)(fire, 31)(hazmat, 27)(smallzywelcomeshome5sos, 27))
 A3: 5037 | ((raw, 40)(structurefire, 38)(nonstructurefire, 30)(saveconstantine, 30)(epping, 19)(vicfires, 19)(other, 18))

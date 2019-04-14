@@ -15,35 +15,27 @@ Percentage: n/a%
 
 
 Preprocessing:
-Wall: 55.545
-User: 53.630
-System: 1.890
-Total: 55.520
+Wall: 53.852
+User: 52.850
+System: 0.990
+Total: 53.840
 Percentage: 100.0%
 
 
 Preprocessing:
-Wall: 55.555
-User: 53.730
-System: 1.770
-Total: 55.500
-Percentage: 99.9%
+Wall: 53.855
+User: 52.770
+System: 1.080
+Total: 53.850
+Percentage: 100.0%
 
 
 Final Processing:
-Wall: 0.027
+Wall: 0.021
 User: 0.020
 System: 0.000
 Total: 0.020
-Percentage: 74.3%
-
-
-Final Processing:
-Wall: 0.017
-User: 0.020
-System: 0.000
-Total: 0.020
-Percentage: 117.5%
+Percentage: 93.7%
 
 
 C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))
@@ -53,6 +45,14 @@ B3: 26620 | ((incident, 222)(melbourne, 218)(structurefire, 177)(nonstructurefir
 C4: 19707 | ((auspol, 281)(incident, 195)(structurefire, 179)(savedallas, 177)(victraffic, 144))
 B1: 16503 | ((melbourne, 226)(structurefire, 134)(vote5sos, 130)(nonstructurefire, 128)(incident, 111))
 D4: 14483 | ((nowplaying, 1730)(karishmatannacraze, 83)(victraffic, 79)(structurefire, 70)(noblepark, 69))
+Final Processing:
+Wall: 0.024
+User: 0.020
+System: 0.010
+Total: 0.030
+Percentage: 124.0%
+
+
 D3: 13395 | ((melbourne, 99)(beach, 67)(incident, 67)(structurefire, 63)(victraffic, 63)(nonstructurefire, 46)(vote5sos, 36))
 C1: 8427 | ((jackfollowme, 148)(incident, 112)(jackdm, 111)(structurefire, 98)(camto4mill, 73))
 B4: 5463 | ((melbourne, 61)(nonstructurefire, 55)(incident, 49)(structurefire, 49)(fire, 31)(hazmat, 27)(smallzywelcomeshome5sos, 27))

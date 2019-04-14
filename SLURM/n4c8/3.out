@@ -5,14 +5,6 @@ System: 0.000
 Total: 0.000
 Percentage: n/a%
 
-Grid Reading:
-Wall: 0.000
-User: 0.000
-
-System: 0.000
-Total: 0.000
-Percentage: n/a%
-
 
 Grid Reading:
 Wall: 0.000
@@ -28,73 +20,73 @@ User: 0.000
 System: 0.000
 Total: 0.000
 Percentage: n/a%
-
-
-Preprocessing:
-Wall: 3.983
-User: 23.500
-System: 0.750
-Total: 24.250
-Percentage: 608.9%
-
-
-Final Processing:
-Wall: 0.008
-User: 0.070
+Grid Reading:
+Wall: 0.000
+User: 0.000
 System: 0.000
-Total: 0.070
-Percentage: 908.7%
+Total: 0.000
+Percentage: n/a%
+
+
 
 
 Preprocessing:
-Wall: 3.984
-User: 24.930
-System: 0.740
-Total: 25.670
-Percentage: 644.3%
+Wall: 6.977
+User: 28.730
+System: 0.870
+Total: 29.600
+Percentage: 424.3%
+
+
+Preprocessing:
+Wall: 6.987
+User: 30.340
+System: 0.860
+Total: 31.200
+Percentage: 446.5%
+
+
+Preprocessing:
+Wall: 6.992
+User: 34.320
+System: 1.190
+Total: 35.510
+Percentage: 507.9%
+
+
+Preprocessing:
+Wall: 6.992
+User: 37.270
+System: 1.200
+Total: 38.470
+Percentage: 550.2%
 
 
 Final Processing:
-Wall: 0.002
-User: 0.020
-System: 0.000
-Total: 0.020
-Percentage: 840.3%
-
-
-Preprocessing:
-Wall: 3.989
-User: 24.330
-System: 1.510
-Total: 25.840
-Percentage: 647.8%
-
-
-Preprocessing:
-Wall: 4.006
-User: 26.490
-System: 1.710
-Total: 28.200
-Percentage: 703.9%
-
-
-Final Processing:
-Wall: 0.006
+Wall: 0.003
 User: 0.010
 System: 0.000
 Total: 0.010
-Percentage: 160.7%
+Percentage: 296.1%
+
+
+Final Processing:
+Wall: 0.022
+User: 0.030
+System: 0.000
+Total: 0.030
+Percentage: 137.2%
+
+
+Final Processing:
+Wall: 0.016
+User: 0.020
+System: 0.000
+Total: 0.020
+Percentage: 128.5%
 
 
 C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))
-Final Processing:
-Wall: 0.024
-User: 0.100
-System: 0.000
-Total: 0.100
-Percentage: 422.9%
-
-
 B2: 79500 | ((melbourne, 1013)(auspol, 356)(incident, 314)(victraffic, 239)(firealarm, 237))
 C3: 53374 | ((melbourne, 625)(incident, 317)(victraffic, 297)(firealarm, 232)(structurefire, 219))
 B3: 26620 | ((incident, 222)(melbourne, 218)(structurefire, 177)(nonstructurefire, 159)(firealarm, 158))
@@ -110,3 +102,11 @@ C5: 4109 | ((melbourne, 60)(victraffic, 31)(photo, 20)(1000steps, 18)(australia,
 D5: 3263 | ((lost, 30)(cat, 28)(somebodytocon, 27)(melbourne, 25)(findjasper, 23))
 A1: 2533 | ((bbau, 15)(melbourne, 15)(tattoo, 14)(vobis, 11)(worldjudo2014, 11)(judo, 10)(my, 9)(tattooist, 9))
 A4: 308 | ((auspol, 7)(lnp, 6)(qldvotes, 6)(libspill, 5)(birthday, 3)(grassfire, 3)(happiness, 3)(incident, 3)(photo, 3)(vicfires, 3)(always, 2)(celebmerv, 2)(community, 2)(countdown, 2)(cycling, 2)(goingdownswinging, 2)(inclusion, 2)(joy, 2)(laughterclass, 2)(market, 2)(mytribe, 2)(victraffic, 2)(win, 2))
+Final Processing:
+Wall: 0.011
+User: 0.020
+System: 0.000
+Total: 0.020
+Percentage: 183.3%
+
+

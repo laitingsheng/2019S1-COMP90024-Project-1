@@ -10,14 +10,6 @@ If you are not interested in CUDA-aware support, then run with
 in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
 of libcuda.so.1 to get passed this issue.
 --------------------------------------------------------------------------
-ibv_exp_query_device: invalid comp_mask !!! (comp_mask = 0x40 valid_mask = 0x3)
-[spartan-bm058][[11168,1],0][btl_openib_component.c:1670:init_one_device] error obtaining device attributes for mlx5_bond_0 errno says Invalid argument
---------------------------------------------------------------------------
-WARNING: There was an error initializing an OpenFabrics device.
-
-  Local host:   spartan-bm058
-  Local device: mlx5_bond_0
---------------------------------------------------------------------------
 --------------------------------------------------------------------------
 No OpenFabrics connection schemes reported that they were able to be
 used on a specific port.  As such, the openib BTL (OpenFabrics
@@ -28,9 +20,17 @@ support) will be disabled for this port.
   Local port:           1
   CPCs attempted:       rdmacm
 --------------------------------------------------------------------------
+--------------------------------------------------------------------------
+WARNING: There was an error initializing an OpenFabrics device.
+
+  Local host:   spartan-bm058
+  Local device: mlx5_bond_0
+--------------------------------------------------------------------------
 ibv_exp_query_device: invalid comp_mask !!! (comp_mask = 0x40 valid_mask = 0x3)
-[spartan-bm062][[11168,1],2][btl_openib_component.c:1670:init_one_device] error obtaining device attributes for mlx5_bond_0 errno says Invalid argument
-[spartan-bm058.hpc.unimelb.edu.au:23794] 3 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
-[spartan-bm058.hpc.unimelb.edu.au:23794] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
-[spartan-bm058.hpc.unimelb.edu.au:23794] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
-[spartan-bm058.hpc.unimelb.edu.au:23794] 1 more process has sent help message help-mpi-btl-openib-cpc-base.txt / no cpcs for port
+[spartan-bm058][[62137,1],1][btl_openib_component.c:1670:init_one_device] error obtaining device attributes for mlx5_bond_0 errno says Invalid argument
+ibv_exp_query_device: invalid comp_mask !!! (comp_mask = 0x40 valid_mask = 0x3)
+[spartan-bm030][[62137,1],0][btl_openib_component.c:1670:init_one_device] error obtaining device attributes for mlx5_bond_0 errno says Invalid argument
+[spartan-bm030.hpc.unimelb.edu.au:13874] 3 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[spartan-bm030.hpc.unimelb.edu.au:13874] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+[spartan-bm030.hpc.unimelb.edu.au:13874] 1 more process has sent help message help-mpi-btl-openib-cpc-base.txt / no cpcs for port
+[spartan-bm030.hpc.unimelb.edu.au:13874] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init

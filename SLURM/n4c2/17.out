@@ -31,10 +31,26 @@ Percentage: n/a%
 
 
 Preprocessing:
-Wall: 13.863
-User: 25.060
-System: 0.650
-Total: 25.710
+Wall: 15.826
+User: 27.250
+System: 0.660
+Total: 27.910
+Percentage: 176.4%
+
+
+Preprocessing:
+Wall: 15.830
+User: 28.040
+System: 0.740
+Total: 28.780
+Percentage: 181.8%
+
+
+Preprocessing:
+Wall: 15.829
+User: 28.390
+System: 0.980
+Total: 29.370
 Percentage: 185.5%
 
 
@@ -43,60 +59,44 @@ Wall: 0.002
 User: 0.010
 System: 0.000
 Total: 0.010
-Percentage: 411.4%
-
-
-Preprocessing:
-Wall: 13.867
-User: 24.450
-System: 0.960
-Total: 25.410
-Percentage: 183.2%
-
-
-Preprocessing:
-Wall: 13.867
-User: 25.220
-System: 1.350
-Total: 26.570
-Percentage: 191.6%
-
-
-Preprocessing:
-Wall: 13.881
-User: 25.020
-System: 0.970
-Total: 25.990
-Percentage: 187.2%
+Percentage: 419.6%
 
 
 Final Processing:
 Wall: 0.008
-User: 0.020
-System: 0.000
-Total: 0.020
-Percentage: 248.4%
-
-
-Final Processing:
-Wall: 0.009
 User: 0.010
 System: 0.000
 Total: 0.010
-Percentage: 107.0%
+Percentage: 131.1%
+
+
+Preprocessing:
+Wall: 15.837
+User: 27.770
+System: 0.950
+Total: 28.720
+Percentage: 181.3%
+
+
+Final Processing:
+Wall: 0.024
+User: 0.030
+System: 0.010
+Total: 0.040
+Percentage: 165.8%
+
+
+Final Processing:
+Wall: 0.016
+User: 0.010
+System: 0.000
+Total: 0.010
+Percentage: 61.0%
 
 
 C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))
 B2: 79500 | ((melbourne, 1013)(auspol, 356)(incident, 314)(victraffic, 239)(firealarm, 237))
 C3: 53374 | ((melbourne, 625)(incident, 317)(victraffic, 297)(firealarm, 232)(structurefire, 219))
-Final Processing:
-Wall: 0.023
-User: 0.030
-System: 0.000
-Total: 0.030
-Percentage: 130.1%
-
-
 B3: 26620 | ((incident, 222)(melbourne, 218)(structurefire, 177)(nonstructurefire, 159)(firealarm, 158))
 C4: 19707 | ((auspol, 281)(incident, 195)(structurefire, 179)(savedallas, 177)(victraffic, 144))
 B1: 16503 | ((melbourne, 226)(structurefire, 134)(vote5sos, 130)(nonstructurefire, 128)(incident, 111))

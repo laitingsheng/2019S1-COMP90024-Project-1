@@ -5,7 +5,6 @@ System: 0.000
 Total: 0.000
 Percentage: n/a%
 
-
 Grid Reading:
 Wall: 0.000
 User: 0.000
@@ -14,34 +13,43 @@ Total: 0.000
 Percentage: n/a%
 
 
+
 Preprocessing:
-Wall: 47.494
-User: 82.060
-System: 1.350
-Total: 83.410
-Percentage: 175.6%
+Wall: 20.924
+User: 71.980
+System: 2.100
+Total: 74.080
+Percentage: 354.0%
 
 
 Preprocessing:
-Wall: 47.521
-User: 47.240
-System: 0.980
-Total: 48.220
-Percentage: 101.5%
+Wall: 20.925
+User: 72.240
+System: 1.910
+Total: 74.150
+Percentage: 354.4%
 
 
 Final Processing:
-Wall: 0.088
-User: 0.090
+Wall: 0.036
+User: 0.030
 System: 0.000
-Total: 0.090
-Percentage: 102.0%
+Total: 0.030
+Percentage: 82.3%
 
 
 C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))
 B2: 79500 | ((melbourne, 1013)(auspol, 356)(incident, 314)(victraffic, 239)(firealarm, 237))
 C3: 53374 | ((melbourne, 625)(incident, 317)(victraffic, 297)(firealarm, 232)(structurefire, 219))
 B3: 26620 | ((incident, 222)(melbourne, 218)(structurefire, 177)(nonstructurefire, 159)(firealarm, 158))
+Final Processing:
+Wall: 0.037
+User: 0.040
+System: 0.000
+Total: 0.040
+Percentage: 109.2%
+
+
 C4: 19707 | ((auspol, 281)(incident, 195)(structurefire, 179)(savedallas, 177)(victraffic, 144))
 B1: 16503 | ((melbourne, 226)(structurefire, 134)(vote5sos, 130)(nonstructurefire, 128)(incident, 111))
 D4: 14483 | ((nowplaying, 1730)(karishmatannacraze, 83)(victraffic, 79)(structurefire, 70)(noblepark, 69))
@@ -54,11 +62,3 @@ C5: 4109 | ((melbourne, 60)(victraffic, 31)(photo, 20)(1000steps, 18)(australia,
 D5: 3263 | ((lost, 30)(cat, 28)(somebodytocon, 27)(melbourne, 25)(findjasper, 23))
 A1: 2533 | ((bbau, 15)(melbourne, 15)(tattoo, 14)(vobis, 11)(worldjudo2014, 11)(judo, 10)(my, 9)(tattooist, 9))
 A4: 308 | ((auspol, 7)(lnp, 6)(qldvotes, 6)(libspill, 5)(birthday, 3)(grassfire, 3)(happiness, 3)(incident, 3)(photo, 3)(vicfires, 3)(always, 2)(celebmerv, 2)(community, 2)(countdown, 2)(cycling, 2)(goingdownswinging, 2)(inclusion, 2)(joy, 2)(laughterclass, 2)(market, 2)(mytribe, 2)(victraffic, 2)(win, 2))
-Final Processing:
-Wall: 0.061
-User: 0.060
-System: 0.000
-Total: 0.060
-Percentage: 97.9%
-
-

@@ -13,6 +13,14 @@ System: 0.000
 Total: 0.000
 Percentage: n/a%
 
+Grid Reading:
+Wall: 0.000
+User: 0.000
+System: 0.000
+Total: 0.000
+Percentage: n/a%
+
+
 
 Grid Reading:
 Wall: 0.000
@@ -22,68 +30,60 @@ Total: 0.000
 Percentage: n/a%
 
 
-Grid Reading:
-Wall: 0.000
-User: 0.000
-System: 0.000
-Total: 0.000
-Percentage: n/a%
+Preprocessing:
+Wall: 15.879
+User: 27.490
+System: 0.680
+Total: 28.170
+Percentage: 177.4%
 
 
 Preprocessing:
-Wall: 13.880
-User: 25.180
-System: 0.600
-Total: 25.780
-Percentage: 185.7%
-
-
-Final Processing:
-Wall: 0.002
-User: 0.010
-System: 0.000
-Total: 0.010
-Percentage: 411.7%
+Wall: 15.879
+User: 28.100
+System: 0.730
+Total: 28.830
+Percentage: 181.6%
 
 
 Preprocessing:
-Wall: 13.881
-User: 25.260
-System: 1.260
-Total: 26.520
-Percentage: 191.1%
-
-
-Preprocessing:
-Wall: 13.883
-User: 24.510
-System: 0.940
-Total: 25.450
-Percentage: 183.3%
+Wall: 15.881
+User: 28.180
+System: 0.910
+Total: 29.090
+Percentage: 183.2%
 
 
 Final Processing:
 Wall: 0.008
-User: 0.020
-System: 0.000
-Total: 0.020
-Percentage: 250.5%
-
-
-Preprocessing:
-Wall: 13.897
-User: 25.150
-System: 0.900
-Total: 26.050
-Percentage: 187.5%
-
-
-Final Processing:
-Wall: 0.009
 User: 0.010
 System: 0.000
 Total: 0.010
-Percentage: 116.6%
+Percentage: 132.1%
+
+
+Preprocessing:
+Wall: 15.897
+User: 28.420
+System: 1.000
+Total: 29.420
+Percentage: 185.1%
+
+
+Final Processing:
+Wall: 0.003
+User: 0.000
+System: 0.000
+Total: 0.000
+Percentage: n/a%
+
+
+Final Processing:
+Wall: 0.019
+User: 0.020
+System: 0.000
+Total: 0.020
+Percentage: 103.6%
 
 
 C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))
@@ -103,10 +103,10 @@ D5: 3263 | ((lost, 30)(cat, 28)(somebodytocon, 27)(melbourne, 25)(findjasper, 23
 A1: 2533 | ((bbau, 15)(melbourne, 15)(tattoo, 14)(vobis, 11)(worldjudo2014, 11)(judo, 10)(my, 9)(tattooist, 9))
 A4: 308 | ((auspol, 7)(lnp, 6)(qldvotes, 6)(libspill, 5)(birthday, 3)(grassfire, 3)(happiness, 3)(incident, 3)(photo, 3)(vicfires, 3)(always, 2)(celebmerv, 2)(community, 2)(countdown, 2)(cycling, 2)(goingdownswinging, 2)(inclusion, 2)(joy, 2)(laughterclass, 2)(market, 2)(mytribe, 2)(victraffic, 2)(win, 2))
 Final Processing:
-Wall: 0.024
-User: 0.030
+Wall: 0.021
+User: 0.020
 System: 0.000
-Total: 0.030
-Percentage: 122.9%
+Total: 0.020
+Percentage: 93.5%
 
 

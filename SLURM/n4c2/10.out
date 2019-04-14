@@ -13,14 +13,6 @@ System: 0.000
 Total: 0.000
 Percentage: n/a%
 
-
-Grid Reading:
-Wall: 0.000
-User: 0.000
-System: 0.000
-Total: 0.000
-Percentage: n/a%
-
 Grid Reading:
 Wall: 0.000
 User: 0.000
@@ -29,72 +21,80 @@ Total: 0.000
 Percentage: n/a%
 
 
-
-Preprocessing:
-Wall: 13.829
-User: 24.910
-System: 0.600
-Total: 25.510
-Percentage: 184.5%
-
-
-Final Processing:
-Wall: 0.002
+Grid Reading:
+Wall: 0.000
 User: 0.000
 System: 0.000
 Total: 0.000
 Percentage: n/a%
 
 
-Preprocessing:
-Wall: 13.833
-User: 24.980
-System: 1.190
-Total: 26.170
-Percentage: 189.2%
-
 
 Preprocessing:
-Wall: 13.832
-User: 24.460
+Wall: 15.863
+User: 27.440
 System: 0.930
-Total: 25.390
-Percentage: 183.6%
+Total: 28.370
+Percentage: 178.8%
+
+
+Preprocessing:
+Wall: 15.864
+User: 28.130
+System: 0.950
+Total: 29.080
+Percentage: 183.3%
 
 
 Final Processing:
 Wall: 0.008
-User: 0.020
-System: 0.000
-Total: 0.020
-Percentage: 242.2%
-
-
-Preprocessing:
-Wall: 13.842
-User: 24.990
-System: 0.930
-Total: 25.920
-Percentage: 187.3%
-
-
-Final Processing:
-Wall: 0.014
 User: 0.010
 System: 0.000
 Total: 0.010
-Percentage: 69.9%
+Percentage: 132.4%
+
+
+Preprocessing:
+Wall: 15.872
+User: 27.670
+System: 1.130
+Total: 28.800
+Percentage: 181.5%
+
+
+Preprocessing:
+Wall: 15.880
+User: 28.610
+System: 1.020
+Total: 29.630
+Percentage: 186.6%
+
+
+Final Processing:
+Wall: 0.003
+User: 0.010
+System: 0.000
+Total: 0.010
+Percentage: 299.2%
+
+
+Final Processing:
+Wall: 0.022
+User: 0.020
+System: 0.000
+Total: 0.020
+Percentage: 91.7%
+
+
+Final Processing:
+Wall: 0.013
+User: 0.020
+System: 0.000
+Total: 0.020
+Percentage: 149.6%
 
 
 C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))
-Final Processing:
-Wall: 0.023
-User: 0.040
-System: 0.000
-Total: 0.040
-Percentage: 170.6%
-
-
 B2: 79500 | ((melbourne, 1013)(auspol, 356)(incident, 314)(victraffic, 239)(firealarm, 237))
 C3: 53374 | ((melbourne, 625)(incident, 317)(victraffic, 297)(firealarm, 232)(structurefire, 219))
 B3: 26620 | ((incident, 222)(melbourne, 218)(structurefire, 177)(nonstructurefire, 159)(firealarm, 158))

@@ -5,6 +5,7 @@ System: 0.000
 Total: 0.000
 Percentage: n/a%
 
+
 Grid Reading:
 Wall: 0.000
 User: 0.000
@@ -13,29 +14,28 @@ Total: 0.000
 Percentage: n/a%
 
 
+Preprocessing:
+Wall: 5.284
+User: 49.520
+System: 4.500
+Total: 54.020
+Percentage: 1022.3%
+
 
 Preprocessing:
-Wall: 4.306
-User: 48.150
-System: 1.730
-Total: 49.880
-Percentage: 1158.4%
-
-
-Preprocessing:
-Wall: 4.330
-User: 49.840
-System: 7.330
-Total: 57.170
-Percentage: 1320.2%
+Wall: 5.298
+User: 50.970
+System: 7.420
+Total: 58.390
+Percentage: 1102.0%
 
 
 Final Processing:
 Wall: 0.024
-User: 0.200
+User: 0.180
 System: 0.000
-Total: 0.200
-Percentage: 819.0%
+Total: 0.180
+Percentage: 757.8%
 
 
 Final Processing:
@@ -43,7 +43,7 @@ Wall: 0.010
 User: 0.010
 System: 0.000
 Total: 0.010
-Percentage: 98.3%
+Percentage: 102.2%
 
 
 C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))

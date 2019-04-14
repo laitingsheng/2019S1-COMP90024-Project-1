@@ -17,8 +17,8 @@ Percentage: n/a%
 Grid Reading:
 Wall: 0.000
 User: 0.000
-System: 0.010
-Total: 0.010
+System: 0.000
+Total: 0.000
 Percentage: n/a%
 
 
@@ -31,71 +31,71 @@ Percentage: n/a%
 
 
 Preprocessing:
-Wall: 4.658
-User: 25.650
-System: 0.690
-Total: 26.340
-Percentage: 565.4%
+Wall: 6.647
+User: 28.300
+System: 0.920
+Total: 29.220
+Percentage: 439.6%
+
+
+Preprocessing:
+Wall: 6.660
+User: 33.780
+System: 1.210
+Total: 34.990
+Percentage: 525.4%
+
+
+Preprocessing:
+Wall: 6.662
+User: 30.110
+System: 0.840
+Total: 30.950
+Percentage: 464.6%
+
+
+Preprocessing:
+Wall: 6.664
+User: 37.920
+System: 1.220
+Total: 39.140
+Percentage: 587.3%
 
 
 Final Processing:
-Wall: 0.002
+Wall: 0.003
+User: 0.000
+System: 0.000
+Total: 0.000
+Percentage: n/a%
+
+
+Final Processing:
+Wall: 0.022
 User: 0.020
 System: 0.000
 Total: 0.020
-Percentage: 815.7%
-
-
-Preprocessing:
-Wall: 4.657
-User: 24.360
-System: 0.670
-Total: 25.030
-Percentage: 537.4%
+Percentage: 91.0%
 
 
 Final Processing:
-Wall: 0.008
-User: 0.060
-System: 0.000
-Total: 0.060
-Percentage: 765.2%
-
-
-Preprocessing:
-Wall: 4.662
-User: 23.840
-System: 1.470
-Total: 25.310
-Percentage: 542.9%
-
-
-Preprocessing:
-Wall: 4.682
-User: 27.390
-System: 1.580
-Total: 28.970
-Percentage: 618.8%
-
-
-Final Processing:
-Wall: 0.007
+Wall: 0.009
 User: 0.010
 System: 0.000
 Total: 0.010
-Percentage: 148.2%
-
-
-Final Processing:
-Wall: 0.026
-User: 0.090
-System: 0.000
-Total: 0.090
-Percentage: 348.8%
+Percentage: 108.0%
 
 
 C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))
 B2: 79500 | ((melbourne, 1013)(auspol, 356)(incident, 314)(victraffic, 239)(firealarm, 237))
+Final Processing:
+Wall: 0.011
+User: 0.020
+System: 0.000
+Total: 0.020
+Percentage: 182.2%
+
+
 C3: 53374 | ((melbourne, 625)(incident, 317)(victraffic, 297)(firealarm, 232)(structurefire, 219))
 B3: 26620 | ((incident, 222)(melbourne, 218)(structurefire, 177)(nonstructurefire, 159)(firealarm, 158))
 C4: 19707 | ((auspol, 281)(incident, 195)(structurefire, 179)(savedallas, 177)(victraffic, 144))

@@ -1,4 +1,11 @@
 Grid Reading:
+Wall: 0.000
+User: 0.000
+System: 0.000
+Total: 0.000
+Percentage: n/a%
+
+
 Grid Reading:
 Wall: 0.000
 User: 0.000
@@ -7,35 +14,36 @@ Total: 0.000
 Percentage: n/a%
 
 
-Wall: 0.000
-User: 0.000
-System: 0.000
-Total: 0.000
-Percentage: n/a%
+Preprocessing:
+Wall: 53.359
+User: 52.430
+System: 0.930
+Total: 53.360
+Percentage: 100.0%
 
 
 Preprocessing:
-Wall: 55.647
-User: 53.720
-System: 1.780
-Total: 55.500
-Percentage: 99.7%
-
-
-Preprocessing:
-Wall: 55.660
-User: 53.960
-System: 1.670
-Total: 55.630
-Percentage: 99.9%
+Wall: 53.363
+User: 52.350
+System: 1.010
+Total: 53.360
+Percentage: 100.0%
 
 
 Final Processing:
-Wall: 0.011
-User: 0.010
+Wall: 0.024
+User: 0.020
 System: 0.000
-Total: 0.010
-Percentage: 90.2%
+Total: 0.020
+Percentage: 83.7%
+
+
+Final Processing:
+Wall: 0.020
+User: 0.020
+System: 0.000
+Total: 0.020
+Percentage: 101.2%
 
 
 C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))
@@ -54,11 +62,3 @@ C5: 4109 | ((melbourne, 60)(victraffic, 31)(photo, 20)(1000steps, 18)(australia,
 D5: 3263 | ((lost, 30)(cat, 28)(somebodytocon, 27)(melbourne, 25)(findjasper, 23))
 A1: 2533 | ((bbau, 15)(melbourne, 15)(tattoo, 14)(vobis, 11)(worldjudo2014, 11)(judo, 10)(my, 9)(tattooist, 9))
 A4: 308 | ((auspol, 7)(lnp, 6)(qldvotes, 6)(libspill, 5)(birthday, 3)(grassfire, 3)(happiness, 3)(incident, 3)(photo, 3)(vicfires, 3)(always, 2)(celebmerv, 2)(community, 2)(countdown, 2)(cycling, 2)(goingdownswinging, 2)(inclusion, 2)(joy, 2)(laughterclass, 2)(market, 2)(mytribe, 2)(victraffic, 2)(win, 2))
-Final Processing:
-Wall: 0.024
-User: 0.020
-System: 0.000
-Total: 0.020
-Percentage: 82.2%
-
-

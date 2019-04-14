@@ -4,6 +4,16 @@ User: 0.000
 System: 0.000
 Total: 0.000
 Percentage: n/a%
+
+Grid Reading:
+Wall: 0.000
+User: 0.000
+System: 0.000
+Total: 0.000
+Percentage: n/a%
+
+
+
 Grid Reading:
 Wall: 0.000
 User: 0.000
@@ -18,40 +28,38 @@ User: 0.000
 System: 0.000
 Total: 0.000
 Percentage: n/a%
-
-
-Grid Reading:
-Wall: 0.000
-User: 0.000
-System: 0.000
-Total: 0.000
-Percentage: n/a%
-
-
 
 
 Preprocessing:
-Wall: 2.618
-User: 24.900
-System: 0.910
-Total: 25.810
-Percentage: 986.0%
+Wall: 3.351
+User: 37.950
+System: 1.490
+Total: 39.440
+Percentage: 1176.9%
 
 
 Preprocessing:
-Wall: 2.619
-User: 25.890
-System: 3.090
-Total: 28.980
-Percentage: 1106.6%
+Wall: 3.362
+User: 27.330
+System: 2.030
+Total: 29.360
+Percentage: 873.2%
 
 
 Final Processing:
-Wall: 0.002
-User: 0.030
+Wall: 0.003
+User: 0.020
 System: 0.000
-Total: 0.030
-Percentage: 1233.4%
+Total: 0.020
+Percentage: 762.5%
+
+
+Preprocessing:
+Wall: 3.365
+User: 26.250
+System: 2.370
+Total: 28.620
+Percentage: 850.5%
 
 
 Final Processing:
@@ -59,31 +67,31 @@ Wall: 0.022
 User: 0.190
 System: 0.000
 Total: 0.190
-Percentage: 867.9%
+Percentage: 866.8%
 
 
 Preprocessing:
-Wall: 2.653
-User: 27.670
-System: 3.680
-Total: 31.350
-Percentage: 1181.7%
-
-
-Preprocessing:
-Wall: 2.647
-User: 24.590
-System: 2.370
-Total: 26.960
-Percentage: 1018.6%
+Wall: 3.386
+User: 24.770
+System: 1.130
+Total: 25.900
+Percentage: 764.9%
 
 
 Final Processing:
-Wall: 0.003
-User: 0.000
+Wall: 0.008
+User: 0.040
 System: 0.000
-Total: 0.000
-Percentage: n/a%
+Total: 0.040
+Percentage: 516.8%
+
+
+Final Processing:
+Wall: 0.043
+User: 0.040
+System: 0.000
+Total: 0.040
+Percentage: 93.7%
 
 
 C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))
@@ -102,11 +110,3 @@ C5: 4109 | ((melbourne, 60)(victraffic, 31)(photo, 20)(1000steps, 18)(australia,
 D5: 3263 | ((lost, 30)(cat, 28)(somebodytocon, 27)(melbourne, 25)(findjasper, 23))
 A1: 2533 | ((bbau, 15)(melbourne, 15)(tattoo, 14)(vobis, 11)(worldjudo2014, 11)(judo, 10)(my, 9)(tattooist, 9))
 A4: 308 | ((auspol, 7)(lnp, 6)(qldvotes, 6)(libspill, 5)(birthday, 3)(grassfire, 3)(happiness, 3)(incident, 3)(photo, 3)(vicfires, 3)(always, 2)(celebmerv, 2)(community, 2)(countdown, 2)(cycling, 2)(goingdownswinging, 2)(inclusion, 2)(joy, 2)(laughterclass, 2)(market, 2)(mytribe, 2)(victraffic, 2)(win, 2))
-Final Processing:
-Wall: 0.008
-User: 0.130
-System: 0.000
-Total: 0.130
-Percentage: 1600.2%
-
-

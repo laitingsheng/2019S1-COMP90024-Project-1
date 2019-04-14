@@ -1,3 +1,4 @@
+[spartan-bm058.hpc.unimelb.edu.au:16103] [[18869,0],0] ORTE_ERROR_LOG: Out of resource in file util/show_help.c at line 501
 --------------------------------------------------------------------------
 The library attempted to open the following supporting CUDA libraries,
 but each of them failed.  CUDA-aware support is disabled.
@@ -11,7 +12,7 @@ in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
 of libcuda.so.1 to get passed this issue.
 --------------------------------------------------------------------------
 ibv_exp_query_device: invalid comp_mask !!! (comp_mask = 0x40 valid_mask = 0x3)
-[spartan-bm058][[28121,1],0][btl_openib_component.c:1670:init_one_device] error obtaining device attributes for mlx5_bond_0 errno says Invalid argument
+[spartan-bm058][[18869,1],0][btl_openib_component.c:1670:init_one_device] error obtaining device attributes for mlx5_bond_0 errno says Invalid argument
 --------------------------------------------------------------------------
 WARNING: There was an error initializing an OpenFabrics device.
 
@@ -28,5 +29,3 @@ support) will be disabled for this port.
   Local port:           1
   CPCs attempted:       rdmacm
 --------------------------------------------------------------------------
-[spartan-bm058.hpc.unimelb.edu.au:06795] 1 more process has sent help message help-mpi-common-cuda.txt / dlopen failed
-[spartan-bm058.hpc.unimelb.edu.au:06795] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages

@@ -21,7 +21,6 @@ System: 0.000
 Total: 0.000
 Percentage: n/a%
 
-
 Grid Reading:
 Wall: 0.000
 User: 0.000
@@ -30,28 +29,21 @@ Total: 0.000
 Percentage: n/a%
 
 
+
 Preprocessing:
-Wall: 7.521
-User: 23.950
-System: 0.590
-Total: 24.540
-Percentage: 326.3%
-
-
-Final Processing:
-Wall: 0.008
-User: 0.030
-System: 0.000
-Total: 0.030
-Percentage: 389.1%
+Wall: 8.135
+User: 26.610
+System: 0.970
+Total: 27.580
+Percentage: 339.0%
 
 
 Preprocessing:
-Wall: 7.522
-User: 24.910
-System: 0.620
-Total: 25.530
-Percentage: 339.4%
+Wall: 8.136
+User: 27.040
+System: 0.540
+Total: 27.580
+Percentage: 339.0%
 
 
 Final Processing:
@@ -59,43 +51,43 @@ Wall: 0.002
 User: 0.010
 System: 0.000
 Total: 0.010
-Percentage: 403.7%
+Percentage: 424.4%
 
 
 Preprocessing:
-Wall: 7.525
-User: 24.720
-System: 0.800
-Total: 25.520
-Percentage: 339.1%
+Wall: 8.142
+User: 27.500
+System: 1.290
+Total: 28.790
+Percentage: 353.6%
 
 
 Preprocessing:
-Wall: 7.540
-User: 25.490
-System: 0.750
-Total: 26.240
-Percentage: 348.0%
+Wall: 8.148
+User: 26.760
+System: 1.070
+Total: 27.830
+Percentage: 341.6%
 
 
 Final Processing:
-Wall: 0.009
+Wall: 0.021
+User: 0.020
+System: 0.000
+Total: 0.020
+Percentage: 94.0%
+
+
+Final Processing:
+Wall: 0.016
 User: 0.010
 System: 0.000
 Total: 0.010
-Percentage: 115.2%
+Percentage: 64.0%
 
 
 C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))
 B2: 79500 | ((melbourne, 1013)(auspol, 356)(incident, 314)(victraffic, 239)(firealarm, 237))
-Final Processing:
-Wall: 0.023
-User: 0.060
-System: 0.000
-Total: 0.060
-Percentage: 255.9%
-
-
 C3: 53374 | ((melbourne, 625)(incident, 317)(victraffic, 297)(firealarm, 232)(structurefire, 219))
 B3: 26620 | ((incident, 222)(melbourne, 218)(structurefire, 177)(nonstructurefire, 159)(firealarm, 158))
 C4: 19707 | ((auspol, 281)(incident, 195)(structurefire, 179)(savedallas, 177)(victraffic, 144))
@@ -110,3 +102,11 @@ C5: 4109 | ((melbourne, 60)(victraffic, 31)(photo, 20)(1000steps, 18)(australia,
 D5: 3263 | ((lost, 30)(cat, 28)(somebodytocon, 27)(melbourne, 25)(findjasper, 23))
 A1: 2533 | ((bbau, 15)(melbourne, 15)(tattoo, 14)(vobis, 11)(worldjudo2014, 11)(judo, 10)(my, 9)(tattooist, 9))
 A4: 308 | ((auspol, 7)(lnp, 6)(qldvotes, 6)(libspill, 5)(birthday, 3)(grassfire, 3)(happiness, 3)(incident, 3)(photo, 3)(vicfires, 3)(always, 2)(celebmerv, 2)(community, 2)(countdown, 2)(cycling, 2)(goingdownswinging, 2)(inclusion, 2)(joy, 2)(laughterclass, 2)(market, 2)(mytribe, 2)(victraffic, 2)(win, 2))
+Final Processing:
+Wall: 0.009
+User: 0.010
+System: 0.000
+Total: 0.010
+Percentage: 110.3%
+
+

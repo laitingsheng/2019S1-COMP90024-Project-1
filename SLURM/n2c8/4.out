@@ -15,42 +15,42 @@ Percentage: n/a%
 
 
 Preprocessing:
-Wall: 19.538
-User: 61.440
-System: 1.480
-Total: 62.920
-Percentage: 322.0%
+Wall: 11.220
+User: 70.590
+System: 1.900
+Total: 72.490
+Percentage: 646.1%
 
 
 Preprocessing:
-Wall: 19.557
-User: 48.460
-System: 1.850
-Total: 50.310
-Percentage: 257.3%
+Wall: 11.228
+User: 72.170
+System: 2.250
+Total: 74.420
+Percentage: 662.8%
 
 
 Final Processing:
-Wall: 0.080
-User: 0.080
+Wall: 0.026
+User: 0.030
 System: 0.000
-Total: 0.080
-Percentage: 100.2%
+Total: 0.030
+Percentage: 117.4%
 
 
 C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))
 B2: 79500 | ((melbourne, 1013)(auspol, 356)(incident, 314)(victraffic, 239)(firealarm, 237))
 C3: 53374 | ((melbourne, 625)(incident, 317)(victraffic, 297)(firealarm, 232)(structurefire, 219))
-Final Processing:
-Wall: 0.061
-User: 0.110
-System: 0.000
-Total: 0.110
-Percentage: 180.0%
-
-
 B3: 26620 | ((incident, 222)(melbourne, 218)(structurefire, 177)(nonstructurefire, 159)(firealarm, 158))
 C4: 19707 | ((auspol, 281)(incident, 195)(structurefire, 179)(savedallas, 177)(victraffic, 144))
+Final Processing:
+Wall: 0.033
+User: 0.040
+System: 0.000
+Total: 0.040
+Percentage: 120.2%
+
+
 B1: 16503 | ((melbourne, 226)(structurefire, 134)(vote5sos, 130)(nonstructurefire, 128)(incident, 111))
 D4: 14483 | ((nowplaying, 1730)(karishmatannacraze, 83)(victraffic, 79)(structurefire, 70)(noblepark, 69))
 D3: 13395 | ((melbourne, 99)(beach, 67)(incident, 67)(structurefire, 63)(victraffic, 63)(nonstructurefire, 46)(vote5sos, 36))

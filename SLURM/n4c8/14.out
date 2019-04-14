@@ -5,13 +5,6 @@ System: 0.000
 Total: 0.000
 Percentage: n/a%
 
-
-Grid Reading:
-Wall: 0.000
-User: 0.000
-System: 0.000
-Total: 0.000
-Percentage: n/a%
 Grid Reading:
 Wall: 0.000
 User: 0.000
@@ -20,6 +13,13 @@ Total: 0.000
 Percentage: n/a%
 
 
+
+Grid Reading:
+Wall: 0.000
+User: 0.000
+System: 0.000
+Total: 0.000
+Percentage: n/a%
 
 
 Grid Reading:
@@ -31,70 +31,70 @@ Percentage: n/a%
 
 
 Preprocessing:
-Wall: 3.993
-User: 23.590
-System: 0.710
-Total: 24.300
-Percentage: 608.5%
-
-
-Final Processing:
-Wall: 0.008
-User: 0.060
-System: 0.000
-Total: 0.060
-Percentage: 769.4%
+Wall: 7.435
+User: 29.180
+System: 0.920
+Total: 30.100
+Percentage: 404.8%
 
 
 Preprocessing:
-Wall: 3.995
-User: 24.980
-System: 0.680
-Total: 25.660
-Percentage: 642.4%
+Wall: 7.447
+User: 36.480
+System: 1.220
+Total: 37.700
+Percentage: 506.3%
+
+
+Preprocessing:
+Wall: 7.449
+User: 30.840
+System: 0.870
+Total: 31.710
+Percentage: 425.7%
+
+
+Preprocessing:
+Wall: 7.451
+User: 37.240
+System: 1.050
+Total: 38.290
+Percentage: 513.9%
 
 
 Final Processing:
-Wall: 0.002
+Wall: 0.003
 User: 0.020
 System: 0.000
 Total: 0.020
-Percentage: 847.5%
-
-
-Preprocessing:
-Wall: 3.998
-User: 24.360
-System: 1.760
-Total: 26.120
-Percentage: 653.3%
-
-
-Preprocessing:
-Wall: 4.018
-User: 26.530
-System: 1.490
-Total: 28.020
-Percentage: 697.4%
+Percentage: 604.6%
 
 
 Final Processing:
-Wall: 0.005
+Wall: 0.022
+User: 0.020
+System: 0.000
+Total: 0.020
+Percentage: 93.0%
+
+
+Final Processing:
+Wall: 0.009
 User: 0.010
 System: 0.000
 Total: 0.010
-Percentage: 220.6%
-
-
-Final Processing:
-Wall: 0.024
-User: 0.100
-System: 0.000
-Total: 0.100
-Percentage: 422.5%
+Percentage: 110.7%
 
 
 C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))
+Final Processing:
+Wall: 0.011
+User: 0.010
+System: 0.000
+Total: 0.010
+Percentage: 93.0%
+
+
 B2: 79500 | ((melbourne, 1013)(auspol, 356)(incident, 314)(victraffic, 239)(firealarm, 237))
 C3: 53374 | ((melbourne, 625)(incident, 317)(victraffic, 297)(firealarm, 232)(structurefire, 219))
 B3: 26620 | ((incident, 222)(melbourne, 218)(structurefire, 177)(nonstructurefire, 159)(firealarm, 158))

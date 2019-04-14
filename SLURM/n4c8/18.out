@@ -31,72 +31,72 @@ Percentage: n/a%
 
 
 Preprocessing:
-Wall: 3.986
-User: 23.570
-System: 0.710
-Total: 24.280
-Percentage: 609.1%
+Wall: 7.109
+User: 29.030
+System: 0.860
+Total: 29.890
+Percentage: 420.4%
+
+
+Preprocessing:
+Wall: 7.123
+User: 36.200
+System: 1.300
+Total: 37.500
+Percentage: 526.5%
+
+
+Preprocessing:
+Wall: 7.125
+User: 37.300
+System: 1.190
+Total: 38.490
+Percentage: 540.2%
+
+
+Preprocessing:
+Wall: 7.126
+User: 30.500
+System: 0.820
+Total: 31.320
+Percentage: 439.5%
+
+
+Final Processing:
+Wall: 0.003
+User: 0.010
+System: 0.000
+Total: 0.010
+Percentage: 303.2%
+
+
+Final Processing:
+Wall: 0.022
+User: 0.020
+System: 0.000
+Total: 0.020
+Percentage: 93.0%
 
 
 Final Processing:
 Wall: 0.008
-User: 0.060
+User: 0.010
 System: 0.000
-Total: 0.060
-Percentage: 771.1%
-
-
-Preprocessing:
-Wall: 3.987
-User: 25.040
-System: 0.640
-Total: 25.680
-Percentage: 644.1%
+Total: 0.010
+Percentage: 119.4%
 
 
 Final Processing:
-Wall: 0.002
-User: 0.030
+Wall: 0.011
+User: 0.010
 System: 0.000
-Total: 0.030
-Percentage: 1262.6%
-
-
-Preprocessing:
-Wall: 3.990
-User: 24.390
-System: 1.710
-Total: 26.100
-Percentage: 654.1%
-
-
-Preprocessing:
-Wall: 4.009
-User: 26.440
-System: 1.780
-Total: 28.220
-Percentage: 703.9%
-
-
-Final Processing:
-Wall: 0.004
-User: 0.000
-System: 0.000
-Total: 0.000
-Percentage: n/a%
+Total: 0.010
+Percentage: 92.3%
 
 
 C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))
 B2: 79500 | ((melbourne, 1013)(auspol, 356)(incident, 314)(victraffic, 239)(firealarm, 237))
 C3: 53374 | ((melbourne, 625)(incident, 317)(victraffic, 297)(firealarm, 232)(structurefire, 219))
-Final Processing:
-Wall: 0.023
-User: 0.090
-System: 0.000
-Total: 0.090
-Percentage: 388.8%
-
-
 B3: 26620 | ((incident, 222)(melbourne, 218)(structurefire, 177)(nonstructurefire, 159)(firealarm, 158))
 C4: 19707 | ((auspol, 281)(incident, 195)(structurefire, 179)(savedallas, 177)(victraffic, 144))
 B1: 16503 | ((melbourne, 226)(structurefire, 134)(vote5sos, 130)(nonstructurefire, 128)(incident, 111))

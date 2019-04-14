@@ -15,40 +15,40 @@ Percentage: n/a%
 
 
 Preprocessing:
-Wall: 22.408
-User: 64.530
-System: 1.560
-Total: 66.090
-Percentage: 294.9%
-
-
-Preprocessing:
-Wall: 22.478
-User: 48.470
-System: 1.660
-Total: 50.130
-Percentage: 223.0%
+Wall: 11.257
+User: 70.430
+System: 2.010
+Total: 72.440
+Percentage: 643.5%
 
 
 Final Processing:
-Wall: 0.099
-User: 0.100
+Wall: 0.033
+User: 0.040
 System: 0.000
-Total: 0.100
-Percentage: 101.5%
+Total: 0.040
+Percentage: 119.9%
+
+
+Preprocessing:
+Wall: 11.266
+User: 72.630
+System: 2.370
+Total: 75.000
+Percentage: 665.7%
+
+
+Final Processing:
+Wall: 0.024
+User: 0.020
+System: 0.000
+Total: 0.020
+Percentage: 82.2%
 
 
 C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))
 B2: 79500 | ((melbourne, 1013)(auspol, 356)(incident, 314)(victraffic, 239)(firealarm, 237))
 C3: 53374 | ((melbourne, 625)(incident, 317)(victraffic, 297)(firealarm, 232)(structurefire, 219))
-Final Processing:
-Wall: 0.029
-User: 0.040
-System: 0.000
-Total: 0.040
-Percentage: 136.5%
-
-
 B3: 26620 | ((incident, 222)(melbourne, 218)(structurefire, 177)(nonstructurefire, 159)(firealarm, 158))
 C4: 19707 | ((auspol, 281)(incident, 195)(structurefire, 179)(savedallas, 177)(victraffic, 144))
 B1: 16503 | ((melbourne, 226)(structurefire, 134)(vote5sos, 130)(nonstructurefire, 128)(incident, 111))

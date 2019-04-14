@@ -5,11 +5,20 @@ System: 0.000
 Total: 0.000
 Percentage: n/a%
 
+
+Grid Reading:
+Wall: 0.000
+User: 0.000
 Grid Reading:
 Wall: 0.000
 User: 0.000
 System: 0.000
 Total: 0.000
+Percentage: n/a%
+
+System: 0.000
+Total: 0.000
+
 Percentage: n/a%
 
 
@@ -21,77 +30,68 @@ Total: 0.000
 Percentage: n/a%
 
 
-Grid Reading:
-Wall: 0.000
-User: 0.000
-System: 0.000
-Total: 0.000
-Percentage: n/a%
-
+Preprocessing:
+Wall: 4.950
+User: 39.610
+System: 1.420
+Total: 41.030
+Percentage: 828.9%
 
 
 Preprocessing:
-Wall: 2.689
-User: 24.780
-System: 0.920
-Total: 25.700
-Percentage: 955.8%
+Wall: 4.963
+User: 27.340
+System: 2.010
+Total: 29.350
+Percentage: 591.4%
 
 
 Preprocessing:
-Wall: 2.690
-User: 23.470
-System: 2.880
-Total: 26.350
-Percentage: 979.5%
-
-
-Final Processing:
-Wall: 0.008
-User: 0.120
-System: 0.000
-Total: 0.120
-Percentage: 1570.7%
+Wall: 4.961
+User: 28.660
+System: 2.560
+Total: 31.220
+Percentage: 629.3%
 
 
 Preprocessing:
-Wall: 2.690
-User: 26.010
-System: 2.660
-Total: 28.670
-Percentage: 1065.9%
-
-
-Final Processing:
-Wall: 0.002
-User: 0.050
-System: 0.000
-Total: 0.050
-Percentage: 2030.4%
-
-
-Final Processing:
-Wall: 0.022
-User: 0.210
-System: 0.000
-Total: 0.210
-Percentage: 950.5%
-
-
-Preprocessing:
-Wall: 2.722
-User: 27.380
-System: 3.010
-Total: 30.390
-Percentage: 1116.3%
+Wall: 4.972
+User: 26.810
+System: 1.510
+Total: 28.320
+Percentage: 569.6%
 
 
 Final Processing:
 Wall: 0.003
-User: 0.000
+User: 0.020
 System: 0.000
-Total: 0.000
-Percentage: n/a%
+Total: 0.020
+Percentage: 778.9%
+
+
+Final Processing:
+Wall: 0.008
+User: 0.040
+System: 0.000
+Total: 0.040
+Percentage: 513.3%
+
+
+Final Processing:
+Wall: 0.024
+User: 0.190
+System: 0.010
+Total: 0.200
+Percentage: 841.3%
+
+
+Final Processing:
+Wall: 0.035
+User: 0.030
+System: 0.000
+Total: 0.030
+Percentage: 85.7%
 
 
 C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))

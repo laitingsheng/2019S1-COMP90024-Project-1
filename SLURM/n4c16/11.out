@@ -31,59 +31,51 @@ Percentage: n/a%
 
 
 Preprocessing:
-Wall: 2.881
-User: 25.040
-System: 0.830
-Total: 25.870
-Percentage: 897.8%
-
-
-Preprocessing:
-Wall: 2.883
-User: 26.110
-System: 2.930
-Total: 29.040
-Percentage: 1007.3%
+Wall: 3.270
+User: 25.410
+System: 4.120
+Total: 29.530
+Percentage: 903.0%
 
 
 Final Processing:
-Wall: 0.002
-User: 0.030
+Wall: 0.023
+User: 0.180
 System: 0.000
-Total: 0.030
-Percentage: 1249.8%
+Total: 0.180
+Percentage: 795.7%
+
+
+Preprocessing:
+Wall: 3.304
+User: 24.620
+System: 1.290
+Total: 25.910
+Percentage: 784.2%
+
+
+Preprocessing:
+Wall: 3.308
+User: 38.130
+System: 1.530
+Total: 39.660
+Percentage: 1198.8%
 
 
 Final Processing:
-Wall: 0.022
-User: 0.200
+Wall: 0.008
+User: 0.080
 System: 0.000
-Total: 0.200
-Percentage: 909.6%
-
-
-Preprocessing:
-Wall: 2.917
-User: 28.820
-System: 2.910
-Total: 31.730
-Percentage: 1087.9%
-
-
-Preprocessing:
-Wall: 2.918
-User: 25.180
-System: 1.400
-Total: 26.580
-Percentage: 910.8%
+Total: 0.080
+Percentage: 1031.2%
 
 
 Final Processing:
-Wall: 0.010
+Wall: 0.004
 User: 0.010
 System: 0.000
 Total: 0.010
-Percentage: 101.1%
+Percentage: 263.9%
 
 
 C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))
@@ -102,11 +94,19 @@ C5: 4109 | ((melbourne, 60)(victraffic, 31)(photo, 20)(1000steps, 18)(australia,
 D5: 3263 | ((lost, 30)(cat, 28)(somebodytocon, 27)(melbourne, 25)(findjasper, 23))
 A1: 2533 | ((bbau, 15)(melbourne, 15)(tattoo, 14)(vobis, 11)(worldjudo2014, 11)(judo, 10)(my, 9)(tattooist, 9))
 A4: 308 | ((auspol, 7)(lnp, 6)(qldvotes, 6)(libspill, 5)(birthday, 3)(grassfire, 3)(happiness, 3)(incident, 3)(photo, 3)(vicfires, 3)(always, 2)(celebmerv, 2)(community, 2)(countdown, 2)(cycling, 2)(goingdownswinging, 2)(inclusion, 2)(joy, 2)(laughterclass, 2)(market, 2)(mytribe, 2)(victraffic, 2)(win, 2))
+Preprocessing:
+Wall: 3.306
+User: 27.600
+System: 1.980
+Total: 29.580
+Percentage: 894.8%
+
+
 Final Processing:
-Wall: 0.008
-User: 0.100
+Wall: 0.003
+User: 0.040
 System: 0.000
-Total: 0.100
-Percentage: 1270.7%
+Total: 0.040
+Percentage: 1590.4%
 
 

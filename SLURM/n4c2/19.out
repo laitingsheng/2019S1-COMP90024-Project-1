@@ -13,6 +13,12 @@ System: 0.000
 Total: 0.000
 Percentage: n/a%
 
+Grid Reading:
+Wall: 0.000
+User: 0.000
+System: 0.000
+Total: 0.000
+Percentage: n/a%
 
 Grid Reading:
 Wall: 0.000
@@ -22,79 +28,73 @@ Total: 0.000
 Percentage: n/a%
 
 
-Grid Reading:
-Wall: 0.000
-User: 0.000
-System: 0.000
-Total: 0.000
-Percentage: n/a%
 
 
 Preprocessing:
-Wall: 13.813
-User: 24.950
-System: 0.630
-Total: 25.580
-Percentage: 185.2%
-
-
-Final Processing:
-Wall: 0.002
-User: 0.000
-System: 0.000
-Total: 0.000
-Percentage: n/a%
+Wall: 15.745
+User: 27.240
+System: 0.920
+Total: 28.160
+Percentage: 178.8%
 
 
 Preprocessing:
-Wall: 13.817
-User: 24.420
-System: 0.930
-Total: 25.350
-Percentage: 183.5%
+Wall: 15.746
+User: 27.820
+System: 0.920
+Total: 28.740
+Percentage: 182.5%
+
+
+Preprocessing:
+Wall: 15.747
+User: 27.720
+System: 1.000
+Total: 28.720
+Percentage: 182.4%
 
 
 Final Processing:
-Wall: 0.008
+Wall: 0.007
 User: 0.010
 System: 0.000
 Total: 0.010
-Percentage: 125.9%
+Percentage: 133.7%
 
 
 Preprocessing:
-Wall: 13.819
-User: 25.190
-System: 1.390
-Total: 26.580
-Percentage: 192.3%
-
-
-Preprocessing:
-Wall: 13.831
-User: 24.990
-System: 0.950
-Total: 25.940
-Percentage: 187.6%
+Wall: 15.760
+User: 28.350
+System: 0.930
+Total: 29.280
+Percentage: 185.8%
 
 
 Final Processing:
-Wall: 0.016
+Wall: 0.003
+User: 0.010
+System: 0.000
+Total: 0.010
+Percentage: 364.5%
+
+
+Final Processing:
+Wall: 0.022
+User: 0.030
+System: 0.010
+Total: 0.040
+Percentage: 184.5%
+
+
+Final Processing:
+Wall: 0.020
 User: 0.020
 System: 0.000
 Total: 0.020
-Percentage: 121.4%
+Percentage: 100.0%
 
 
 C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))
-Final Processing:
-Wall: 0.028
-User: 0.030
-System: 0.000
-Total: 0.030
-Percentage: 106.9%
-
-
 B2: 79500 | ((melbourne, 1013)(auspol, 356)(incident, 314)(victraffic, 239)(firealarm, 237))
 C3: 53374 | ((melbourne, 625)(incident, 317)(victraffic, 297)(firealarm, 232)(structurefire, 219))
 B3: 26620 | ((incident, 222)(melbourne, 218)(structurefire, 177)(nonstructurefire, 159)(firealarm, 158))

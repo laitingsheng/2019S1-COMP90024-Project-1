@@ -15,35 +15,27 @@ Percentage: n/a%
 
 
 Preprocessing:
-Wall: 4.720
-User: 48.610
-System: 1.690
-Total: 50.300
-Percentage: 1065.7%
+Wall: 6.223
+User: 49.020
+System: 3.110
+Total: 52.130
+Percentage: 837.7%
 
 
 Preprocessing:
-Wall: 4.743
-User: 52.010
-System: 6.170
-Total: 58.180
-Percentage: 1226.7%
+Wall: 6.234
+User: 55.220
+System: 6.930
+Total: 62.150
+Percentage: 997.0%
 
 
 Final Processing:
-Wall: 0.024
-User: 0.190
-System: 0.000
-Total: 0.190
-Percentage: 794.7%
-
-
-Final Processing:
-Wall: 0.010
+Wall: 0.015
 User: 0.010
 System: 0.000
 Total: 0.010
-Percentage: 100.0%
+Percentage: 67.3%
 
 
 C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))
@@ -62,3 +54,11 @@ C5: 4109 | ((melbourne, 60)(victraffic, 31)(photo, 20)(1000steps, 18)(australia,
 D5: 3263 | ((lost, 30)(cat, 28)(somebodytocon, 27)(melbourne, 25)(findjasper, 23))
 A1: 2533 | ((bbau, 15)(melbourne, 15)(tattoo, 14)(vobis, 11)(worldjudo2014, 11)(judo, 10)(my, 9)(tattooist, 9))
 A4: 308 | ((auspol, 7)(lnp, 6)(qldvotes, 6)(libspill, 5)(birthday, 3)(grassfire, 3)(happiness, 3)(incident, 3)(photo, 3)(vicfires, 3)(always, 2)(celebmerv, 2)(community, 2)(countdown, 2)(cycling, 2)(goingdownswinging, 2)(inclusion, 2)(joy, 2)(laughterclass, 2)(market, 2)(mytribe, 2)(victraffic, 2)(win, 2))
+Final Processing:
+Wall: 0.026
+User: 0.190
+System: 0.010
+Total: 0.200
+Percentage: 781.7%
+
+

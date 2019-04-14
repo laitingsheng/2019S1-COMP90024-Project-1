@@ -11,15 +11,15 @@ in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
 of libcuda.so.1 to get passed this issue.
 --------------------------------------------------------------------------
 ibv_exp_query_device: invalid comp_mask !!! (comp_mask = 0x40 valid_mask = 0x3)
-[spartan-bm058][[27764,1],0][btl_openib_component.c:1670:init_one_device] error obtaining device attributes for mlx5_bond_0 errno says Invalid argument
+[spartan-bm058][[18563,1],0][btl_openib_component.c:1670:init_one_device] error obtaining device attributes for mlx5_bond_0 errno says Invalid argument
 --------------------------------------------------------------------------
 WARNING: There was an error initializing an OpenFabrics device.
 
   Local host:   spartan-bm058
   Local device: mlx5_bond_0
 --------------------------------------------------------------------------
-ibv_exp_query_device: invalid comp_mask !!! (comp_mask = 0x200000000 valid_mask = 0x3)
-[spartan-bm059][[27764,1],1][btl_openib_component.c:1670:init_one_device] error obtaining device attributes for mlx5_bond_0 errno says Invalid argument
-[spartan-bm058.hpc.unimelb.edu.au:06950] 1 more process has sent help message help-mpi-common-cuda.txt / dlopen failed
-[spartan-bm058.hpc.unimelb.edu.au:06950] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
-[spartan-bm058.hpc.unimelb.edu.au:06950] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
+ibv_exp_query_device: invalid comp_mask !!! (comp_mask = 0x40 valid_mask = 0x3)
+[spartan-bm059][[18563,1],1][btl_openib_component.c:1670:init_one_device] error obtaining device attributes for mlx5_bond_0 errno says Invalid argument
+[spartan-bm058.hpc.unimelb.edu.au:16337] 1 more process has sent help message help-mpi-common-cuda.txt / dlopen failed
+[spartan-bm058.hpc.unimelb.edu.au:16337] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+[spartan-bm058.hpc.unimelb.edu.au:16337] 1 more process has sent help message help-mpi-btl-openib.txt / error in device init
