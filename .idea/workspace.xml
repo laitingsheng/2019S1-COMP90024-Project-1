@@ -370,7 +370,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Boost.Test.Single Node Processors Test">
+  <component name="RunManager" selected="CMake Application.Big">
     <configuration name="Grid Test" type="CMakeBoostTestRunConfigurationType" factoryName="Boost Test" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project_1" TARGET_NAME="grid_test" CONFIG_NAME="SNST" RUN_TARGET_PROJECT_NAME="Project_1" RUN_TARGET_NAME="grid_test" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
