@@ -25,6 +25,10 @@ do
 done
 '''
 
+BOOST_MODULE = "Boost/1.69.0-spartan_gcc-8.1.0"
+MPI_MODULE = "OpenMPI/3.1.0-GCC-8.2.0-cuda9-ucx"
+
+
 CONFIGURES = (
     (1, 1), (1, 2), (1, 4), (1, 8), (1, 16), (1, 32), (1, 64),
     (2, 1), (2, 2), (2, 4), (2, 8), (2, 16), (2, 32),
