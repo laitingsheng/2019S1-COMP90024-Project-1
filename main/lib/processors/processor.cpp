@@ -65,8 +65,9 @@ void processor::process_block(char const * start, char const * end, record_type 
 
 void processor::process_line(std::string const & line, record_type & record) const
 {
+    auto cpos = line.find(R"("coordinates")") - 20;
     std::smatch coord_match;
-    if (!std::regex_search(line, coord_match, coord_rgx))
+    if (!std::regex_search(line.begin() + cpos, line.end(), coord_match, coord_rgx))
         return;
 
     double h, v;
@@ -90,11 +91,13 @@ void processor::process_line(std::string const & line, record_type & record) con
     // @formatter:on
     ++count;
 
+    auto hpos = line.find(R"("hashtags")");
+    auto hstart = line.begin() + hpos;
     std::smatch hash_tags_search;
-    if (!std::regex_search(line, hash_tags_search, hash_tags_rgx))
+    if (!std::regex_search(hstart, line.end(), hash_tags_search, hash_tags_rgx))
         return;
 
-    auto hts = line.begin() + hash_tags_search.position(), hte = hts + hash_tags_search.length();
+    auto hts = hstart + hash_tags_search.position(), hte = hts + hash_tags_search.length();
     auto start = std::sregex_token_iterator(hts, hte, hash_tag_rgx, 1);
     auto const end = std::sregex_token_iterator();
     while (start != end)
