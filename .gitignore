@@ -4,3 +4,9 @@ bin
 bigTwitter.json
 
 *.jpg
+
+*.zip
+
+/*.err
+/*.out
+/*.summary
