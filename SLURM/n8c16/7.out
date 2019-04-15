@@ -1,0 +1,208 @@
+Grid Reading:
+Wall: 0.000
+User: 0.000
+System: 0.000
+Total: 0.000
+Percentage: n/a%
+
+
+Grid Reading:
+Wall: 0.000
+User: 0.000
+System: 0.000
+Total: 0.000
+Percentage: n/a%
+
+Grid Reading:
+Wall: 0.000
+User: 0.010
+System: 0.000
+Total: 0.010
+Percentage: n/a%
+
+
+
+Grid Reading:
+Wall: 0.000
+User: 0.000
+System: 0.000
+Total: 0.000
+Percentage: n/a%
+
+
+Grid Reading:
+Wall: 0.000
+User: 0.000
+System: 0.000
+Total: 0.000
+Percentage: n/a%
+
+
+Grid Reading:
+Wall: 0.000
+User: 0.000
+System: 0.000
+Total: 0.000
+Percentage: n/a%
+
+
+Grid Reading:
+Wall: 0.000
+User: 0.000
+System: 0.000
+Total: 0.000
+Percentage: n/a%
+
+
+Grid Reading:
+Wall: 0.000
+User: 0.000
+System: 0.000
+Total: 0.000
+Percentage: n/a%
+
+
+Preprocessing:
+Wall: 1.905
+User: 14.770
+System: 1.980
+Total: 16.750
+Percentage: 879.3%
+
+
+Final Processing:
+Wall: 0.001
+User: 0.030
+System: 0.000
+Total: 0.030
+Percentage: 2528.1%
+
+
+Preprocessing:
+Wall: 1.918
+User: 17.690
+System: 0.600
+Total: 18.290
+Percentage: 953.5%
+
+
+Preprocessing:
+Wall: 1.919
+User: 17.980
+System: 0.630
+Total: 18.610
+Percentage: 969.7%
+
+
+Final Processing:
+Wall: 0.007
+User: 0.010
+System: 0.000
+Total: 0.010
+Percentage: 147.4%
+
+
+Final Processing:
+Wall: 0.022
+User: 0.030
+System: 0.000
+Total: 0.030
+Percentage: 136.4%
+
+
+Preprocessing:
+Wall: 1.945
+User: 21.190
+System: 1.430
+Total: 22.620
+Percentage: 1163.0%
+
+
+Preprocessing:
+Wall: 1.964
+User: 14.180
+System: 0.980
+Total: 15.160
+Percentage: 772.0%
+
+
+Preprocessing:
+Wall: 1.961
+User: 15.090
+System: 1.720
+Total: 16.810
+Percentage: 857.1%
+
+
+Preprocessing:
+Wall: 1.962
+User: 14.960
+System: 0.790
+Total: 15.750
+Percentage: 802.7%
+
+
+Final Processing:
+Wall: 0.013
+User: 0.160
+System: 0.000
+Total: 0.160
+Percentage: 1252.3%
+
+
+Final Processing:
+Wall: 0.013
+User: 0.160
+System: 0.000
+Total: 0.160
+Percentage: 1244.6%
+
+
+Preprocessing:
+Wall: 1.975
+User: 14.600
+System: 0.750
+Total: 15.350
+Percentage: 777.2%
+
+
+Final Processing:
+Wall: 0.013
+User: 0.140
+System: 0.000
+Total: 0.140
+Percentage: 1107.9%
+
+
+Final Processing:
+Wall: 0.002
+User: 0.010
+System: 0.000
+Total: 0.010
+Percentage: 529.8%
+
+
+Final Processing:
+Wall: 0.032
+User: 0.030
+System: 0.000
+Total: 0.030
+Percentage: 93.6%
+
+
+C2: 145138 | ((melbourne, 13475)(job, 2127)(australia, 1786)(jobs, 1300)(hiring, 986))
+B2: 79500 | ((melbourne, 1013)(auspol, 356)(incident, 314)(victraffic, 239)(firealarm, 237))
+C3: 53374 | ((melbourne, 625)(incident, 317)(victraffic, 297)(firealarm, 232)(structurefire, 219))
+B3: 26620 | ((incident, 222)(melbourne, 218)(structurefire, 177)(nonstructurefire, 159)(firealarm, 158))
+C4: 19707 | ((auspol, 281)(incident, 195)(structurefire, 179)(savedallas, 177)(victraffic, 144))
+B1: 16503 | ((melbourne, 226)(structurefire, 134)(vote5sos, 130)(nonstructurefire, 128)(incident, 111))
+D4: 14483 | ((nowplaying, 1730)(karishmatannacraze, 83)(victraffic, 79)(structurefire, 70)(noblepark, 69))
+D3: 13395 | ((melbourne, 99)(beach, 67)(incident, 67)(structurefire, 63)(victraffic, 63)(nonstructurefire, 46)(vote5sos, 36))
+C1: 8427 | ((jackfollowme, 148)(incident, 112)(jackdm, 111)(structurefire, 98)(camto4mill, 73))
+B4: 5463 | ((melbourne, 61)(nonstructurefire, 55)(incident, 49)(structurefire, 49)(fire, 31)(hazmat, 27)(smallzywelcomeshome5sos, 27))
+A3: 5037 | ((raw, 40)(structurefire, 38)(nonstructurefire, 30)(saveconstantine, 30)(epping, 19)(vicfires, 19)(other, 18))
+A2: 4147 | ((krazykristmas, 177)(nonstructurefire, 72)(structurefire, 70)(rcl1milliongiveaway, 59)(egsholidaygiveaway, 57))
+C5: 4109 | ((melbourne, 60)(victraffic, 31)(photo, 20)(1000steps, 18)(australia, 18)(dandenongs, 16))
+D5: 3263 | ((lost, 30)(cat, 28)(somebodytocon, 27)(melbourne, 25)(findjasper, 23))
+A1: 2533 | ((bbau, 15)(melbourne, 15)(tattoo, 14)(vobis, 11)(worldjudo2014, 11)(judo, 10)(my, 9)(tattooist, 9))
+A4: 308 | ((auspol, 7)(lnp, 6)(qldvotes, 6)(libspill, 5)(birthday, 3)(grassfire, 3)(happiness, 3)(incident, 3)(photo, 3)(vicfires, 3)(always, 2)(celebmerv, 2)(community, 2)(countdown, 2)(cycling, 2)(goingdownswinging, 2)(inclusion, 2)(joy, 2)(laughterclass, 2)(market, 2)(mytribe, 2)(victraffic, 2)(win, 2))
